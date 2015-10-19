@@ -1,0 +1,466 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		973E4BBE1BD590710083EE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BBD1BD590710083EE47 /* main.m */; };
+		973E4BC91BD590710083EE47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973E4BC81BD590710083EE47 /* Images.xcassets */; };
+		973E4BD81BD590710083EE47 /* GlomeroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BD71BD590710083EE47 /* GlomeroTests.m */; };
+		973E4BE21BD590D80083EE47 /* libXNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE11BD590D80083EE47 /* libXNI.a */; };
+		973E4BE41BD591030083EE47 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE31BD591030083EE47 /* AudioToolbox.framework */; };
+		973E4BE61BD591080083EE47 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE51BD591080083EE47 /* AVFoundation.framework */; };
+		973E4BE81BD5910E0083EE47 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE71BD5910E0083EE47 /* GameKit.framework */; };
+		973E4BEA1BD591140083EE47 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE91BD591140083EE47 /* OpenAL.framework */; };
+		973E4BEC1BD5911A0083EE47 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BEB1BD5911A0083EE47 /* OpenGLES.framework */; };
+		973E4BEE1BD591200083EE47 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BED1BD591200083EE47 /* QuartzCore.framework */; };
+		973E4BF21BD5918F0083EE47 /* Glomero.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BF11BD5918F0083EE47 /* Glomero.m */; };
+		973E4BF51BD5949B0083EE47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */; };
+		973E4BF71BD594A30083EE47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF61BD594A30083EE47 /* UIKit.framework */; };
+		973E4BF91BD594A90083EE47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF81BD594A90083EE47 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		973E4BD21BD590710083EE47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 973E4BB01BD590710083EE47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 973E4BB71BD590710083EE47;
+			remoteInfo = Glomero;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		973E4BB81BD590710083EE47 /* Glomero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glomero.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		973E4BBC1BD590710083EE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		973E4BBD1BD590710083EE47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		973E4BC81BD590710083EE47 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		973E4BD11BD590710083EE47 /* GlomeroTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GlomeroTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		973E4BD61BD590710083EE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		973E4BD71BD590710083EE47 /* GlomeroTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlomeroTests.m; sourceTree = "<group>"; };
+		973E4BE11BD590D80083EE47 /* libXNI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXNI.a; path = XNI/libXNI.a; sourceTree = "<group>"; };
+		973E4BE31BD591030083EE47 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		973E4BE51BD591080083EE47 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		973E4BE71BD5910E0083EE47 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		973E4BE91BD591140083EE47 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
+		973E4BEB1BD5911A0083EE47 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		973E4BED1BD591200083EE47 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		973E4BF01BD5918F0083EE47 /* Glomero.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Glomero.h; sourceTree = "<group>"; };
+		973E4BF11BD5918F0083EE47 /* Glomero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Glomero.m; sourceTree = "<group>"; };
+		973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		973E4BF61BD594A30083EE47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		973E4BF81BD594A90083EE47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		973E4BB51BD590710083EE47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973E4BE21BD590D80083EE47 /* libXNI.a in Frameworks */,
+				973E4BF91BD594A90083EE47 /* Foundation.framework in Frameworks */,
+				973E4BF71BD594A30083EE47 /* UIKit.framework in Frameworks */,
+				973E4BF51BD5949B0083EE47 /* CoreGraphics.framework in Frameworks */,
+				973E4BEE1BD591200083EE47 /* QuartzCore.framework in Frameworks */,
+				973E4BEC1BD5911A0083EE47 /* OpenGLES.framework in Frameworks */,
+				973E4BEA1BD591140083EE47 /* OpenAL.framework in Frameworks */,
+				973E4BE81BD5910E0083EE47 /* GameKit.framework in Frameworks */,
+				973E4BE61BD591080083EE47 /* AVFoundation.framework in Frameworks */,
+				973E4BE41BD591030083EE47 /* AudioToolbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973E4BCE1BD590710083EE47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		973E4BAF1BD590710083EE47 = {
+			isa = PBXGroup;
+			children = (
+				973E4BEF1BD591460083EE47 /* Frameworks */,
+				973E4BBA1BD590710083EE47 /* Glomero */,
+				973E4BD41BD590710083EE47 /* GlomeroTests */,
+				973E4BB91BD590710083EE47 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		973E4BB91BD590710083EE47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				973E4BB81BD590710083EE47 /* Glomero.app */,
+				973E4BD11BD590710083EE47 /* GlomeroTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		973E4BBA1BD590710083EE47 /* Glomero */ = {
+			isa = PBXGroup;
+			children = (
+				973E4BF31BD591970083EE47 /* Classes */,
+				973E4BC81BD590710083EE47 /* Images.xcassets */,
+				973E4BBB1BD590710083EE47 /* Supporting Files */,
+			);
+			path = Glomero;
+			sourceTree = "<group>";
+		};
+		973E4BBB1BD590710083EE47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				973E4BBC1BD590710083EE47 /* Info.plist */,
+				973E4BBD1BD590710083EE47 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		973E4BD41BD590710083EE47 /* GlomeroTests */ = {
+			isa = PBXGroup;
+			children = (
+				973E4BD71BD590710083EE47 /* GlomeroTests.m */,
+				973E4BD51BD590710083EE47 /* Supporting Files */,
+			);
+			path = GlomeroTests;
+			sourceTree = "<group>";
+		};
+		973E4BD51BD590710083EE47 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				973E4BD61BD590710083EE47 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		973E4BEF1BD591460083EE47 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				973E4BF81BD594A90083EE47 /* Foundation.framework */,
+				973E4BF61BD594A30083EE47 /* UIKit.framework */,
+				973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */,
+				973E4BED1BD591200083EE47 /* QuartzCore.framework */,
+				973E4BEB1BD5911A0083EE47 /* OpenGLES.framework */,
+				973E4BE91BD591140083EE47 /* OpenAL.framework */,
+				973E4BE71BD5910E0083EE47 /* GameKit.framework */,
+				973E4BE51BD591080083EE47 /* AVFoundation.framework */,
+				973E4BE31BD591030083EE47 /* AudioToolbox.framework */,
+				973E4BE11BD590D80083EE47 /* libXNI.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		973E4BF31BD591970083EE47 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				973E4BF01BD5918F0083EE47 /* Glomero.h */,
+				973E4BF11BD5918F0083EE47 /* Glomero.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		973E4BB71BD590710083EE47 /* Glomero */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 973E4BDB1BD590710083EE47 /* Build configuration list for PBXNativeTarget "Glomero" */;
+			buildPhases = (
+				973E4BB41BD590710083EE47 /* Sources */,
+				973E4BB51BD590710083EE47 /* Frameworks */,
+				973E4BB61BD590710083EE47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Glomero;
+			productName = Glomero;
+			productReference = 973E4BB81BD590710083EE47 /* Glomero.app */;
+			productType = "com.apple.product-type.application";
+		};
+		973E4BD01BD590710083EE47 /* GlomeroTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 973E4BDE1BD590710083EE47 /* Build configuration list for PBXNativeTarget "GlomeroTests" */;
+			buildPhases = (
+				973E4BCD1BD590710083EE47 /* Sources */,
+				973E4BCE1BD590710083EE47 /* Frameworks */,
+				973E4BCF1BD590710083EE47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				973E4BD31BD590710083EE47 /* PBXTargetDependency */,
+			);
+			name = GlomeroTests;
+			productName = GlomeroTests;
+			productReference = 973E4BD11BD590710083EE47 /* GlomeroTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		973E4BB01BD590710083EE47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = Gameteam;
+				TargetAttributes = {
+					973E4BB71BD590710083EE47 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					973E4BD01BD590710083EE47 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 973E4BB71BD590710083EE47;
+					};
+				};
+			};
+			buildConfigurationList = 973E4BB31BD590710083EE47 /* Build configuration list for PBXProject "Glomero" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 973E4BAF1BD590710083EE47;
+			productRefGroup = 973E4BB91BD590710083EE47 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				973E4BB71BD590710083EE47 /* Glomero */,
+				973E4BD01BD590710083EE47 /* GlomeroTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		973E4BB61BD590710083EE47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973E4BCF1BD590710083EE47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		973E4BB41BD590710083EE47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973E4BBE1BD590710083EE47 /* main.m in Sources */,
+				973E4BF21BD5918F0083EE47 /* Glomero.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		973E4BCD1BD590710083EE47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				973E4BD81BD590710083EE47 /* GlomeroTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		973E4BD31BD590710083EE47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 973E4BB71BD590710083EE47 /* Glomero */;
+			targetProxy = 973E4BD21BD590710083EE47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		973E4BD91BD590710083EE47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		973E4BDA1BD590710083EE47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		973E4BDC1BD590710083EE47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Glomero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XNI",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/XNI/**";
+			};
+			name = Debug;
+		};
+		973E4BDD1BD590710083EE47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = Glomero/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/XNI",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/XNI/**";
+			};
+			name = Release;
+		};
+		973E4BDF1BD590710083EE47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GlomeroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glomero.app/Glomero";
+			};
+			name = Debug;
+		};
+		973E4BE01BD590710083EE47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = GlomeroTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Glomero.app/Glomero";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		973E4BB31BD590710083EE47 /* Build configuration list for PBXProject "Glomero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973E4BD91BD590710083EE47 /* Debug */,
+				973E4BDA1BD590710083EE47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		973E4BDB1BD590710083EE47 /* Build configuration list for PBXNativeTarget "Glomero" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973E4BDC1BD590710083EE47 /* Debug */,
+				973E4BDD1BD590710083EE47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		973E4BDE1BD590710083EE47 /* Build configuration list for PBXNativeTarget "GlomeroTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				973E4BDF1BD590710083EE47 /* Debug */,
+				973E4BE01BD590710083EE47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 973E4BB01BD590710083EE47 /* Project object */;
+}
