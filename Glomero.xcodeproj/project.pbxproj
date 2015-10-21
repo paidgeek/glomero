@@ -21,7 +21,9 @@
 		973E4BF51BD5949B0083EE47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */; };
 		973E4BF71BD594A30083EE47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF61BD594A30083EE47 /* UIKit.framework */; };
 		973E4BF91BD594A90083EE47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF81BD594A90083EE47 /* Foundation.framework */; };
-		D3A8B3BA1BD7CAA900E97D9E /* PNG in Resources */ = {isa = PBXBuildFile; fileRef = D3A8B3B91BD7CAA900E97D9E /* PNG */; settings = {ASSET_TAGS = (); }; };
+		97D048A21BD80D340007FEF6 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 97D048A11BD80D340007FEF6 /* Images */; };
+		97D048A51BD813690007FEF6 /* TextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D048A41BD813690007FEF6 /* TextureAtlas.m */; };
+		97D048A81BD814720007FEF6 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D048A71BD814720007FEF6 /* Sprite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +56,11 @@
 		973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		973E4BF61BD594A30083EE47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		973E4BF81BD594A90083EE47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		D3A8B3B91BD7CAA900E97D9E /* PNG */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PNG; sourceTree = "<group>"; };
+		97D048A11BD80D340007FEF6 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
+		97D048A31BD813690007FEF6 /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
+		97D048A41BD813690007FEF6 /* TextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlas.m; sourceTree = "<group>"; };
+		97D048A61BD814720007FEF6 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		97D048A71BD814720007FEF6 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +113,7 @@
 		973E4BBA1BD590710083EE47 /* Glomero */ = {
 			isa = PBXGroup;
 			children = (
-				D3A8B3B81BD7CA8900E97D9E /* Assets */,
+				97D048A11BD80D340007FEF6 /* Images */,
 				973E4BF31BD591970083EE47 /* Classes */,
 				973E4BC81BD590710083EE47 /* Images.xcassets */,
 				973E4BBB1BD590710083EE47 /* Supporting Files */,
@@ -163,16 +169,12 @@
 			children = (
 				973E4BF01BD5918F0083EE47 /* Glomero.h */,
 				973E4BF11BD5918F0083EE47 /* Glomero.m */,
+				97D048A31BD813690007FEF6 /* TextureAtlas.h */,
+				97D048A41BD813690007FEF6 /* TextureAtlas.m */,
+				97D048A61BD814720007FEF6 /* Sprite.h */,
+				97D048A71BD814720007FEF6 /* Sprite.m */,
 			);
 			name = Classes;
-			sourceTree = "<group>";
-		};
-		D3A8B3B81BD7CA8900E97D9E /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				D3A8B3B91BD7CAA900E97D9E /* PNG */,
-			);
-			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,7 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D3A8B3BA1BD7CAA900E97D9E /* PNG in Resources */,
+				97D048A21BD80D340007FEF6 /* Images in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +277,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				973E4BBE1BD590710083EE47 /* main.m in Sources */,
+				97D048A51BD813690007FEF6 /* TextureAtlas.m in Sources */,
+				97D048A81BD814720007FEF6 /* Sprite.m in Sources */,
 				973E4BF21BD5918F0083EE47 /* Glomero.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

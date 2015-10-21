@@ -2,7 +2,7 @@
 
 @implementation Glomero
 
--(id) init {
+-(id)init {
 	self = [super init];
 	
 	if(self) {
@@ -14,12 +14,14 @@
 
 -(void)initialize {
     spriteBatch = [[SpriteBatch alloc] initWithGraphicsDevice:self.graphicsDevice];
-    
+	
     [super initialize];
 }
 
--(void) loadContent {
-    texture = [self.content load:@"PNG/background.png"];
+-(void)loadContent {
+	worldAtlas = [[TextureAtlas alloc] initWithAtlasPath:@"Images/ui_atlas"
+											 texturePath:@""];
+	buttonNormal = [worldAtlas getSpriteWithName:@"button_normal"];
 }
 
 -(void)drawWithGameTime:(GameTime *)gameTime {
@@ -27,7 +29,10 @@
 	
     [spriteBatch begin];
     
-    [spriteBatch draw:texture to:[Vector2 zero] fromRectangle:nil tintWithColor:[Color white]];
+    [spriteBatch draw:buttonNormal.texture
+				   to:[Vector2 zero]
+		fromRectangle:buttonNormal.rectange
+		tintWithColor:[Color white]];
     
     [spriteBatch end];
     
