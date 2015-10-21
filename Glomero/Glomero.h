@@ -5,6 +5,8 @@
 
 @interface Glomero : Game {
 	GraphicsDeviceManager *graphics;
+    SpriteBatch *spriteBatch;
+    Texture2D *texture;
 }
 
 @end

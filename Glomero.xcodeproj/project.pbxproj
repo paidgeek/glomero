@@ -21,6 +21,7 @@
 		973E4BF51BD5949B0083EE47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */; };
 		973E4BF71BD594A30083EE47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF61BD594A30083EE47 /* UIKit.framework */; };
 		973E4BF91BD594A90083EE47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF81BD594A90083EE47 /* Foundation.framework */; };
+		D3A8B3BA1BD7CAA900E97D9E /* PNG in Resources */ = {isa = PBXBuildFile; fileRef = D3A8B3B91BD7CAA900E97D9E /* PNG */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		973E4BF61BD594A30083EE47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		973E4BF81BD594A90083EE47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D3A8B3B91BD7CAA900E97D9E /* PNG */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PNG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		973E4BBA1BD590710083EE47 /* Glomero */ = {
 			isa = PBXGroup;
 			children = (
+				D3A8B3B81BD7CA8900E97D9E /* Assets */,
 				973E4BF31BD591970083EE47 /* Classes */,
 				973E4BC81BD590710083EE47 /* Images.xcassets */,
 				973E4BBB1BD590710083EE47 /* Supporting Files */,
@@ -162,6 +165,14 @@
 				973E4BF11BD5918F0083EE47 /* Glomero.m */,
 			);
 			name = Classes;
+			sourceTree = "<group>";
+		};
+		D3A8B3B81BD7CA8900E97D9E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				D3A8B3B91BD7CAA900E97D9E /* PNG */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3A8B3BA1BD7CAA900E97D9E /* PNG in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,6 +463,7 @@
 				973E4BDD1BD590710083EE47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		973E4BDE1BD590710083EE47 /* Build configuration list for PBXNativeTarget "GlomeroTests" */ = {
 			isa = XCConfigurationList;
@@ -459,6 +472,7 @@
 				973E4BE01BD590710083EE47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
