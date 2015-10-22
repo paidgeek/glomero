@@ -5,12 +5,25 @@
 
 #import "TextureAtlas.h"
 
+typedef enum {
+	TileDirt,
+	TileGrass
+} Tile;
+
 @interface Glomero : Game {
 	GraphicsDeviceManager *graphics;
     SpriteBatch *spriteBatch;
 	
 	TextureAtlas *worldAtlas;
-	Sprite *buttonNormal;
+	Sprite *dirt, *grass;
+	
+	Sprite *coin;
+	
+	Tile map[16][16];
 }
+
+- (void) drawTileWithSprite:(Sprite*) tileSprite
+						  x:(float) x
+						  y:(float) y;
 
 @end

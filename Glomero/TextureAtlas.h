@@ -1,6 +1,6 @@
-#import "Retronator.Xni.Framework.Graphics.h"
+#import "Retronator.Xni.Framework.h"
 #import "Retronator.Xni.Framework.Content.h"
-#import "GameComponent.h"
+#import "Retronator.Xni.Framework.Graphics.h"
 #import "Sprite.h"
 
 @interface TextureAtlas : NSObject {
@@ -8,7 +8,11 @@
 	id atlas;
 }
 
-- (id) initWithAtlasPath:(NSString*) atlasPath texturePath: (NSString*) texturePath;
+- (id) initWithTexture:(Texture2D*) atlasTexture
+				  data:(NSString*) atlasData;
+
 - (Sprite*) getSpriteWithName:(NSString*) name;
+
+@property (nonatomic, retain) Texture2D *texture;
 
 @end

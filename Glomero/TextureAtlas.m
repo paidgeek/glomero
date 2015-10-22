@@ -2,16 +2,18 @@
 
 @implementation TextureAtlas
 
--(id)initWithAtlasPath: (NSString*) atlasPath texturePath: (NSString*) texturePath {
+@synthesize texture;
+
+- (id) initWithTexture:(Texture2D*) atlasTexture
+			 data:(NSString*) atlasData {
 	self = [super init];
 	
 	if(self) {
+		self.texture = atlasTexture;
+		
 		@try {
-			NSString *json = [[NSBundle mainBundle] pathForResource:atlasPath ofType:@"json"];
-			NSData *atlasData = [NSData dataWithContentsOfFile:json];
-			
 			atlas = [NSJSONSerialization
-					 JSONObjectWithData:atlasData
+					 JSONObjectWithData:[NSData dataWithContentsOfFile:atlasData]
 					 options:0 error:nil];
 		}
 		@catch (NSException *exception) {
@@ -22,12 +24,32 @@
 	return self;
 }
 
--(Sprite*)getSpriteWithName: (NSString*) name {
-	Sprite *sprite = [[Sprite alloc] init];
+
+- (Sprite*) getSpriteWithName:(NSString*) name {
+	if([atlas isKindOfClass:[NSDictionary class]]) {
+		NSArray *sprites = [atlas objectForKey:@"sprites"];
+		
+		for (NSDictionary *spriteObj in sprites) {
+			if([name isEqualToString:[spriteObj valueForKey:@"name"]]) {
+				NSArray *rect = [spriteObj objectForKey:@"rectange"];
+				
+				int x = (int)[[rect objectAtIndex:0] integerValue];
+				int y = (int)[[rect objectAtIndex:1] integerValue];
+				int w = (int)[[rect objectAtIndex:2] integerValue];
+				int h = (int)[[rect objectAtIndex:3] integerValue];
+				
+				Sprite *sprite = [[Sprite alloc] initWithRectange:[Rectangle rectangleWithX:x
+																						  y:y
+																					  width:w
+																					 height:h]
+														  texture:self.texture];
+				
+				return sprite;
+			}
+		}
+	}
 	
-	
-	
-	return sprite;
+	return nil;
 }
 
 @end
