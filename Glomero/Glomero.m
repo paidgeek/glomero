@@ -20,10 +20,9 @@
 
 -(void)loadContent {
 	NSString *atlasData = [[NSBundle mainBundle] pathForResource:@"world_data"
-														  ofType:@"json"
-													 inDirectory:@"Images"];
+														  ofType:@"json"];
 	worldAtlas = [[TextureAtlas alloc] initWithTexture:[self.content load:@"world_atlas"
-																 fromFile:@"Images/world_atlas.png"]
+																 fromFile:@"world_atlas.png"]
 												  data:atlasData];
 	dirt = [worldAtlas getSpriteWithName:@"dirt"];
 	grass = [worldAtlas getSpriteWithName:@"grass"];

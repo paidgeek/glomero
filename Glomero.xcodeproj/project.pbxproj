@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FD2E1241BEA4D62009B6146 /* world_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2E1221BEA4D62009B6146 /* world_atlas.png */; settings = {ASSET_TAGS = (); }; };
+		3FD2E1251BEA4D62009B6146 /* world_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 3FD2E1231BEA4D62009B6146 /* world_data.json */; settings = {ASSET_TAGS = (); }; };
+		3FD2E12B1BEA508C009B6146 /* Scene.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2E12A1BEA508C009B6146 /* Scene.m */; settings = {ASSET_TAGS = (); }; };
+		3FD2E12E1BEA51E3009B6146 /* SceneObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2E12D1BEA51E3009B6146 /* SceneObject.m */; settings = {ASSET_TAGS = (); }; };
+		3FD2E1311BEA5738009B6146 /* SceneComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD2E1301BEA5738009B6146 /* SceneComponent.m */; settings = {ASSET_TAGS = (); }; };
 		973E4BBE1BD590710083EE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BBD1BD590710083EE47 /* main.m */; };
 		973E4BC91BD590710083EE47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973E4BC81BD590710083EE47 /* Images.xcassets */; };
 		973E4BD81BD590710083EE47 /* GlomeroTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BD71BD590710083EE47 /* GlomeroTests.m */; };
@@ -21,7 +26,6 @@
 		973E4BF51BD5949B0083EE47 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */; };
 		973E4BF71BD594A30083EE47 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF61BD594A30083EE47 /* UIKit.framework */; };
 		973E4BF91BD594A90083EE47 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BF81BD594A90083EE47 /* Foundation.framework */; };
-		97D048A21BD80D340007FEF6 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 97D048A11BD80D340007FEF6 /* Images */; };
 		97D048A51BD813690007FEF6 /* TextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D048A41BD813690007FEF6 /* TextureAtlas.m */; };
 		97D048A81BD814720007FEF6 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D048A71BD814720007FEF6 /* Sprite.m */; };
 /* End PBXBuildFile section */
@@ -37,6 +41,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3FD2E1221BEA4D62009B6146 /* world_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world_atlas.png; sourceTree = "<group>"; };
+		3FD2E1231BEA4D62009B6146 /* world_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = world_data.json; sourceTree = "<group>"; };
+		3FD2E1261BEA4E63009B6146 /* TINR.Glomero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.h; sourceTree = "<group>"; };
+		3FD2E1271BEA4E7D009B6146 /* TINR.Glomero.classes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.classes.h; sourceTree = "<group>"; };
+		3FD2E1291BEA508C009B6146 /* Scene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Scene.h; sourceTree = "<group>"; };
+		3FD2E12A1BEA508C009B6146 /* Scene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
+		3FD2E12C1BEA51E3009B6146 /* SceneObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneObject.h; sourceTree = "<group>"; };
+		3FD2E12D1BEA51E3009B6146 /* SceneObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneObject.m; sourceTree = "<group>"; };
+		3FD2E12F1BEA5738009B6146 /* SceneComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SceneComponent.h; sourceTree = "<group>"; };
+		3FD2E1301BEA5738009B6146 /* SceneComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SceneComponent.m; sourceTree = "<group>"; };
 		973E4BB81BD590710083EE47 /* Glomero.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Glomero.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		973E4BBC1BD590710083EE47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		973E4BBD1BD590710083EE47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -56,7 +70,6 @@
 		973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		973E4BF61BD594A30083EE47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		973E4BF81BD594A90083EE47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		97D048A11BD80D340007FEF6 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
 		97D048A31BD813690007FEF6 /* TextureAtlas.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
 		97D048A41BD813690007FEF6 /* TextureAtlas.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextureAtlas.m; sourceTree = "<group>"; };
 		97D048A61BD814720007FEF6 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
@@ -91,6 +104,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FD2E1211BEA4D42009B6146 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3FD2E1221BEA4D62009B6146 /* world_atlas.png */,
+				3FD2E1231BEA4D62009B6146 /* world_data.json */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		3FD2E1281BEA501E009B6146 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				3FD2E1291BEA508C009B6146 /* Scene.h */,
+				3FD2E12A1BEA508C009B6146 /* Scene.m */,
+				3FD2E12C1BEA51E3009B6146 /* SceneObject.h */,
+				3FD2E12D1BEA51E3009B6146 /* SceneObject.m */,
+				3FD2E12F1BEA5738009B6146 /* SceneComponent.h */,
+				3FD2E1301BEA5738009B6146 /* SceneComponent.m */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
 		973E4BAF1BD590710083EE47 = {
 			isa = PBXGroup;
 			children = (
@@ -113,10 +148,13 @@
 		973E4BBA1BD590710083EE47 /* Glomero */ = {
 			isa = PBXGroup;
 			children = (
-				97D048A11BD80D340007FEF6 /* Images */,
+				3FD2E1281BEA501E009B6146 /* Scene */,
+				3FD2E1211BEA4D42009B6146 /* Assets */,
 				973E4BF31BD591970083EE47 /* Classes */,
 				973E4BC81BD590710083EE47 /* Images.xcassets */,
 				973E4BBB1BD590710083EE47 /* Supporting Files */,
+				3FD2E1261BEA4E63009B6146 /* TINR.Glomero.h */,
+				3FD2E1271BEA4E7D009B6146 /* TINR.Glomero.classes.h */,
 			);
 			path = Glomero;
 			sourceTree = "<group>";
@@ -257,7 +295,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97D048A21BD80D340007FEF6 /* Images in Resources */,
+				3FD2E1251BEA4D62009B6146 /* world_data.json in Resources */,
+				3FD2E1241BEA4D62009B6146 /* world_atlas.png in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,10 +315,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FD2E1311BEA5738009B6146 /* SceneComponent.m in Sources */,
 				973E4BBE1BD590710083EE47 /* main.m in Sources */,
 				97D048A51BD813690007FEF6 /* TextureAtlas.m in Sources */,
 				97D048A81BD814720007FEF6 /* Sprite.m in Sources */,
 				973E4BF21BD5918F0083EE47 /* Glomero.m in Sources */,
+				3FD2E12B1BEA508C009B6146 /* Scene.m in Sources */,
+				3FD2E12E1BEA51E3009B6146 /* SceneObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +430,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = Glomero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
@@ -403,6 +446,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_OBJC_ARC = NO;
 				INFOPLIST_FILE = Glomero/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (

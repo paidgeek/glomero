@@ -1,7 +1,8 @@
 #import "Retronator.Xni.Framework.h"
 #import "Retronator.Xni.Framework.Content.h"
 #import "Retronator.Xni.Framework.Graphics.h"
-#import "Sprite.h"
+
+#import "TINR.Glomero.classes.h"
 
 @interface TextureAtlas : NSObject {
 	Texture2D *texture;

@@ -1,4 +1,5 @@
 #import "TextureAtlas.h"
+#import "TINR.Glomero.h"
 
 @implementation TextureAtlas
 
@@ -23,7 +24,6 @@
 	
 	return self;
 }
-
 
 - (Sprite*) getSpriteWithName:(NSString*) name {
 	if([atlas isKindOfClass:[NSDictionary class]]) {
