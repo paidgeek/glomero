@@ -1,0 +1,35 @@
+{
+  "sprites": [
+				  {
+					"name":"PinkAlien",
+				  "rectange": [
+									2,
+									74,
+									70,
+									70
+									],
+				  "source": [
+								 0,
+								 0,
+								 70,
+								 70
+								 ]
+				  },
+				  {
+					"name":"YellowAlien",
+				  "rectange": [
+									2,
+									2,
+									70,
+									70
+									],
+				  "source": [
+								 0,
+								 0,
+								 70,
+								 70
+								 ]
+				  }
+	]
+
+}

@@ -1,4 +1,4 @@
-#import "TINR.Glomero.h"
+#import "SceneComponent.h"
 
 @implementation SceneComponent
 

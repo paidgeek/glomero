@@ -1,8 +1,3 @@
-#import "Sprite.h"
-#import "TextureAtlas.h"
+#import "Retronator.Xni.Framework.h"
+#import "Engine.h"
 
-#import "SceneObject.h"
-#import "SceneComponent.h"
-#import "Scene.h"
-
-#import "Glomero.h"

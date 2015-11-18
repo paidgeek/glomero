@@ -1,29 +1,22 @@
-#import "Retronator.Xni.Framework.h"
-#import "Retronator.Xni.Framework.Content.h"
+#import "TINR.Glomero.classes.h"
 #import "Retronator.Xni.Framework.Graphics.h"
-#import "Retronator.Xni.Framework.Input.Touch.h"
-
-#import "TextureAtlas.h"
-
-typedef enum {
-	TileDirt,
-	TileGrass
-} Tile;
+#import "Retronator.Xni.Framework.Content.h"
 
 @interface Glomero : Game {
 	GraphicsDeviceManager *graphics;
-    SpriteBatch *spriteBatch;
+	Scene *scene;
 	
+	Sprite *grass, *yellowAlien, *pinkAlien;
 	TextureAtlas *worldAtlas;
-	Sprite *dirt, *grass;
+	TextureAtlas *entityAtlas;
+	SpriteBatch *spriteBatch;
 	
-	Sprite *coin;
-	
-	Tile map[16][16];
+	Vector2 *yellowPos, *pinkPos, *pinkVel;
 }
 
+
 - (void) drawTileWithSprite:(Sprite*) tileSprite
-						  x:(float) x
-						  y:(float) y;
+								  x:(float) x
+								  y:(float) y;
 
 @end

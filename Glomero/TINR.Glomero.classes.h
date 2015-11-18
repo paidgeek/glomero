@@ -1,8 +1,3 @@
-@class Sprite;
-@class TextureAtlas;
+#import "Retronator.Xni.Framework.h"
+#import "Engine.classes.h"
 
-@class SceneObject;
-@class SceneComponent;
-@class Scene;
-
-@class Glomero;
