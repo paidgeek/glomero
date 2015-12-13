@@ -7,13 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		973E4BBE1BD590710083EE47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BBD1BD590710083EE47 /* main.m */; };
 		973E4BC91BD590710083EE47 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 973E4BC81BD590710083EE47 /* Images.xcassets */; };
-		973E4BF21BD5918F0083EE47 /* Glomero.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BF11BD5918F0083EE47 /* Glomero.m */; };
-		97CDFCB61BF8EACE00434CDF /* world_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CDFCB41BF8EACE00434CDF /* world_atlas.png */; };
-		97CDFCB71BF8EACE00434CDF /* world_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 97CDFCB51BF8EACE00434CDF /* world_data.json */; };
-		97CDFCBA1BF8F24200434CDF /* entity_data.json in Resources */ = {isa = PBXBuildFile; fileRef = 97CDFCB81BF8F24200434CDF /* entity_data.json */; };
-		97CDFCBB1BF8F24200434CDF /* entity_atlas.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CDFCB91BF8F24200434CDF /* entity_atlas.png */; };
+		97CD39111C1CE034008870FB /* Turret.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD39101C1CE034008870FB /* Turret.m */; };
+		97CD39141C1CEDDD008870FB /* Entities.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97CD39121C1CEDDD008870FB /* Entities.atlas */; };
+		97CD39151C1CEDDD008870FB /* Entities.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CD39131C1CEDDD008870FB /* Entities.png */; };
+		97CD391C1C1D0F49008870FB /* World.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97CD391A1C1D0F49008870FB /* World.atlas */; };
+		97CD391D1C1D0F49008870FB /* World.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CD391B1C1D0F49008870FB /* World.png */; };
+		97CD610D1C1AA177006D301C /* Glomero.h in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BF01BD5918F0083EE47 /* Glomero.h */; };
+		97CD610E1C1AA177006D301C /* Glomero.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BF11BD5918F0083EE47 /* Glomero.m */; };
+		97CD610F1C1AA177006D301C /* MainScene.h in Sources */ = {isa = PBXBuildFile; fileRef = 97D85CD51C093C2A001EFE5F /* MainScene.h */; };
+		97CD61101C1AA177006D301C /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D85CD61C093C2A001EFE5F /* MainScene.m */; };
+		97CD61111C1AA177006D301C /* Player.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD3B341C0B752E00118EC9 /* Player.h */; };
+		97CD61121C1AA177006D301C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD3B351C0B752E00118EC9 /* Player.m */; };
+		97CD61131C1AA177006D301C /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2181C1957140020D969 /* Constants.h */; };
+		97CD61141C1AA183006D301C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BBD1BD590710083EE47 /* main.m */; };
 		97CFB2DF1BF29ABD004C8E6F /* libXNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE11BD590D80083EE47 /* libXNI.a */; };
 		97CFB2E01BF29AD0004C8E6F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE31BD591030083EE47 /* AudioToolbox.framework */; };
 		97CFB2E11BF29AD7004C8E6F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE51BD591080083EE47 /* AVFoundation.framework */; };
@@ -58,13 +65,20 @@
 		973E4BF41BD5949B0083EE47 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		973E4BF61BD594A30083EE47 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		973E4BF81BD594A90083EE47 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		97CD390F1C1CE034008870FB /* Turret.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Turret.h; sourceTree = "<group>"; };
+		97CD39101C1CE034008870FB /* Turret.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Turret.m; sourceTree = "<group>"; };
+		97CD39121C1CEDDD008870FB /* Entities.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Entities.atlas; path = Glomero/Entities.atlas; sourceTree = "<group>"; };
+		97CD39131C1CEDDD008870FB /* Entities.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Entities.png; path = Glomero/Entities.png; sourceTree = "<group>"; };
+		97CD391A1C1D0F49008870FB /* World.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = World.atlas; path = Glomero/World.atlas; sourceTree = "<group>"; };
+		97CD391B1C1D0F49008870FB /* World.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = World.png; path = Glomero/World.png; sourceTree = "<group>"; };
+		97CD3B341C0B752E00118EC9 /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Player.h; sourceTree = "<group>"; };
+		97CD3B351C0B752E00118EC9 /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Player.m; sourceTree = "<group>"; };
+		97CDE2181C1957140020D969 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		97CDFCAD1BF8E85C00434CDF /* TINR.Glomero.classes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.classes.h; sourceTree = "<group>"; };
 		97CDFCAE1BF8E87700434CDF /* TINR.Glomero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.h; sourceTree = "<group>"; };
-		97CDFCB41BF8EACE00434CDF /* world_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = world_atlas.png; path = Glomero/world_atlas.png; sourceTree = "<group>"; };
-		97CDFCB51BF8EACE00434CDF /* world_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = world_data.json; path = Glomero/world_data.json; sourceTree = "<group>"; };
-		97CDFCB81BF8F24200434CDF /* entity_data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = entity_data.json; path = Glomero/entity_data.json; sourceTree = "<group>"; };
-		97CDFCB91BF8F24200434CDF /* entity_atlas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = entity_atlas.png; path = Glomero/entity_atlas.png; sourceTree = "<group>"; };
 		97D058441BF533E6001D6E87 /* Engine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Engine.xcodeproj; path = Engine/Engine.xcodeproj; sourceTree = "<group>"; };
+		97D85CD51C093C2A001EFE5F /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
+		97D85CD61C093C2A001EFE5F /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +162,13 @@
 			children = (
 				973E4BF01BD5918F0083EE47 /* Glomero.h */,
 				973E4BF11BD5918F0083EE47 /* Glomero.m */,
+				97D85CD51C093C2A001EFE5F /* MainScene.h */,
+				97D85CD61C093C2A001EFE5F /* MainScene.m */,
+				97CD3B341C0B752E00118EC9 /* Player.h */,
+				97CD3B351C0B752E00118EC9 /* Player.m */,
+				97CDE2181C1957140020D969 /* Constants.h */,
+				97CD390F1C1CE034008870FB /* Turret.h */,
+				97CD39101C1CE034008870FB /* Turret.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -155,10 +176,10 @@
 		97CDFCB31BF8EA8100434CDF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				97CDFCB81BF8F24200434CDF /* entity_data.json */,
-				97CDFCB91BF8F24200434CDF /* entity_atlas.png */,
-				97CDFCB41BF8EACE00434CDF /* world_atlas.png */,
-				97CDFCB51BF8EACE00434CDF /* world_data.json */,
+				97CD391A1C1D0F49008870FB /* World.atlas */,
+				97CD391B1C1D0F49008870FB /* World.png */,
+				97CD39121C1CEDDD008870FB /* Entities.atlas */,
+				97CD39131C1CEDDD008870FB /* Entities.png */,
 			);
 			name = Assets;
 			sourceTree = "<group>";
@@ -245,10 +266,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97CDFCBB1BF8F24200434CDF /* entity_atlas.png in Resources */,
-				97CDFCB71BF8EACE00434CDF /* world_data.json in Resources */,
-				97CDFCB61BF8EACE00434CDF /* world_atlas.png in Resources */,
-				97CDFCBA1BF8F24200434CDF /* entity_data.json in Resources */,
+				97CD39151C1CEDDD008870FB /* Entities.png in Resources */,
+				97CD39141C1CEDDD008870FB /* Entities.atlas in Resources */,
+				97CD391C1C1D0F49008870FB /* World.atlas in Resources */,
+				97CD391D1C1D0F49008870FB /* World.png in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,8 +281,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				973E4BBE1BD590710083EE47 /* main.m in Sources */,
-				973E4BF21BD5918F0083EE47 /* Glomero.m in Sources */,
+				97CD61141C1AA183006D301C /* main.m in Sources */,
+				97CD610D1C1AA177006D301C /* Glomero.h in Sources */,
+				97CD610E1C1AA177006D301C /* Glomero.m in Sources */,
+				97CD610F1C1AA177006D301C /* MainScene.h in Sources */,
+				97CD61101C1AA177006D301C /* MainScene.m in Sources */,
+				97CD39111C1CE034008870FB /* Turret.m in Sources */,
+				97CD61111C1AA177006D301C /* Player.h in Sources */,
+				97CD61121C1AA177006D301C /* Player.m in Sources */,
+				97CD61131C1AA177006D301C /* Constants.h in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,9 +390,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = Glomero/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -382,9 +410,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				INFOPLIST_FILE = Glomero/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

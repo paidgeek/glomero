@@ -1,57 +1,65 @@
 #import "TextureAtlas.h"
-#import "Engine.h"
+#import "Engine.Graphics.h"
+#import "Retronator.Xni.Framework.Content.h"
+#import "StringLineReader.h"
 
 @implementation TextureAtlas {
-	id atlas;
+	NSMutableDictionary *sprites;
 }
 
-- (id) initWithTexture:(Texture2D *)atlasTexture data:(NSString *)atlasData {
+@synthesize texture;
+
+- (id) initWithTexture:(Texture2D *)theTexture sprites:(NSMutableDictionary *)theSprites {
 	self = [super init];
 	
 	if(self) {
-		self.texture = atlasTexture;
-		
-		@try {
-			atlas = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:atlasData]
-																 options:0
-																	error:nil];
-		}
-		@catch (NSException *exception) {
-			NSLog(@"%@", exception);
-		}
+		texture = theTexture;
+		sprites = theSprites;
 	}
 	
 	return self;
 }
 
 - (Sprite *) getSpriteWithName:(NSString *)name {
-	if([atlas isKindOfClass:[NSDictionary class]]) {
-		NSArray *sprites = [atlas objectForKey:@"sprites"];
+	Sprite *sprite = [[Sprite alloc] init];
+	
+	sprite.texture = texture;
+	sprite.rectange = [Rectangle rectangleWithRectangle:[sprites objectForKey:name]];
+	
+	return sprite;
+}
+
++ (TextureAtlas *)loadWithContentManager:(ContentManager *)content atlasName:(NSString *) atlasName {
+	Texture2D *texture = [content load:atlasName
+									  fromFile:[NSString stringWithFormat:@"%@.png", atlasName]];
+	NSString *atlasPath = [[NSBundle mainBundle] pathForResource:atlasName
+																  ofType:@"atlas"];
+	NSString *atlas = [NSString stringWithContentsOfFile:atlasPath
+															  encoding:NSUTF8StringEncoding
+																  error:nil];
+	NSMutableDictionary *sprites = [NSMutableDictionary dictionary];
+	StringLineReader *slr = [StringLineReader createWithString:atlas];
+	
+	for (int i = 0; [slr hasNext]; i++) {
+		NSString *name = [[slr next] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		[slr next];
+		NSString *xy = [[slr next] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		NSString *size = [[slr next] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+		[slr next];
+		[slr next];
+		[slr next];
+
+		int x, y, width, height;
 		
-		for (NSDictionary *spriteObj in sprites) {
-			if([name isEqualToString:[spriteObj valueForKey:@"name"]]) {
-				NSArray *rectArr = [spriteObj objectForKey:@"rectange"];
-				
-				int x = (int)[[rectArr objectAtIndex:0] integerValue];
-				int y = (int)[[rectArr objectAtIndex:1] integerValue];
-				int w = (int)[[rectArr objectAtIndex:2] integerValue];
-				int h = (int)[[rectArr objectAtIndex:3] integerValue];
-				
-				Rectangle *rect = [Rectangle rectangleWithX:x
-																		y:y
-																  width:w
-																 height:h];
-				Sprite *sprite = [[Sprite alloc] init];
-				
-				sprite.texture = self.texture;
-				sprite.rectangle = rect;
-				
-				return sprite;
-			}
-		}
+		sscanf([xy cStringUsingEncoding:NSUTF8StringEncoding], "xy: %d, %d", &x, &y);
+		sscanf([size cStringUsingEncoding:NSUTF8StringEncoding], "size: %d, %d", &width, &height);
+		
+		Rectangle *sprite = [Rectangle rectangleWithX:x y:y width:width height:height];
+		
+		[sprites setObject:sprite forKey:name];
 	}
 	
-	return nil;
+	return [[TextureAtlas alloc] initWithTexture:texture sprites:sprites];
 }
 
 @end

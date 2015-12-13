@@ -1,3 +1,6 @@
-#import "Retronator.Xni.Framework.h"
-#import "Engine.classes.h"
+#import "Engine.h"
+#import "Constants.h"
 
+@class MainScene;
+@class Player;
+@class Turret;

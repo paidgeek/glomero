@@ -1,0 +1,84 @@
+brick
+  rotate: false
+  xy: 1, 127
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+dirt
+  rotate: false
+  xy: 131, 127
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+grass
+  rotate: false
+  xy: 261, 127
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+stone
+  rotate: false
+  xy: 391, 127
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+wood
+  rotate: false
+  xy: 521, 127
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+cloud1
+  rotate: false
+  xy: 651, 128
+  size: 190, 127
+  orig: 190, 127
+  offset: 0, 0
+  index: -1
+cloud2
+  rotate: false
+  xy: 651, 1
+  size: 200, 125
+  orig: 200, 125
+  offset: 0, 0
+  index: -1
+cloud3
+  rotate: false
+  xy: 1, 7
+  size: 234, 118
+  orig: 234, 118
+  offset: 0, 0
+  index: -1
+gold1
+  rotate: false
+  xy: 843, 171
+  size: 84, 84
+  orig: 84, 84
+  offset: 0, 0
+  index: -1
+gold2
+  rotate: false
+  xy: 853, 85
+  size: 66, 84
+  orig: 66, 84
+  offset: 0, 0
+  index: -1
+gold3
+  rotate: false
+  xy: 921, 85
+  size: 50, 84
+  orig: 50, 84
+  offset: 0, 0
+  index: -1
+gold4
+  rotate: false
+  xy: 929, 171
+  size: 15, 84
+  orig: 15, 84
+  offset: 0, 0
+  index: -1

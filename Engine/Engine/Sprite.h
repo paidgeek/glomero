@@ -1,8 +1,9 @@
-#import "Engine.classes.h"
+#import "Engine.Graphics.classes.h"
 
 @interface Sprite : NSObject
 
-@property (nonatomic, retain) Texture2D *texture;
-@property (nonatomic, retain) Rectangle *rectangle;
+@property (nonatomic, strong) Texture2D *texture;
+@property (nonatomic, strong) Rectangle *rectange;
+@property (nonatomic) SpriteEffects effects;
 
 @end

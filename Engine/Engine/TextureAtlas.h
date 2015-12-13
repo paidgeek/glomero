@@ -1,10 +1,12 @@
-#import "Engine.classes.h"
+#import "Engine.Graphics.classes.h"
 
 @interface TextureAtlas : NSObject
 
-- (id) initWithTexture:(Texture2D *) atlasTexture data:(NSString *) atlasData;
-- (Sprite*) getSpriteWithName:(NSString*) name;
+- (id) initWithTexture:(Texture2D *) theTexture sprites:(NSMutableDictionary *) theSprites;
+- (Sprite *) getSpriteWithName:(NSString *) name;
 
-@property (nonatomic, retain) Texture2D *texture;
+@property (nonatomic, strong) Texture2D *texture;
+
++ (TextureAtlas *) loadWithContentManager:(ContentManager *) content atlasName:(NSString *) atlasName;
 
 @end

@@ -1,5 +1,7 @@
-#import "Engine.classes.h"
+#import "Engine.Graphics.classes.h"
 
-@interface SpriteRenderer : NSObject<IRenderable>
+@interface SpriteRenderer : NSObject<IDrawableComponent>
+
+@property (nonatomic, strong) Sprite *sprite;
 
 @end

@@ -1,10 +1,7 @@
-#import "Retronator.Xni.Framework.h"
+#import "Retronator.Xni.Framework.Graphics.h"
+#import "Retronator.Xni.Framework.Content.h"
+#import "Retronator.Xni.Framework.Input.h"
+#import "Retronator.Xni.Framework.Input.Touch.h"
 
-#import "Sprite.h"
-#import "TextureAtlas.h"
-
-#import "SceneComponent.h"
-#import "Transform.h"
-#import "SceneObject.h"
-#import "Scene.h"
-#import "RenderEngine.h"
+#import "Engine.Core.h"
+#import "Engine.Graphics.h"

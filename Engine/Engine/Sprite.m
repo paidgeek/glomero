@@ -1,6 +1,7 @@
 #import "Sprite.h"
-#import "Engine.h"
 
 @implementation Sprite
+
+@synthesize texture, rectange;
 
 @end

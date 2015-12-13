@@ -1,0 +1,35 @@
+Turret
+  rotate: false
+  xy: 1, 37
+  size: 83, 78
+  orig: 83, 78
+  offset: 0, 0
+  index: -1
+PinkAlien
+  rotate: false
+  xy: 86, 45
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+YellowAlien
+  rotate: false
+  xy: 158, 45
+  size: 70, 70
+  orig: 70, 70
+  offset: 0, 0
+  index: -1
+Barrel
+  rotate: false
+  xy: 230, 57
+  size: 24, 58
+  orig: 24, 58
+  offset: 0, 0
+  index: -1
+Bullet
+  rotate: false
+  xy: 1, 1
+  size: 20, 34
+  orig: 20, 34
+  offset: 0, 0
+  index: -1

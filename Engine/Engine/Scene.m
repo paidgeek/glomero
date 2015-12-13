@@ -1,76 +1,92 @@
 #import "Scene.h"
-#import "Engine.h"
+#import "Engine.Core.h"
+#import "Retronator.Xni.Framework.Graphics.h"
 
 @implementation Scene {
-	NSMutableArray *sceneObjects;
-	NSMutableDictionary *sceneComponents;
+	LogicSystem *logicSystem;
+	RenderSystem *renderSystem;
+	PhysicsSystem *physicsSystem;
+	NSMutableArray *actions;
 }
 
-static long nextSceneObjectId;
+static Scene *instance;
+@synthesize root, sceneListeners, collisionMatrix, mainCamera;
 
 - (id) initWithGame:(Game *)theGame {
 	self = [super initWithGame:theGame];
 
 	if(self) {
-		sceneObjects = [NSMutableArray array];
-		sceneComponents = [NSMutableDictionary dictionary];
+		instance = self;
+		
+		actions = [NSMutableArray array];
+		sceneListeners = [NSMutableArray array];
+		root = [[Node alloc] init];
+		collisionMatrix = [[CollisionMatrix alloc] init];
+		
+		logicSystem = [[LogicSystem alloc] initWithGame:self.game
+																scene:self];
+		renderSystem = [[RenderSystem alloc] initWithGame:self.game
+																  scene:self];
+		physicsSystem = [[PhysicsSystem alloc] initWithGame:self.game
+																	 scene:self];
+		
+		[[self.game components] addComponent:self];
 	}
 	
 	return self;
 }
 
-- (SceneObject *) createSceneObject {
-	SceneObject *sceneObject = [[SceneObject alloc] initWithUId:++nextSceneObjectId];
+- (void) initialize {
+	[[self.game components] addComponent:logicSystem];
+	[[self.game components] addComponent:renderSystem];
+	[[self.game components] addComponent:physicsSystem];
 
-	[sceneObjects addObject:@(sceneObject.uid)];
+	self.updateOrder = 0;
+	logicSystem.updateOrder = 1;
+	physicsSystem.updateOrder = 2;
+	renderSystem.updateOrder = 3;
 	
-	return sceneObject;
+	Node *cameraNode = [self createNode];
+	mainCamera = [cameraNode addComponentOfClass:[Camera class]];
+	
+	[super initialize];
 }
 
-- (void) addSceneComponent:(SceneComponent *)sceneComponent toSceneObject:(SceneObject *)sceneObject {
-	NSMutableDictionary *components = sceneComponents[NSStringFromClass([sceneComponent class])];
+- (Node *) createNode {
+	return [self createNodeWithParent:root];
+}
+
+- (Node *) createNodeWithParent:(Node *) parent {
+	Node *node = [[Node alloc] init];
 	
-	if(!components) {
-		components = [[NSMutableDictionary alloc] init];
-		
-		sceneComponents[NSStringFromClass([sceneComponent class])] = components;
+	node.parent = parent;
+	node.transform = [[Transform alloc] initWithNode:node];
+	
+	[actions addObject:[SceneAction createNode:node parent:parent]];
+	
+	return node;
+}
+
+- (void) destroyNode:(Node *) node {
+	if(node != root) {
+		[actions addObject:[SceneAction destroyNode:node]];
 	}
-
-	components[@(sceneObject.uid)] = sceneComponent;
 }
 
-- (SceneComponent *) getSceneComponentOfClass:(Class)sceneComponentClass forSceneObject:(SceneObject *)sceneObject {
-	SceneComponent *sceneComponent = sceneComponents[NSStringFromClass(sceneComponentClass)][@(sceneObject.uid)];
-	
-	return sceneComponent;
+- (void) addAction:(id<ISceneAction>) action {
+	[actions addObject:action];
 }
 
-- (void) destroySceneObject:(SceneObject *)sceneObject {
-	id uid = @(sceneObject.uid);
-	
-	for (NSMutableDictionary *components in sceneComponents.allValues) {
-		if(components[uid]) {
-			[components removeObjectForKey:uid];
-		}
-	}
-	
-	[sceneObjects removeObject:uid];
-}
-
-- (NSArray *) getSceneObjectsByComponentClass:(Class)sceneComponentClass {
-	NSMutableDictionary *components = sceneComponents[NSStringFromClass(sceneComponentClass)];
-	
-	if(components) {
-		NSMutableArray *arr = [NSMutableArray arrayWithCapacity:components.allKeys.count];
-		
-		for(NSNumber *uid in components.allKeys) {
-			[arr addObject:[SceneObject alloc] initWithUId:uid.integerValue] ];
-		}
-		
-		return arr;
+- (void) updateWithGameTime:(GameTime *) gameTime {
+	for(id<ISceneAction> action in actions) {
+		[action performOnScene:self];
 	}
 	
-	return [NSArray array];
+	[actions removeAllObjects];
+}
+
++ (Scene *) getInstance {
+	return instance;
 }
 
 @end

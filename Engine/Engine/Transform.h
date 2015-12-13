@@ -1,8 +1,8 @@
-#import <Foundation/Foundation.h>
-#import "Engine.classes.h"
+#import "Engine.Core.classes.h"
 
-@interface Transform : NSObject
+@interface Transform : NSObject<INodeComponent, IPosition>
 
-@property (nonatomic, readonly) Vector2 *position;
+@property (nonatomic, strong) Vector2 *position;
+@property (nonatomic, strong) Quaternion *rotation;
 
 @end

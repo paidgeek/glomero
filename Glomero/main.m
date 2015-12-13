@@ -2,12 +2,18 @@
 #import "Retronator.Xni.Framework.h"
 
 int main(int argc, char * argv[]) {
-    [GameHost load];
+	[GameHost load];
 	
-    NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
-    int retVal = UIApplicationMain(argc, argv, @"GameHost", @"Glomero");
+	int retVal = 1;
+
+	@autoreleasepool {
+		@try {
+			retVal = UIApplicationMain(argc, argv, @"GameHost", @"Glomero");
+		}
+		@catch (NSException *exception) {
+			NSLog(@"%@", exception);
+		}
+	}
 	
-    [pool release];
-	
-    return retVal;
+	return retVal;
 }
