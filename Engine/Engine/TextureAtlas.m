@@ -25,6 +25,8 @@
 	
 	sprite.texture = texture;
 	sprite.rectange = [Rectangle rectangleWithRectangle:[sprites objectForKey:name]];
+	sprite.pivot = [Vector2 vectorWithX:sprite.rectange.width / 2.0f
+												 y:sprite.rectange.height / 2.0f];
 	
 	return sprite;
 }

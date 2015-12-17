@@ -20,7 +20,10 @@ static Scene *instance;
 		
 		actions = [NSMutableArray array];
 		sceneListeners = [NSMutableArray array];
+		
 		root = [[Node alloc] init];
+		root.transform = [[Transform alloc] initWithNode:root];
+		
 		collisionMatrix = [[CollisionMatrix alloc] init];
 		
 		logicSystem = [[LogicSystem alloc] initWithGame:self.game

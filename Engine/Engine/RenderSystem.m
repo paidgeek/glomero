@@ -25,8 +25,15 @@
 - (void) drawWithGameTime:(GameTime *)gameTime {
 	[self.game.graphicsDevice clearWithColor:[Color cornflowerBlue]];
 	
+	Matrix *viewProjection = [scene.mainCamera getViewProjection];
+	
 	[spriteBatch beginWithSortMode:SpriteSortModeDeffered
-							  BlendState:nil SamplerState:nil DepthStencilState:nil RasterizerState:nil Effect:nil TransformMatrix:[Scene getInstance].mainCamera.projection];
+							  BlendState:nil
+							SamplerState:nil
+					 DepthStencilState:nil
+						RasterizerState:nil
+									Effect:nil
+						TransformMatrix:viewProjection];
 	
 	[self drawNode:scene.root gameTime:gameTime];
 	

@@ -17,3 +17,5 @@
 #import "AddComponentAction.h"
 #import "CreateNodeAction.h"
 #import "DestroyNodeAction.h"
+
+#import "QuaternionExtensions.h"

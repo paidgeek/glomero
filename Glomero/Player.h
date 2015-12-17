@@ -4,4 +4,6 @@
 
 @property (nonatomic, strong) RigidBody2D *rigidBody;
 
++ (Player *) getInstance;
+
 @end

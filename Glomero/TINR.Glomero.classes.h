@@ -4,3 +4,4 @@
 @class MainScene;
 @class Player;
 @class Turret;
+@class Bullet;

@@ -2,6 +2,6 @@
 
 @implementation Sprite
 
-@synthesize texture, rectange;
+@synthesize texture, rectange, pivot;
 
 @end

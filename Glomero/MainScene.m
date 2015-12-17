@@ -1,22 +1,21 @@
 #import "MainScene.h"
 #import "TINR.Glomero.h"
-#include <stdlib.h>
 
-@implementation MainScene {
-	TextureAtlas *worldAtlas;
-}
+@implementation MainScene
+
+@synthesize worldAtlas, entitiesAtlas;
 
 - (void) loadContent {
-	TextureAtlas *worldAtlas = [TextureAtlas loadWithContentManager:self.game.content
-																			atlasName:@"World"];
-	TextureAtlas *entitiesAtlas = [TextureAtlas loadWithContentManager:self.game.content
-																				atlasName:@"Entities"];
+	worldAtlas = [TextureAtlas loadWithContentManager:self.game.content
+														 atlasName:@"World"];
+	entitiesAtlas = [TextureAtlas loadWithContentManager:self.game.content
+															 atlasName:@"Entities"];
 	
 	for(int y = 0; y < 30; y++) {
-		for (int x = 0; x < 6; x++) {
+		for (int x = 0; x < 12; x++) {
 			Node *tileNode = [self createNode];
 			SpriteRenderer *tileSr = [tileNode addComponentOfClass:[SpriteRenderer class]];
-			tileNode.transform.position = [Vector2 vectorWithX:x*128.0f	y:(2048-y*128.0f)];
+			tileNode.transform.position = [Vector2 vectorWithX:x*128.0f - 640.0f	y:-y*128.0f + 512.0f];
 			
 			tileSr.sprite = [worldAtlas getSpriteWithName:@"grass"];
 		}
@@ -33,7 +32,6 @@
 		cc.radius = 32.0f;
 		[player.rigidBody addCollisionListener:player];
 
-		player.node.transform.position = [Vector2 vectorWithX:320.0f y:700.0f];
 		sr.sprite = [entitiesAtlas getSpriteWithName:@"PinkAlien"];
 	}
 	

@@ -23,11 +23,18 @@
 	return self;
 }
 
-- (void) resize {
+- (Matrix *)getViewProjection {
 	float width = [Scene getInstance].game.gameWindow.clientBounds.width;
 	float height = [Scene getInstance].game.gameWindow.clientBounds.height;
+	
+	return [Matrix multiply:projection
+								by:[Matrix createTranslationX:width / 2.0f - node.transform.position.x
+																	 y:height / 2.0f - node.transform.position.y
+																	 z:0.0f]];
+}
 
-	[projection set:[Matrix createScaleX:1.0f y:1.0f z:1.0f]];
+- (void) resize {
+	[projection set:[Matrix identity]];
 }
 
 @end

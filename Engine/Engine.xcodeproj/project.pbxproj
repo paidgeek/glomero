@@ -49,6 +49,12 @@
 		97CD390D1C1CD6F0008870FB /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD390C1C1CD6F0008870FB /* Camera.m */; };
 		97CD39191C1D0697008870FB /* StringLineReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD39181C1D0697008870FB /* StringLineReader.m */; };
 		97CD5E841C1A9899006D301C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CD5E831C1A9899006D301C /* Foundation.framework */; };
+		97CD6F561C1D4238001C8384 /* QuaternionExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD6F551C1D4238001C8384 /* QuaternionExtensions.m */; };
+		97CD6F5A1C1D4691001C8384 /* MathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD6F591C1D4691001C8384 /* MathUtil.m */; };
+		97CD6F5B1C1D4A14001C8384 /* StringLineReader.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD39171C1D0697008870FB /* StringLineReader.h */; };
+		97CD6F5C1C1D4A14001C8384 /* QuaternionExtensions.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD6F541C1D4238001C8384 /* QuaternionExtensions.h */; };
+		97CD6F5D1C1D4A14001C8384 /* MathUtil.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD6F581C1D4691001C8384 /* MathUtil.h */; };
+		97CD6F5E1C1D4A14001C8384 /* Camera.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD390B1C1CD6F0008870FB /* Camera.h */; };
 		97CDE2171C1953700020D969 /* CollisionMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2161C1953700020D969 /* CollisionMatrix.m */; };
 		97D161B41C17C24700FBD297 /* libExpress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D161A61C17C1EA00FBD297 /* libExpress.a */; };
 		97D161BC1C17C4A100FBD297 /* RigidBody2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D161BB1C17C4A100FBD297 /* RigidBody2D.m */; };
@@ -141,6 +147,10 @@
 		97CD39171C1D0697008870FB /* StringLineReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringLineReader.h; sourceTree = "<group>"; };
 		97CD39181C1D0697008870FB /* StringLineReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringLineReader.m; sourceTree = "<group>"; };
 		97CD5E831C1A9899006D301C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		97CD6F541C1D4238001C8384 /* QuaternionExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuaternionExtensions.h; sourceTree = "<group>"; };
+		97CD6F551C1D4238001C8384 /* QuaternionExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuaternionExtensions.m; sourceTree = "<group>"; };
+		97CD6F581C1D4691001C8384 /* MathUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MathUtil.h; sourceTree = "<group>"; };
+		97CD6F591C1D4691001C8384 /* MathUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MathUtil.m; sourceTree = "<group>"; };
 		97CDE2131C193FBB0020D969 /* ICollisionListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICollisionListener.h; sourceTree = "<group>"; };
 		97CDE2141C19412F0020D969 /* ICollider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICollider.h; sourceTree = "<group>"; };
 		97CDE2151C1953700020D969 /* CollisionMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionMatrix.h; sourceTree = "<group>"; };
@@ -170,8 +180,8 @@
 		97CD0E471C16986500CEFF3F /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				97CD39161C1D067A008870FB /* Util */,
 				97CD0E871C16A94000CEFF3F /* Engine.h */,
+				97CD39161C1D067A008870FB /* Util */,
 				97CD0E7D1C16989100CEFF3F /* Core */,
 				97CD0E7C1C16987D00CEFF3F /* Graphics */,
 			);
@@ -254,6 +264,10 @@
 			children = (
 				97CD39171C1D0697008870FB /* StringLineReader.h */,
 				97CD39181C1D0697008870FB /* StringLineReader.m */,
+				97CD6F541C1D4238001C8384 /* QuaternionExtensions.h */,
+				97CD6F551C1D4238001C8384 /* QuaternionExtensions.m */,
+				97CD6F581C1D4691001C8384 /* MathUtil.h */,
+				97CD6F591C1D4691001C8384 /* MathUtil.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -389,6 +403,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97CD6F5B1C1D4A14001C8384 /* StringLineReader.h in Sources */,
+				97CD6F5C1C1D4A14001C8384 /* QuaternionExtensions.h in Sources */,
+				97CD6F5D1C1D4A14001C8384 /* MathUtil.h in Sources */,
+				97CD6F5E1C1D4A14001C8384 /* Camera.h in Sources */,
 				97D53A2F1C1B44F60066965B /* CircleCollider2D.h in Sources */,
 				97D53A301C1B44F60066965B /* ICollisionListener.h in Sources */,
 				97D53A311C1B44F60066965B /* ICollider.h in Sources */,
@@ -405,6 +423,7 @@
 				97CD0E921C16AEE100CEFF3F /* PhysicsSystem.m in Sources */,
 				97CD0E931C16AEE100CEFF3F /* RenderSystem.h in Sources */,
 				97CD0E941C16AEE100CEFF3F /* RenderSystem.m in Sources */,
+				97CD6F5A1C1D4691001C8384 /* MathUtil.m in Sources */,
 				97CD0E951C16AEE100CEFF3F /* SceneAction.h in Sources */,
 				97CD0E961C16AEE100CEFF3F /* SceneAction.m in Sources */,
 				97CD0E971C16AEE100CEFF3F /* ISceneAction.h in Sources */,
@@ -422,6 +441,7 @@
 				97CD0EA01C16AEE100CEFF3F /* Transform.h in Sources */,
 				97CD0EA11C16AEE100CEFF3F /* Transform.m in Sources */,
 				97CD0EA21C16AEE100CEFF3F /* ISceneListener.h in Sources */,
+				97CD6F561C1D4238001C8384 /* QuaternionExtensions.m in Sources */,
 				97CD0EA31C16AEE100CEFF3F /* IDrawableComponent.h in Sources */,
 				97CD0EA41C16AEE100CEFF3F /* INodeComponent.h in Sources */,
 				97CD0EA61C16AEE100CEFF3F /* Node.h in Sources */,
