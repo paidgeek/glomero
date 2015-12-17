@@ -18,7 +18,9 @@
 	return self;
 }
 
-- (void) loadContent {
+- (void) initialize {
+	[super initialize];
+	
 	spriteBatch = [[SpriteBatch alloc] initWithGraphicsDevice:self.game.graphicsDevice];
 }
 

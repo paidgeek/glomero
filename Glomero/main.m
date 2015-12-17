@@ -8,7 +8,7 @@ int main(int argc, char * argv[]) {
 
 	@autoreleasepool {
 		@try {
-			retVal = UIApplicationMain(argc, argv, @"GameHost", @"PhysicsWorld");
+			retVal = UIApplicationMain(argc, argv, @"GameHost", @"Glomero");
 		}
 		@catch (NSException *exception) {
 			NSLog(@"%@", exception);

@@ -1,11 +1,13 @@
 #import "Player.h"
 #import "TINR.Glomero.h"
 
-@implementation Player
+@implementation Player {
+	int pathIndex;
+}
 
 static Player *instance;
 
-@synthesize node, rigidBody;
+@synthesize node, path;
 
 - (id) initWithNode:(Node *) theNode {
 	self = [super init];
@@ -20,25 +22,35 @@ static Player *instance;
 }
 
 - (void) updateWithGameTime:(GameTime *)gameTime {
-	TouchCollection *touches = [[TouchPanel getInstance] getState];
-	
-	for(TouchLocation *touch in touches) {
-		float dx = (touch.position.x - 320.0f) * 0.05f;
+	if(path != nil) {
+		Vector2 *wp = [path objectAtIndex:pathIndex];
 		
-		[rigidBody.velocity add:[Vector2 vectorWithX:dx y:0.0f]];
+		wp = [Vector2 multiply:wp by:128.0f];
+		
+		Vector2 *d = [Vector2 subtract:wp by:node.transform.position];
+		
+		if([d length] < 30) {
+			pathIndex++;
+			
+			if(pathIndex == [path count]) {
+				pathIndex = 0;
+				path = nil;
+			}
+			
+			return;
+		}
+		
+		[node.transform.position add:[Vector2 multiply:[Vector2 normalize:d] by:gameTime.elapsedGameTime * 1500]];
+		
+		if( [d length] < 30) {
+			pathIndex++;
+		}
+		
+		if(pathIndex == [path count]) {
+			pathIndex = 0;
+			path = nil;
+		}
 	}
-	
-	rigidBody.velocity.y = -150.0f;
-	
-	Transform *camera = [Scene getInstance].mainCamera.node.transform;
-	[camera.position set:[Vector2 lerp:camera.position
-											  to:[Vector2 vectorWithX:node.transform.position.x
-																			y:node.transform.position.y - 200.0f]
-											  by:gameTime.elapsedGameTime * 5.0f]];
-}
-
-- (void) onTriggerEnter:(RigidBody2D *)otherRigidBody {
-	[[Scene getInstance] destroyNode:otherRigidBody.node];
 }
 
 + (Player *)getInstance {
