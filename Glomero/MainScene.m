@@ -1,61 +1,29 @@
 #import "MainScene.h"
 #import "TINR.Glomero.h"
 
-#define WIDTH 12
-#define HEIGHT 16
+#import "Retronator.Xni.Framework.Content.h"
+#import "Retronator.Xni.Framework.Content.Pipeline.Processors.h"
+#import "ButtonText.h"
 
-#import "Step.h"
+@implementation MainScene
 
-@interface MainScene ()
-- (NSMutableArray *) findPath:(int) sx sy:(int) sy tx:(int) tx ty:(int) ty;
-- (BOOL) isBlockedX:(int) x y:(int) y;
-- (BOOL) isValidLocationSX:(int) sx sy:(int) sy x:(int) x y:(int) y;
-- (float) getCostSX:(int) sx sy:(int) sy tx:(int) tx ty:(int) ty;
-@end
-
-@implementation MainScene {
-	int map[WIDTH][HEIGHT];
-	NSMutableArray *closed, *open;
-	Step *nodes[WIDTH][HEIGHT];
-	Player *player;
-}
-
-@synthesize worldAtlas, entitiesAtlas;
+@synthesize worldAtlas, entitiesAtlas, uiAtlas;
 
 - (void) loadContent {
 	worldAtlas = [TextureAtlas loadWithContentManager:self.game.content
 														 atlasName:@"World"];
 	entitiesAtlas = [TextureAtlas loadWithContentManager:self.game.content
 															 atlasName:@"Entities"];
-	
-	for (int x = 0; x < WIDTH; x++) {
-		for(int y = 0; y < HEIGHT; y++) {
-			map[x][y] = 1;
-		}
-	}
+	uiAtlas = [TextureAtlas loadWithContentManager:self.game.content
+													 atlasName:@"UI"];
 
-	for(int i = 0; i < 6; i++) {
-		int x = arc4random_uniform(WIDTH);
-		int y = arc4random_uniform(HEIGHT);
-		
-		for(int j = 0; j < WIDTH; j++) {
-			if(arc4random_uniform(5) > 0)
-			map[j][y] = 0;
-		}
-		
-		for(int j = 0; j < HEIGHT; j++) {
-			if(arc4random_uniform(5) > 0)
-			map[x][j] = 0;
-		}
-	}
-	
-	for (int x = 0; x < WIDTH; x++) {
-		for(int y = 0; y < HEIGHT; y++) {
+	for (int x = 0; x < 15; x++) {
+		for(int y = 0; y < 30; y++) {
 			Node *tileNode = [self createNode];
 			SpriteRenderer *tileSr = [tileNode addComponentOfClass:[SpriteRenderer class]];
-			tileNode.transform.position = [Vector2 vectorWithX:x*128.0f y:y*128.0f];
+			tileNode.transform.position = [Vector2 vectorWithX:x*128.0f y:-y*128.0f + 8 * 128.0f];
 
-			switch (map[x][y]) {
+			switch (arc4random_uniform(2)) {
 				case 0:
 					tileSr.sprite = [worldAtlas getSpriteWithName:@"grass"];
 					break;
@@ -65,166 +33,78 @@
 			}
 		}
 	}
+	 
+	[self.mainCamera.node.transform.position set:[Vector2 vectorWithX:320.0f y:480.0f]];
+
+	FontTextureProcessor *fontProcessor = [[FontTextureProcessor alloc] init];
+	SpriteFont *font = [self.game.content load:@"BitBold" processor:fontProcessor];
 	
 	{
-		int x = 1;
-		int y = 1;
+		Node *labelNode = [self createNode];
+		GUIText *text = [labelNode addComponentOfClass:[GUIText class]];
 		
-		while(YES) {
-			x = arc4random_uniform(WIDTH);
-			y = arc4random_uniform(HEIGHT);
-			
-			if(map[x][y] == 0) {
-				break;
-			}
-		}
-		
-		Node *playerNode = [self createNode];
-		playerNode.layer = PLAYER_LAYER;
-		SpriteRenderer *sr = [playerNode addComponentOfClass:[SpriteRenderer class]];
-		player = [playerNode addComponentOfClass:[Player class]];
-		
-		sr.sprite = [entitiesAtlas getSpriteWithName:@"PinkAlien"];
-		
-		player.node.transform.position = [Vector2 vectorWithX:x*128 y:y*128];
+		text.font = font;
+		text.text = @"Hello, World!";
+		text.horizontalAlign = HorizontalAlignCenter;
+		text.node.transform.position = [Vector2 vectorWithX:320.0f y:50.0f];
+		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
 	}
 	
-	[self.collisionMatrix enableBetweenA:COIN_LAYER b:PLAYER_LAYER];
+	{
+		Node *imageNode = [self createNode];
+		GUIImage *image = [imageNode addComponentOfClass:[GUIImage class]];
+		
+		image.sprite = [uiAtlas getSpriteWithName:@"Duck"];
+		image.node.transform.position = [Vector2 vectorWithX:100.0f y:750.0f];
+	}
 	
-	self.mainCamera.projection = [Matrix createScaleX:0.5f y:0.5f z:1.0f];
-	[self.mainCamera.node.transform.position set:[Vector2 vectorWithX:320.0f y:480.0f]];
+	{
+		Node *btnNode = [self createNode];
+		GUIButton *btn = [btnNode addComponentOfClass:[GUIButton class]];
+		
+		btn.normalSprite = [uiAtlas getSpriteWithName:@"ButtonNormal"];
+		btn.pressedSprite = [uiAtlas getSpriteWithName:@"ButtonPressed"];
+		btn.pressedSprite.pivot.y -= 1;
+		
+		btn.node.transform.scale = [Vector2 vectorWithX:8.0f y:8.0f];
+		btn.node.transform.position = [Vector2 vectorWithX:320.0f y:300.0f];
+		
+		Node *labelNode = [self createNodeWithParent:btnNode];
+		GUIText *text = [labelNode addComponentOfClass:[GUIText class]];
+		[labelNode addComponentOfClass:[ButtonText class]];
+		
+		text.font = font;
+		text.text = @"Button";
+		text.horizontalAlign = HorizontalAlignCenter;
+		text.color = [Color gray];
+		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
+	}
+	
+	{
+		Node *cbNode = [self createNode];
+		GUICheckBox *cb = [cbNode addComponentOfClass:[GUICheckBox class]];
+		
+		cb.normalSprite = [uiAtlas getSpriteWithName:@"Box"];
+		cb.checkedSprite = [uiAtlas getSpriteWithName:@"CheckedBox"];
+
+		cb.node.transform.scale = [Vector2 vectorWithX:8.0f y:8.0f];
+		cb.node.transform.position = [Vector2 vectorWithX:450.0f y:500.0f];
+		
+		Node *lblNode = [self createNodeWithParent:cbNode];
+		GUIText *text = [lblNode addComponentOfClass:[GUIText class]];
+		
+		text.font = font;
+		text.text = @"Checkbox";
+		text.horizontalAlign = HorizontalAlignRight;
+		text.scale = [Vector2 vectorWithX:1.5f y:1.5f];
+		text.node.transform.position = [Vector2 vectorWithX:-cb.normalSprite.rectange.width + 4.0f y:-1.0f];
+	}
 }
 
 - (void)updateWithGameTime:(GameTime *)gameTime {
 	[super updateWithGameTime:gameTime];
 	
-	TouchCollection *touches = [[TouchPanel getInstance] getState];
-	
-	for(TouchLocation *touch in touches) {
-		if(touch.state == TouchLocationStatePressed) {
-			Matrix *vp = [self.mainCamera getViewProjection];
-			
-			Vector2 *p = [Vector2 transform:touch.position with:[Matrix invert:vp]];
-			
-			int x = (int)((p.x + 64) / 128.0f);
-			int y = (int)((p.y + 64) / 128.0f);
-
-			Vector2 *sp = player.node.transform.position;
-			
-			int sx = (int) (sp.x / 128.0f);
-			int sy = (int) (sp.y / 128.0f);
-
-			player.path = [self findPath:sx sy:sy tx:x ty:y];
-		}
-	}
-}
-
-- (NSMutableArray *)findPath:(int) sx sy:(int) sy tx:(int) tx ty:(int) ty {
-	for (int x = 0; x < WIDTH; x++) {
-		for(int y = 0; y < HEIGHT; y++) {
-			nodes[x][y] = [[Step alloc] initWithX:x y:y];
-		}
-	}
-	
-	nodes[sx][sy].cost = 0;
-	nodes[sx][sy].depth = 0;
-
-	closed = [NSMutableArray array];
-	open = [NSMutableArray arrayWithObjects:nodes[sx][sy], nil];
-	
-	nodes[tx][ty].parent = nil;
-	
-	int maxDepth = 0;
-	const int maxSearchDistance = 100;
-	
-	while((maxDepth < maxSearchDistance) && [open count] != 0) {
-		Step *current = [open firstObject];
-		
-		if(current == nodes[tx][ty]) {
-			break;
-		}
-		
-		[open removeObject:current];
-		[closed addObject:current];
-		
-		for (int x = -1; x < 2; x++) {
-			for (int y = -1; y < 2; y++) {
-				if ((x == 0) && (y == 0)) {
-					continue;
-				}
-				
-				if(x != 0 && y != 0) {
-					continue;
-				}
-				
-				int xp = x + (int)current.position.x;
-				int yp = y + (int)current.position.y;
-				
-				if([self isValidLocationSX:sx sy:sy x:xp y:yp]) {
-					float nextStepCost = current.cost + [self getCostSX:(int)current.position.x sy:(int)current.position.y tx:xp ty:yp];
-					Step *neighbour = nodes[xp][yp];
-					
-					if(nextStepCost < neighbour.cost) {
-						if([open containsObject:neighbour]) {
-							[open removeObject:neighbour];
-						}
-						
-						if([closed containsObject:neighbour]) {
-							[closed removeObject:neighbour];
-						}
-					}
-					
-					if(![open containsObject:neighbour] && ![closed containsObject:neighbour]) {
-						neighbour.cost = nextStepCost;
-						neighbour.heuristic = [self getCostSX:xp sy:yp tx:tx ty:ty];
-						maxDepth = MAX(maxDepth, [neighbour assignParent:current]);
-						
-						[open addObject:neighbour];
-						[open sortUsingSelector:@selector(compare:)];
-					}
-				}
-			}
-		}
-	}
-	
-	if(nodes[tx][ty].parent == nil) {
-		return nil;
-	}
-	
-	NSMutableArray *path = [NSMutableArray array];
-	Step *target = nodes[tx][ty];
-
-	while(target != nodes[sx][sy] ) {
-		[path insertObject:[Vector2 vectorWithX:target.position.x y:target.position.y] atIndex:0];
-		
-		target = target.parent;
-	}
-	
-	[path insertObject:[Vector2 vectorWithX:sx y:sy] atIndex:0];
-	
-	
-	return path;
-}
-
-- (BOOL)isBlockedX:(int)x y:(int)y {
-	return map[x][y] != 0;
-}
-
-- (float)getCostSX:(int)sx sy:(int)sy tx:(int)tx ty:(int)ty {
-	float dx = tx - sx;
-	float dy = ty - sy;
-	
-	return sqrtf(dx * dx + dy * dy);
-}
-
-- (BOOL)isValidLocationSX:(int)sx sy:(int)sy x:(int)x y:(int)y {
-	BOOL invalid = x < 0 || y < 0 || x >= WIDTH || y >= HEIGHT;
-	
-	if(!invalid && (sx != x || sy != y)) {
-		invalid = [self isBlockedX:x y:y];
-	}
-	
-	return !invalid;
+	[self.mainCamera.node.transform translateX:0.0f y:gameTime.elapsedGameTime * -50.0f];
 }
 
 @end

@@ -10,6 +10,9 @@
 #import "LogicSystem.h"
 #import "PhysicsSystem.h"
 #import "RenderSystem.h"
+#import "UISystem.h"
+
+#import "Engine.UI.h"
 
 // Actions
 #import "SceneAction.h"
@@ -19,3 +22,5 @@
 #import "DestroyNodeAction.h"
 
 #import "QuaternionExtensions.h"
+
+#import "GUIText.h"

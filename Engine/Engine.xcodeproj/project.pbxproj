@@ -48,6 +48,7 @@
 		97CD0EB31C16AEE100CEFF3F /* AnimatedSpriteRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E4B1C16986500CEFF3F /* AnimatedSpriteRenderer.m */; };
 		97CD390D1C1CD6F0008870FB /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD390C1C1CD6F0008870FB /* Camera.m */; };
 		97CD39191C1D0697008870FB /* StringLineReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD39181C1D0697008870FB /* StringLineReader.m */; };
+		97CD4F521C244F6000EF196B /* UISystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD4F511C244F6000EF196B /* UISystem.m */; };
 		97CD5E841C1A9899006D301C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 97CD5E831C1A9899006D301C /* Foundation.framework */; };
 		97CD6F561C1D4238001C8384 /* QuaternionExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD6F551C1D4238001C8384 /* QuaternionExtensions.m */; };
 		97CD6F5A1C1D4691001C8384 /* MathUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD6F591C1D4691001C8384 /* MathUtil.m */; };
@@ -64,6 +65,10 @@
 		97D53A301C1B44F60066965B /* ICollisionListener.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2131C193FBB0020D969 /* ICollisionListener.h */; };
 		97D53A311C1B44F60066965B /* ICollider.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2141C19412F0020D969 /* ICollider.h */; };
 		97D53A321C1B44F60066965B /* CollisionMatrix.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2151C1953700020D969 /* CollisionMatrix.h */; };
+		97DB5CBC1C26B260008E678F /* GUIText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CBB1C26B260008E678F /* GUIText.m */; };
+		97DB5CBF1C26B287008E678F /* GUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CBE1C26B287008E678F /* GUIImage.m */; };
+		97DB5CC51C26B33D008E678F /* GUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CC41C26B33D008E678F /* GUIButton.m */; };
+		97DB5CC81C26B38F008E678F /* GUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CC71C26B38F008E678F /* GUICheckBox.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -146,6 +151,11 @@
 		97CD390C1C1CD6F0008870FB /* Camera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Camera.m; sourceTree = "<group>"; };
 		97CD39171C1D0697008870FB /* StringLineReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringLineReader.h; sourceTree = "<group>"; };
 		97CD39181C1D0697008870FB /* StringLineReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StringLineReader.m; sourceTree = "<group>"; };
+		97CD4F501C244F6000EF196B /* UISystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISystem.h; sourceTree = "<group>"; };
+		97CD4F511C244F6000EF196B /* UISystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISystem.m; sourceTree = "<group>"; };
+		97CD4F5B1C2457FF00EF196B /* Engine.UI.classes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Engine.UI.classes.h; sourceTree = "<group>"; };
+		97CD4F5C1C24580B00EF196B /* Engine.UI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Engine.UI.h; sourceTree = "<group>"; };
+		97CD4F5D1C2458F500EF196B /* IUIComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IUIComponent.h; sourceTree = "<group>"; };
 		97CD5E831C1A9899006D301C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		97CD6F541C1D4238001C8384 /* QuaternionExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuaternionExtensions.h; sourceTree = "<group>"; };
 		97CD6F551C1D4238001C8384 /* QuaternionExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuaternionExtensions.m; sourceTree = "<group>"; };
@@ -162,6 +172,14 @@
 		97D161BB1C17C4A100FBD297 /* RigidBody2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RigidBody2D.m; sourceTree = "<group>"; };
 		97D161C21C17CFB100FBD297 /* CircleCollider2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleCollider2D.h; sourceTree = "<group>"; };
 		97D161C31C17CFB100FBD297 /* CircleCollider2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleCollider2D.m; sourceTree = "<group>"; };
+		97DB5CBA1C26B260008E678F /* GUIText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIText.h; sourceTree = "<group>"; };
+		97DB5CBB1C26B260008E678F /* GUIText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUIText.m; sourceTree = "<group>"; };
+		97DB5CBD1C26B287008E678F /* GUIImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIImage.h; sourceTree = "<group>"; };
+		97DB5CBE1C26B287008E678F /* GUIImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUIImage.m; sourceTree = "<group>"; };
+		97DB5CC31C26B33D008E678F /* GUIButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUIButton.h; sourceTree = "<group>"; };
+		97DB5CC41C26B33D008E678F /* GUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUIButton.m; sourceTree = "<group>"; };
+		97DB5CC61C26B38F008E678F /* GUICheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUICheckBox.h; sourceTree = "<group>"; };
+		97DB5CC71C26B38F008E678F /* GUICheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUICheckBox.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +201,8 @@
 				97CD0E871C16A94000CEFF3F /* Engine.h */,
 				97CD39161C1D067A008870FB /* Util */,
 				97CD0E7D1C16989100CEFF3F /* Core */,
+				97D161B91C17C47C00FBD297 /* Physics */,
+				97CD4F541C2456A900EF196B /* UI */,
 				97CD0E7C1C16987D00CEFF3F /* Graphics */,
 			);
 			path = Engine;
@@ -212,12 +232,12 @@
 				97CD0E851C16A55800CEFF3F /* Engine.Core.h */,
 				97CD0E7F1C1698CB00CEFF3F /* Systems */,
 				97CD0E7E1C1698A400CEFF3F /* Actions */,
-				97D161B91C17C47C00FBD297 /* Physics */,
 				97CD0E791C16986500CEFF3F /* Transform.h */,
 				97CD0E7A1C16986500CEFF3F /* Transform.m */,
 				97CD0E621C16986500CEFF3F /* ISceneListener.h */,
 				97CD0E5E1C16986500CEFF3F /* IDrawableComponent.h */,
 				97CD0E5F1C16986500CEFF3F /* INodeComponent.h */,
+				97CD4F5D1C2458F500EF196B /* IUIComponent.h */,
 				97CD0E651C16986500CEFF3F /* Node.h */,
 				97CD0E661C16986500CEFF3F /* Node.m */,
 				97CD0E6F1C16986500CEFF3F /* Scene.h */,
@@ -255,6 +275,8 @@
 				97CD0E681C16986500CEFF3F /* PhysicsSystem.m */,
 				97CD0E6B1C16986500CEFF3F /* RenderSystem.h */,
 				97CD0E6C1C16986500CEFF3F /* RenderSystem.m */,
+				97CD4F501C244F6000EF196B /* UISystem.h */,
+				97CD4F511C244F6000EF196B /* UISystem.m */,
 			);
 			name = Systems;
 			sourceTree = "<group>";
@@ -270,6 +292,23 @@
 				97CD6F591C1D4691001C8384 /* MathUtil.m */,
 			);
 			name = Util;
+			sourceTree = "<group>";
+		};
+		97CD4F541C2456A900EF196B /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				97CD4F5B1C2457FF00EF196B /* Engine.UI.classes.h */,
+				97CD4F5C1C24580B00EF196B /* Engine.UI.h */,
+				97DB5CBA1C26B260008E678F /* GUIText.h */,
+				97DB5CBB1C26B260008E678F /* GUIText.m */,
+				97DB5CBD1C26B287008E678F /* GUIImage.h */,
+				97DB5CBE1C26B287008E678F /* GUIImage.m */,
+				97DB5CC31C26B33D008E678F /* GUIButton.h */,
+				97DB5CC41C26B33D008E678F /* GUIButton.m */,
+				97DB5CC61C26B38F008E678F /* GUICheckBox.h */,
+				97DB5CC71C26B38F008E678F /* GUICheckBox.m */,
+			);
+			name = UI;
 			sourceTree = "<group>";
 		};
 		97D058211BF533E6001D6E87 = {
@@ -407,6 +446,7 @@
 				97CD6F5C1C1D4A14001C8384 /* QuaternionExtensions.h in Sources */,
 				97CD6F5D1C1D4A14001C8384 /* MathUtil.h in Sources */,
 				97CD6F5E1C1D4A14001C8384 /* Camera.h in Sources */,
+				97DB5CC81C26B38F008E678F /* GUICheckBox.m in Sources */,
 				97D53A2F1C1B44F60066965B /* CircleCollider2D.h in Sources */,
 				97D53A301C1B44F60066965B /* ICollisionListener.h in Sources */,
 				97D53A311C1B44F60066965B /* ICollider.h in Sources */,
@@ -427,6 +467,7 @@
 				97CD0E951C16AEE100CEFF3F /* SceneAction.h in Sources */,
 				97CD0E961C16AEE100CEFF3F /* SceneAction.m in Sources */,
 				97CD0E971C16AEE100CEFF3F /* ISceneAction.h in Sources */,
+				97CD4F521C244F6000EF196B /* UISystem.m in Sources */,
 				97CD0E981C16AEE100CEFF3F /* RemoveComponentAction.h in Sources */,
 				97CD39191C1D0697008870FB /* StringLineReader.m in Sources */,
 				97CD0E991C16AEE100CEFF3F /* RemoveComponentAction.m in Sources */,
@@ -435,6 +476,7 @@
 				97CD0E9B1C16AEE100CEFF3F /* CreateNodeAction.m in Sources */,
 				97CD0E9C1C16AEE100CEFF3F /* DestroyNodeAction.h in Sources */,
 				97CD0E9D1C16AEE100CEFF3F /* DestroyNodeAction.m in Sources */,
+				97DB5CBC1C26B260008E678F /* GUIText.m in Sources */,
 				97CD0E9E1C16AEE100CEFF3F /* AddComponentAction.h in Sources */,
 				97CD0E9F1C16AEE100CEFF3F /* AddComponentAction.m in Sources */,
 				97CD390D1C1CD6F0008870FB /* Camera.m in Sources */,
@@ -443,6 +485,8 @@
 				97CD0EA21C16AEE100CEFF3F /* ISceneListener.h in Sources */,
 				97CD6F561C1D4238001C8384 /* QuaternionExtensions.m in Sources */,
 				97CD0EA31C16AEE100CEFF3F /* IDrawableComponent.h in Sources */,
+				97DB5CBF1C26B287008E678F /* GUIImage.m in Sources */,
+				97DB5CC51C26B33D008E678F /* GUIButton.m in Sources */,
 				97CD0EA41C16AEE100CEFF3F /* INodeComponent.h in Sources */,
 				97CD0EA61C16AEE100CEFF3F /* Node.h in Sources */,
 				97CD0EA71C16AEE100CEFF3F /* Node.m in Sources */,

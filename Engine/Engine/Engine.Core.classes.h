@@ -14,8 +14,11 @@
 #import "INodeComponent.h"
 #import "ISceneListener.h"
 #import "IDrawableComponent.h"
+#import "IUIComponent.h"
 #import "ICollider.h"
 #import "ICollisionListener.h"
+
+#import "Engine.UI.classes.h"
 
 // Systems
 @class LogicSystem;
@@ -30,3 +33,4 @@
 @class DestroyNodeAction;
 
 #import "ISceneAction.h"
+

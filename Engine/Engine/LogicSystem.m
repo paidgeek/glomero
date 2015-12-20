@@ -21,6 +21,10 @@
 
 - (void) updateNode:(Node *) node gameTime:(GameTime *) gameTime {
 	for(id<INodeComponent> component in node.components) {
+		if([component conformsToProtocol:@protocol(IUIComponent)]) {
+			continue;
+		}
+		
 		if([component respondsToSelector:@selector(updateWithGameTime:)]) {
 			[component updateWithGameTime:gameTime];
 		}

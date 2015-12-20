@@ -1,0 +1,35 @@
+Duck
+  rotate: false
+  xy: 1, 19
+  size: 99, 95
+  orig: 99, 95
+  offset: 0, 0
+  index: -1
+ButtonNormal
+  rotate: false
+  xy: 1, 1
+  size: 48, 16
+  orig: 48, 16
+  offset: 0, 0
+  index: -1
+ButtonPressed
+  rotate: false
+  xy: 51, 3
+  size: 48, 14
+  orig: 48, 14
+  offset: 0, 0
+  index: -1
+Box
+  rotate: false
+  xy: 102, 100
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
+CheckedBox
+  rotate: false
+  xy: 102, 84
+  size: 14, 14
+  orig: 14, 14
+  offset: 0, 0
+  index: -1
