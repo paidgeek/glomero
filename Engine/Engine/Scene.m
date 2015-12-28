@@ -36,6 +36,17 @@ static Scene *instance;
 		uiSystem = [[UISystem alloc] initWithGame:self.game
 														scene:self];
 		
+		for (id comp in self.game.components) {
+			if([comp class] == [Scene class] ||
+				[comp class] == [LogicSystem class] ||
+				[comp class] == [RenderSystem class] ||
+				[comp class] == [UISystem class] ||
+				[comp class] == [PhysicsSystem class])
+			{
+				[comp setEnabled:NO];
+			}
+		}
+		
 		[[self.game components] addComponent:self];
 	}
 	
@@ -43,10 +54,10 @@ static Scene *instance;
 }
 
 - (void) initialize {
-	[[self.game components] addComponent:logicSystem];
-	[[self.game components] addComponent:renderSystem];
-	[[self.game components] addComponent:uiSystem];
-	[[self.game components] addComponent:physicsSystem];
+	[self.game.components addComponent:logicSystem];
+	[self.game.components addComponent:renderSystem];
+	[self.game.components addComponent:uiSystem];
+	[self.game.components addComponent:physicsSystem];
 
 	self.updateOrder = 0;
 	logicSystem.updateOrder = 1;

@@ -69,6 +69,7 @@
 		97DB5CBF1C26B287008E678F /* GUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CBE1C26B287008E678F /* GUIImage.m */; };
 		97DB5CC51C26B33D008E678F /* GUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CC41C26B33D008E678F /* GUIButton.m */; };
 		97DB5CC81C26B38F008E678F /* GUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CC71C26B38F008E678F /* GUICheckBox.m */; };
+		97DE51741C307B0A00356EC2 /* GUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DE51731C307B0A00356EC2 /* GUISlider.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -180,6 +181,8 @@
 		97DB5CC41C26B33D008E678F /* GUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUIButton.m; sourceTree = "<group>"; };
 		97DB5CC61C26B38F008E678F /* GUICheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUICheckBox.h; sourceTree = "<group>"; };
 		97DB5CC71C26B38F008E678F /* GUICheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUICheckBox.m; sourceTree = "<group>"; };
+		97DE51721C307B0A00356EC2 /* GUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISlider.h; sourceTree = "<group>"; };
+		97DE51731C307B0A00356EC2 /* GUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUISlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +310,8 @@
 				97DB5CC41C26B33D008E678F /* GUIButton.m */,
 				97DB5CC61C26B38F008E678F /* GUICheckBox.h */,
 				97DB5CC71C26B38F008E678F /* GUICheckBox.m */,
+				97DE51721C307B0A00356EC2 /* GUISlider.h */,
+				97DE51731C307B0A00356EC2 /* GUISlider.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -454,6 +459,7 @@
 				97D161BD1C17C71700FBD297 /* RigidBody2D.h in Sources */,
 				97CD0E8C1C16AEE100CEFF3F /* Engine.h in Sources */,
 				97D161BC1C17C4A100FBD297 /* RigidBody2D.m in Sources */,
+				97DE51741C307B0A00356EC2 /* GUISlider.m in Sources */,
 				97CD0E8D1C16AEE100CEFF3F /* Engine.Core.classes.h in Sources */,
 				97CD0E8E1C16AEE100CEFF3F /* Engine.Core.h in Sources */,
 				97CD0E8F1C16AEE100CEFF3F /* LogicSystem.h in Sources */,

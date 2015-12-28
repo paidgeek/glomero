@@ -28,10 +28,13 @@
 		97CFB2E41BF29AEC004C8E6F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BEB1BD5911A0083EE47 /* OpenGLES.framework */; };
 		97CFB2E51BF29AF0004C8E6F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BED1BD591200083EE47 /* QuartzCore.framework */; };
 		97D0584F1BF5345F001D6E87 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D0584A1BF533E7001D6E87 /* libEngine.a */; };
-		97DB5CCF1C26C875008E678F /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97DB5CCD1C26C875008E678F /* UI.atlas */; };
-		97DB5CD01C26C875008E678F /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 97DB5CCE1C26C875008E678F /* UI.png */; };
+		97D06C2F1C3015AF006B72A2 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D06C2E1C3015AF006B72A2 /* MainMenu.m */; };
+		97D06C331C301973006B72A2 /* SettingsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D06C321C301973006B72A2 /* SettingsMenu.m */; };
 		97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CD21C26CE74008E678F /* ButtonText.m */; };
 		97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 97DB5CD61C26D856008E678F /* BitBold.bmp */; };
+		97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DCC5941C3190A4005B2599 /* CreditsMenu.m */; };
+		97DE517C1C30807B00356EC2 /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97DE517A1C30807B00356EC2 /* UI.atlas */; };
+		97DE517D1C30807B00356EC2 /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 97DE517B1C30807B00356EC2 /* UI.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,13 +81,19 @@
 		97CDFCAD1BF8E85C00434CDF /* TINR.Glomero.classes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.classes.h; sourceTree = "<group>"; };
 		97CDFCAE1BF8E87700434CDF /* TINR.Glomero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.h; sourceTree = "<group>"; };
 		97D058441BF533E6001D6E87 /* Engine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Engine.xcodeproj; path = Engine/Engine.xcodeproj; sourceTree = "<group>"; };
+		97D06C2D1C3015AF006B72A2 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		97D06C2E1C3015AF006B72A2 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
+		97D06C311C301973006B72A2 /* SettingsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsMenu.h; sourceTree = "<group>"; };
+		97D06C321C301973006B72A2 /* SettingsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsMenu.m; sourceTree = "<group>"; };
 		97D85CD51C093C2A001EFE5F /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		97D85CD61C093C2A001EFE5F /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
-		97DB5CCD1C26C875008E678F /* UI.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UI.atlas; path = Glomero/UI.atlas; sourceTree = "<group>"; };
-		97DB5CCE1C26C875008E678F /* UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UI.png; path = Glomero/UI.png; sourceTree = "<group>"; };
 		97DB5CD11C26CE74008E678F /* ButtonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonText.h; sourceTree = "<group>"; };
 		97DB5CD21C26CE74008E678F /* ButtonText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonText.m; sourceTree = "<group>"; };
 		97DB5CD61C26D856008E678F /* BitBold.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = BitBold.bmp; path = Glomero/BitBold.bmp; sourceTree = "<group>"; };
+		97DCC5931C3190A4005B2599 /* CreditsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsMenu.h; sourceTree = "<group>"; };
+		97DCC5941C3190A4005B2599 /* CreditsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsMenu.m; sourceTree = "<group>"; };
+		97DE517A1C30807B00356EC2 /* UI.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UI.atlas; path = Glomero/UI.atlas; sourceTree = "<group>"; };
+		97DE517B1C30807B00356EC2 /* UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UI.png; path = Glomero/UI.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +175,7 @@
 		973E4BF31BD591970083EE47 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				97D06C301C30192F006B72A2 /* Menu */,
 				973E4BF01BD5918F0083EE47 /* Glomero.h */,
 				973E4BF11BD5918F0083EE47 /* Glomero.m */,
 				97D85CD51C093C2A001EFE5F /* MainScene.h */,
@@ -182,8 +192,8 @@
 		97CDFCB31BF8EA8100434CDF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				97DB5CCD1C26C875008E678F /* UI.atlas */,
-				97DB5CCE1C26C875008E678F /* UI.png */,
+				97DE517A1C30807B00356EC2 /* UI.atlas */,
+				97DE517B1C30807B00356EC2 /* UI.png */,
 				97CD391A1C1D0F49008870FB /* World.atlas */,
 				97DB5CD61C26D856008E678F /* BitBold.bmp */,
 				97CD391B1C1D0F49008870FB /* World.png */,
@@ -199,6 +209,19 @@
 				97D0584A1BF533E7001D6E87 /* libEngine.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		97D06C301C30192F006B72A2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				97D06C2D1C3015AF006B72A2 /* MainMenu.h */,
+				97D06C2E1C3015AF006B72A2 /* MainMenu.m */,
+				97D06C311C301973006B72A2 /* SettingsMenu.h */,
+				97D06C321C301973006B72A2 /* SettingsMenu.m */,
+				97DCC5931C3190A4005B2599 /* CreditsMenu.h */,
+				97DCC5941C3190A4005B2599 /* CreditsMenu.m */,
+			);
+			name = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,14 +298,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97DE517C1C30807B00356EC2 /* UI.atlas in Resources */,
 				97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */,
-				97DB5CCF1C26C875008E678F /* UI.atlas in Resources */,
 				97CD39151C1CEDDD008870FB /* Entities.png in Resources */,
 				97CD39141C1CEDDD008870FB /* Entities.atlas in Resources */,
 				97CD391C1C1D0F49008870FB /* World.atlas in Resources */,
 				97CD391D1C1D0F49008870FB /* World.png in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
-				97DB5CD01C26C875008E678F /* UI.png in Resources */,
+				97DE517D1C30807B00356EC2 /* UI.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,10 +320,13 @@
 				97CD610D1C1AA177006D301C /* Glomero.h in Sources */,
 				97CD610E1C1AA177006D301C /* Glomero.m in Sources */,
 				97CD610F1C1AA177006D301C /* MainScene.h in Sources */,
+				97D06C331C301973006B72A2 /* SettingsMenu.m in Sources */,
 				97CD61101C1AA177006D301C /* MainScene.m in Sources */,
+				97D06C2F1C3015AF006B72A2 /* MainMenu.m in Sources */,
 				97CD61111C1AA177006D301C /* Player.h in Sources */,
 				97CD61121C1AA177006D301C /* Player.m in Sources */,
 				97CD61131C1AA177006D301C /* Constants.h in Sources */,
+				97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */,
 				97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

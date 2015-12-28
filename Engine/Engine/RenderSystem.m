@@ -25,7 +25,7 @@
 }
 
 - (void) drawWithGameTime:(GameTime *)gameTime {
-	[self.game.graphicsDevice clearWithColor:[Color cornflowerBlue]];
+	[self.game.graphicsDevice clearWithColor:scene.mainCamera.color];
 	
 	Matrix *viewProjection = [scene.mainCamera getViewProjection];
 	

@@ -6,3 +6,4 @@
 #import "GUIImage.h"
 #import "GUIButton.h"
 #import "GUICheckBox.h"
+#import "GUISlider.h"

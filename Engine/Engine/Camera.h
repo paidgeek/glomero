@@ -5,5 +5,6 @@
 - (Matrix *) getViewProjection;
 
 @property (nonatomic, strong) Matrix *projection;
+@property (nonatomic, strong) Color *color;
 
 @end

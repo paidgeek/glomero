@@ -9,7 +9,7 @@
 
 @implementation Camera
 
-@synthesize node, projection;
+@synthesize node, projection, color;
 
 - (id) initWithNode:(Node *)theNode {
 	self = [super init];
@@ -17,6 +17,7 @@
 	if(self) {
 		node = theNode;
 		projection = [Matrix identity];
+		color = [Color black];
 		[self resize];
 	}
 	

@@ -14,21 +14,35 @@ ButtonNormal
   index: -1
 ButtonPressed
   rotate: false
+  xy: 102, 100
+  size: 48, 14
+  orig: 48, 14
+  offset: 0, 0
+  index: -1
+SliderBackground
+  rotate: false
   xy: 51, 3
   size: 48, 14
   orig: 48, 14
   offset: 0, 0
   index: -1
+SliderThumb
+  rotate: false
+  xy: 102, 80
+  size: 12, 18
+  orig: 12, 18
+  offset: 0, 0
+  index: -1
 Box
   rotate: false
-  xy: 102, 100
+  xy: 152, 100
   size: 14, 14
   orig: 14, 14
   offset: 0, 0
   index: -1
 CheckedBox
   rotate: false
-  xy: 102, 84
+  xy: 116, 84
   size: 14, 14
   orig: 14, 14
   offset: 0, 0

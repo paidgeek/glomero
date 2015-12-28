@@ -16,3 +16,4 @@ typedef enum {
 @class GUIImage;
 @class GUIButton;
 @class GUICheckBox;
+@class GUISlider;

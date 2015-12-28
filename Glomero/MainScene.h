@@ -3,8 +3,4 @@
 
 @interface MainScene : Scene
 
-@property (nonatomic, strong) TextureAtlas *worldAtlas;
-@property (nonatomic, strong) TextureAtlas *entitiesAtlas;
-@property (nonatomic, strong) TextureAtlas *uiAtlas;
-
 @end
