@@ -23,6 +23,8 @@ static Glomero *instance;
 }
 
 - (void)loadContent {
+	[PlayerPrefs load];
+	
 	worldAtlas = [TextureAtlas loadWithContentManager:self.content
 														 atlasName:@"World"];
 	entitiesAtlas = [TextureAtlas loadWithContentManager:self.content
@@ -38,6 +40,10 @@ static Glomero *instance;
 }
 
 - (void)enterScene:(Class)sceneClass {
+	if(currentScene) {
+		[currentScene onExit];
+	}
+	
 	currentScene = [[sceneClass alloc] initWithGame:self];
 }
 

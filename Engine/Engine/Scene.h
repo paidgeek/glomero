@@ -7,6 +7,7 @@
 - (Node *) createNodeWithParent:(Node *) parent;
 - (void) destroyNode:(Node *) node;
 - (void) addAction:(id<ISceneAction>) action;
+- (void) onExit;
 
 @property (nonatomic, strong) Node *root;
 @property (nonatomic, strong) NSMutableArray *sceneListeners;

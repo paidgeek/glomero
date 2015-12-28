@@ -45,8 +45,9 @@
 			
 			if(touch.identifier == pressedId) {
 				if(touch.state == TouchLocationStateMoved) {
-					wasChanged = YES;
 					value = (point.x - inputArea.x) / (float) inputArea.width;
+				} else if(touch.state == TouchLocationStateReleased) {
+					wasChanged = YES;
 				}
 			}
 		}

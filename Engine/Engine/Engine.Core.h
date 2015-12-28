@@ -6,6 +6,8 @@
 #import "Camera.h"
 #import "CollisionMatrix.h"
 
+#import "PlayerPrefs.h"
+
 // Systems
 #import "LogicSystem.h"
 #import "PhysicsSystem.h"

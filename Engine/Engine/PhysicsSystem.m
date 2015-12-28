@@ -2,6 +2,8 @@
 #import "Engine.Core.h"
 #import "Express.Physics.h"
 
+#import "QuadTree.h"
+
 @implementation PhysicsSystem {
 	Scene *scene;
 	NSMutableArray *bodies;

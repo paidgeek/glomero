@@ -3,6 +3,7 @@
 #import "Express.Physics.h"
 #import "Express.Scene.Objects.h"
 
+@class PlayerPrefs;
 @class Transform;
 @class Node;
 @class Scene;

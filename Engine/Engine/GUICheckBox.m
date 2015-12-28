@@ -48,12 +48,12 @@
 				if(touch.state == TouchLocationStateReleased) {
 					wasChanged = YES;
 					isChecked = !isChecked;
-					
-					sprite = isChecked ? checkedSprite : normalSprite;
 				}
 			}
 		}
 	}
+	
+	sprite = isChecked ? checkedSprite : normalSprite;
 }
 
 - (void)drawWithGameTime:(GameTime *)gameTime spriteBatch:(SpriteBatch *)spriteBatch {

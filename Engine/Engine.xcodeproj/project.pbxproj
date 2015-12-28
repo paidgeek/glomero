@@ -69,6 +69,7 @@
 		97DB5CBF1C26B287008E678F /* GUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CBE1C26B287008E678F /* GUIImage.m */; };
 		97DB5CC51C26B33D008E678F /* GUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CC41C26B33D008E678F /* GUIButton.m */; };
 		97DB5CC81C26B38F008E678F /* GUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CC71C26B38F008E678F /* GUICheckBox.m */; };
+		97DCC59B1C31CDFA005B2599 /* PlayerPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DCC59A1C31CDFA005B2599 /* PlayerPrefs.m */; };
 		97DE51741C307B0A00356EC2 /* GUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DE51731C307B0A00356EC2 /* GUISlider.m */; };
 /* End PBXBuildFile section */
 
@@ -181,6 +182,8 @@
 		97DB5CC41C26B33D008E678F /* GUIButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUIButton.m; sourceTree = "<group>"; };
 		97DB5CC61C26B38F008E678F /* GUICheckBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUICheckBox.h; sourceTree = "<group>"; };
 		97DB5CC71C26B38F008E678F /* GUICheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUICheckBox.m; sourceTree = "<group>"; };
+		97DCC5991C31CDFA005B2599 /* PlayerPrefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPrefs.h; sourceTree = "<group>"; };
+		97DCC59A1C31CDFA005B2599 /* PlayerPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPrefs.m; sourceTree = "<group>"; };
 		97DE51721C307B0A00356EC2 /* GUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISlider.h; sourceTree = "<group>"; };
 		97DE51731C307B0A00356EC2 /* GUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUISlider.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +250,8 @@
 				97CD0E701C16986500CEFF3F /* Scene.m */,
 				97CD390B1C1CD6F0008870FB /* Camera.h */,
 				97CD390C1C1CD6F0008870FB /* Camera.m */,
+				97DCC5991C31CDFA005B2599 /* PlayerPrefs.h */,
+				97DCC59A1C31CDFA005B2599 /* PlayerPrefs.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				97CD0E9D1C16AEE100CEFF3F /* DestroyNodeAction.m in Sources */,
 				97DB5CBC1C26B260008E678F /* GUIText.m in Sources */,
 				97CD0E9E1C16AEE100CEFF3F /* AddComponentAction.h in Sources */,
+				97DCC59B1C31CDFA005B2599 /* PlayerPrefs.m in Sources */,
 				97CD0E9F1C16AEE100CEFF3F /* AddComponentAction.m in Sources */,
 				97CD390D1C1CD6F0008870FB /* Camera.m in Sources */,
 				97CD0EA01C16AEE100CEFF3F /* Transform.h in Sources */,

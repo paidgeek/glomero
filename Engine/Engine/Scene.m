@@ -71,6 +71,8 @@ static Scene *instance;
 	[super initialize];
 }
 
+- (void)onExit {}
+
 - (Node *) createNode {
 	return [self createNodeWithParent:root];
 }
