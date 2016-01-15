@@ -90,6 +90,7 @@ static Scene *instance;
 
 - (void) destroyNode:(Node *) node {
 	if(node != root) {
+		node.willBeDestroyed = YES;
 		[actions addObject:[SceneAction destroyNode:node]];
 	}
 }

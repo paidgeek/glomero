@@ -3,7 +3,7 @@
 
 @implementation Node
 
-@synthesize components, parent, children, transform;
+@synthesize components, parent, children, transform, willBeDestroyed, tag;
 
 - (id) init {
 	self = [super init];
@@ -11,6 +11,7 @@
 	if(self) {
 		components = [NSMutableArray array];
 		children = [NSMutableArray array];
+		willBeDestroyed = NO;
 	}
 	
 	return self;

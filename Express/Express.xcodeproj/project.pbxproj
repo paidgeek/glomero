@@ -63,6 +63,8 @@
 		97D04DEA1C21C6DD00F714A3 /* AAHalfPlane.h in Sources */ = {isa = PBXBuildFile; fileRef = B5F1BE1C128A13E500E4FDD5 /* AAHalfPlane.h */; };
 		97D04DEB1C21C6DD00F714A3 /* Polygon.h in Sources */ = {isa = PBXBuildFile; fileRef = B5D463ED12805C090029B3A6 /* Polygon.h */; };
 		97D04DEC1C21C6DD00F714A3 /* ConvexPolygon.h in Sources */ = {isa = PBXBuildFile; fileRef = B5D463F112805C210029B3A6 /* ConvexPolygon.h */; };
+		97D15E191C482B76003A3988 /* ParticleHalfPlaneCollision.h in Headers */ = {isa = PBXBuildFile; fileRef = 97D15E171C482B76003A3988 /* ParticleHalfPlaneCollision.h */; };
+		97D15E1A1C482B76003A3988 /* ParticleHalfPlaneCollision.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D15E181C482B76003A3988 /* ParticleHalfPlaneCollision.m */; };
 		97D161B31C17C22400FBD297 /* libArtificial.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D161AF1C17C1F400FBD297 /* libArtificial.a */; };
 		AA747D9F0F9514B9006C5449 /* Express_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* Express_Prefix.pch */; };
 		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
@@ -178,6 +180,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		97D15E171C482B76003A3988 /* ParticleHalfPlaneCollision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParticleHalfPlaneCollision.h; sourceTree = "<group>"; };
+		97D15E181C482B76003A3988 /* ParticleHalfPlaneCollision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParticleHalfPlaneCollision.m; sourceTree = "<group>"; };
 		97D161A91C17C1F400FBD297 /* Artificial I.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "Artificial I.xcodeproj"; path = "../Artificial I/Artificial I.xcodeproj"; sourceTree = "<group>"; };
 		AA747D9E0F9514B9006C5449 /* Express_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Express_Prefix.pch; sourceTree = SOURCE_ROOT; };
 		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -491,6 +495,8 @@
 			children = (
 				B506F55A129C73B9002270AC /* ICollisionAlgorithm.h */,
 				B5E1B80C1289AA0900A73888 /* Collision.h */,
+				97D15E171C482B76003A3988 /* ParticleHalfPlaneCollision.h */,
+				97D15E181C482B76003A3988 /* ParticleHalfPlaneCollision.m */,
 				B5E1B80D1289AA0900A73888 /* Collision.m */,
 				B506F58E129C765E002270AC /* CollisionAlgorithm.h */,
 				B506F58F129C765E002270AC /* CollisionAlgorithm.m */,
@@ -533,6 +539,7 @@
 				B542797C12770E580015E810 /* Express.Scene.Objects.h in Headers */,
 				B542797E12770E750015E810 /* Express.Scene.Objects.classes.h in Headers */,
 				B5F4180A1277B0DB0012BAF1 /* IVelocity.h in Headers */,
+				97D15E191C482B76003A3988 /* ParticleHalfPlaneCollision.h in Headers */,
 				B5F4180C1277B10B0012BAF1 /* IMovable.h in Headers */,
 				B5F418FC1277B93C0012BAF1 /* ILifetime.h in Headers */,
 				B5F418FF1277B9D90012BAF1 /* Lifetime.h in Headers */,
@@ -743,6 +750,7 @@
 				97D04DD91C21C6DD00F714A3 /* DebugRenderer.h in Sources */,
 				97D04DDA1C21C6DD00F714A3 /* Express.Physics.classes.h in Sources */,
 				97D04DDB1C21C6DD00F714A3 /* Express.Physics.h in Sources */,
+				97D15E1A1C482B76003A3988 /* ParticleHalfPlaneCollision.m in Sources */,
 				97D04DDC1C21C6DD00F714A3 /* MovementPhysics.h in Sources */,
 				97D04DDD1C21C6DD00F714A3 /* ICollisionAlgorithm.h in Sources */,
 				97D04DDE1C21C6DD00F714A3 /* Collision.h in Sources */,

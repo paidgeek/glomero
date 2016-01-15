@@ -1,8 +1,8 @@
 #import "TINR.Glomero.classes.h"
 
-@interface Player : NSObject<INodeComponent>
+@interface Player : NSObject<INodeComponent, ICollisionListener>
 
-@property (nonatomic, strong) NSMutableArray *path;
+@property (nonatomic, strong) RigidBody2D *rigidBody;
 
 + (Player *) getInstance;
 

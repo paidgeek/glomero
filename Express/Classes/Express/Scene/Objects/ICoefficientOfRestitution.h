@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@protocol ICoefficientOfRestitution
+@protocol ICoefficientOfRestitution <NSObject>
 
 @property (nonatomic) float coefficientOfRestitution;
 

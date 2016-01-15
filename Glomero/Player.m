@@ -1,13 +1,11 @@
 #import "Player.h"
 #import "TINR.Glomero.h"
 
-@implementation Player {
-	int pathIndex;
-}
+@implementation Player
 
 static Player *instance;
 
-@synthesize node, path;
+@synthesize node, rigidBody;
 
 - (id) initWithNode:(Node *) theNode {
 	self = [super init];
@@ -22,34 +20,25 @@ static Player *instance;
 }
 
 - (void) updateWithGameTime:(GameTime *)gameTime {
-	if(path != nil) {
-		Vector2 *wp = [path objectAtIndex:pathIndex];
+	TouchCollection *touches = [[TouchPanel getInstance] getState];
+	
+	for(TouchLocation *touch in touches) {
+		float dx = (touch.position.x - [Scene getInstance].game.gameWindow.clientBounds.width / 2.0f) * 0.1f;
 		
-		wp = [Vector2 multiply:wp by:128.0f];
-		
-		Vector2 *d = [Vector2 subtract:wp by:node.transform.position];
-		
-		if([d length] < 30) {
-			pathIndex++;
-			
-			if(pathIndex == [path count]) {
-				pathIndex = 0;
-				path = nil;
-			}
-			
-			return;
-		}
-		
-		[node.transform.position add:[Vector2 multiply:[Vector2 normalize:d] by:gameTime.elapsedGameTime * 1500]];
-		
-		if( [d length] < 30) {
-			pathIndex++;
-		}
-		
-		if(pathIndex == [path count]) {
-			pathIndex = 0;
-			path = nil;
-		}
+		[rigidBody.velocity add:[Vector2 vectorWithX:dx y:0.0f]];
+	}
+
+	rigidBody.velocity.y = -150;
+	[Scene getInstance].mainCamera.node.transform.position = node.transform.position;
+}
+
+- (void) onTriggerEnter:(RigidBody2D *)otherRigidBody {
+	if(otherRigidBody.node.layer == OBSTACLE_LAYER) {
+		[[Glomero getInstance].explosionSound play];
+		[[Glomero getInstance] enterScene:[MainMenu class]];
+	} else {
+		[[Glomero getInstance].coinSound play];
+		[[Scene getInstance] destroyNode:otherRigidBody.node];
 	}
 }
 

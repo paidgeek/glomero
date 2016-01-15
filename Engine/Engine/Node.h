@@ -12,5 +12,7 @@
 @property (nonatomic, strong) NSMutableArray *children;
 @property (nonatomic, strong) Transform *transform;
 @property (nonatomic) int layer;
+@property (nonatomic) BOOL willBeDestroyed;
+@property (nonatomic, strong) NSString *tag;
 
 @end

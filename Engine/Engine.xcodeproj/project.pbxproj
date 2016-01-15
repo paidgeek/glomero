@@ -57,6 +57,7 @@
 		97CD6F5D1C1D4A14001C8384 /* MathUtil.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD6F581C1D4691001C8384 /* MathUtil.h */; };
 		97CD6F5E1C1D4A14001C8384 /* Camera.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD390B1C1CD6F0008870FB /* Camera.h */; };
 		97CDE2171C1953700020D969 /* CollisionMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2161C1953700020D969 /* CollisionMatrix.m */; };
+		97D073BC1C36050300AAC880 /* BoxCollider2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D073BB1C36050300AAC880 /* BoxCollider2D.m */; };
 		97D161B41C17C24700FBD297 /* libExpress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D161A61C17C1EA00FBD297 /* libExpress.a */; };
 		97D161BC1C17C4A100FBD297 /* RigidBody2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D161BB1C17C4A100FBD297 /* RigidBody2D.m */; };
 		97D161BD1C17C71700FBD297 /* RigidBody2D.h in Sources */ = {isa = PBXBuildFile; fileRef = 97D161BA1C17C4A100FBD297 /* RigidBody2D.h */; };
@@ -169,6 +170,8 @@
 		97CDE2161C1953700020D969 /* CollisionMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionMatrix.m; sourceTree = "<group>"; };
 		97D0582A1BF533E6001D6E87 /* libEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D058561BF53579001D6E87 /* libXNI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXNI.a; path = ../XNI/libXNI.a; sourceTree = "<group>"; };
+		97D073BA1C36050300AAC880 /* BoxCollider2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoxCollider2D.h; sourceTree = "<group>"; };
+		97D073BB1C36050300AAC880 /* BoxCollider2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoxCollider2D.m; sourceTree = "<group>"; };
 		97D1619F1C17C1EA00FBD297 /* Express.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Express.xcodeproj; path = ../Express/Express.xcodeproj; sourceTree = "<group>"; };
 		97D161BA1C17C4A100FBD297 /* RigidBody2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RigidBody2D.h; sourceTree = "<group>"; };
 		97D161BB1C17C4A100FBD297 /* RigidBody2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RigidBody2D.m; sourceTree = "<group>"; };
@@ -368,6 +371,8 @@
 				97CDE2141C19412F0020D969 /* ICollider.h */,
 				97CDE2151C1953700020D969 /* CollisionMatrix.h */,
 				97CDE2161C1953700020D969 /* CollisionMatrix.m */,
+				97D073BA1C36050300AAC880 /* BoxCollider2D.h */,
+				97D073BB1C36050300AAC880 /* BoxCollider2D.m */,
 			);
 			name = Physics;
 			sourceTree = "<group>";
@@ -468,6 +473,7 @@
 				97CD0E8D1C16AEE100CEFF3F /* Engine.Core.classes.h in Sources */,
 				97CD0E8E1C16AEE100CEFF3F /* Engine.Core.h in Sources */,
 				97CD0E8F1C16AEE100CEFF3F /* LogicSystem.h in Sources */,
+				97D073BC1C36050300AAC880 /* BoxCollider2D.m in Sources */,
 				97CD0E901C16AEE100CEFF3F /* LogicSystem.m in Sources */,
 				97CDE2171C1953700020D969 /* CollisionMatrix.m in Sources */,
 				97CD0E911C16AEE100CEFF3F /* PhysicsSystem.h in Sources */,

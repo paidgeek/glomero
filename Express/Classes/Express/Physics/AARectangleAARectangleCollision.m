@@ -55,7 +55,7 @@
 	
 	// In a collision, energy is exchanged only along the collision normal.
 	// For particles this is simply the line between both centers.
-	[Collision exchangeEnergyBetween:aaRectangle1 and:aaRectangle2 along:collisionNormal];
+	[Collision exchangeEnergyBetween:aaRectangle1 and:aaRectangle2 along:collisionNormal pointOfImpact:nil];
 }
 
 @end

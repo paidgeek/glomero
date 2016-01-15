@@ -62,8 +62,8 @@
 }
 
 - (void) setNormal:(Vector2 *)value {
-	if ((value.x == 0 && value.y == 0) ||
-		(value.x != 0 && value.y != 0)) {
+	if (value.x == 0 && value.y == 0 ||
+		value.x != 0 && value.y != 0) {
 		[NSException raise:@"InvalidArgumentException" format:@"Axis aligned half plane requires an axis aligned normal"];
 	}
 	[super setNormal:value];

@@ -1,4 +1,5 @@
 #import "ButtonText.h"
+#import "TINR.Glomero.h"
 
 @implementation ButtonText {
 	GUIButton *button;
@@ -25,6 +26,10 @@
 		node.transform.position = [Vector2 vectorWithX:0.0f y:-1.5];
 	} else {
 		node.transform.position = [Vector2 vectorWithX:0.0f y:-3];
+	}
+	
+	if(button.wasReleased) {
+		[[Glomero getInstance].blibSound play];
 	}
 }
 

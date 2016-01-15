@@ -10,6 +10,7 @@
 @class Camera;
 @class RigidBody2D;
 @class CircleCollider2D;
+@class BoxCollider2D;
 @class CollisionMatrix;
 
 #import "INodeComponent.h"

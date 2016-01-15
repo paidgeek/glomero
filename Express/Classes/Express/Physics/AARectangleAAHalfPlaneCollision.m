@@ -54,7 +54,7 @@
 	// In a collision, energy is exchanged only along the collision normal.
 	// For particles this is simply the line between both centers.
 	Vector2 *collisionNormal = [[Vector2 vectorWithVector:relaxDistance] normalize];
-	[Collision exchangeEnergyBetween:aaRectangle and:aaHalfPlane along:collisionNormal];
+	[Collision exchangeEnergyBetween:aaRectangle and:aaHalfPlane along:collisionNormal pointOfImpact:nil];
 	
 }
 

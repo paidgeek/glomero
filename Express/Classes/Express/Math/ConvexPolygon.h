@@ -8,10 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Polygon.h"
-
-@interface ConvexPolygon : Polygon {
-
+@interface ConvexPolygon : NSObject {
+	NSArray *vertices;
+	NSArray *edges;
+	NSArray *halfPlanes;
 }
+
+- (id) initWithVertices:(NSArray*)theVertices;
+
++ (ConvexPolygon*) polygonWithVertices:(NSArray*)theVertices;
+
+@property (nonatomic, readonly) NSArray *vertices;
+@property (nonatomic, readonly) NSArray *edges;
+@property (nonatomic, readonly) NSArray *halfPlanes;
 
 @end

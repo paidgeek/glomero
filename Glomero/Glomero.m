@@ -8,7 +8,8 @@
 }
 
 static Glomero *instance;
-@synthesize currentScene, worldAtlas, entitiesAtlas, uiAtlas, font;
+@synthesize currentScene, worldAtlas, entitiesAtlas, uiAtlas, font,
+blibSound, coinSound, explosionSound, shootSound, hitSound;
 
 - (id) init {
 	self = [super init];
@@ -33,6 +34,12 @@ static Glomero *instance;
 													 atlasName:@"UI"];
 	FontTextureProcessor *fontProcessor = [[FontTextureProcessor alloc] init];
 	font = [self.content load:@"BitBold" processor:fontProcessor];
+	
+	blibSound = [self.content load:@"Blip"];
+	coinSound = [self.content load:@"Coin"];
+	explosionSound = [self.content load:@"Explosion"];
+	shootSound = [self.content load:@"Shoot"];
+	hitSound = [self.content load:@"Hit"];
 	
 	[super loadContent];
 	

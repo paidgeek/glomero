@@ -1,5 +1,5 @@
 //
-//  ParticleConvexCollision.h
+//  ParticleHalfPlaneCollision.h
 //  Express
 //
 //  Created by Matej Jan on 10.1.11.
@@ -10,7 +10,7 @@
 
 #import "CollisionAlgorithm.h"
 
-@interface ParticleConvexCollision : CollisionAlgorithm {
+@interface ParticleHalfPlaneCollision : CollisionAlgorithm {
 
 }
 

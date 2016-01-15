@@ -30,7 +30,7 @@
 	[Collision relaxCollisionBetween:particle and:aaRectangle by:relaxDistance];
 	
 	Vector2 *collisionNormal = [[Vector2 vectorWithVector:relaxDistance] normalize];
-	[Collision exchangeEnergyBetween:particle and:aaRectangle along:collisionNormal];
+	[Collision exchangeEnergyBetween:particle and:aaRectangle along:collisionNormal pointOfImpact:nil];
 	
 }
 

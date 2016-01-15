@@ -10,15 +10,24 @@
 #import "IRectangleSize.h"
 
 #import "IMass.h"
+#import "IAngularMass.h"
 #import "ICoefficientOfRestitution.h"
+#import "ICoefficientOfFriction.h"
 
 #import "IParticleCollider.h"
-#import "IParticle.h"
+
 #import "IHalfPlaneCollider.h"
 #import "IAAHalfPlaneCollider.h"
 #import "IRectangleCollider.h"
 #import "IAARectangleCollider.h"
+
+#import "IConvexCollider.h"
+
 #import "ICustomCollider.h"
+
+#import "IParticle.h"
+#import "IAARectangle.h"
+#import "ICircle.h"
 
 #import "ILifetime.h"
 #import "Lifetime.h"

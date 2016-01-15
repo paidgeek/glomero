@@ -4,14 +4,17 @@
 @protocol IRadius, IRectangleSize;
 
 @protocol IMass;
-@protocol ICoefficientOfRestition;
+@protocol IAngularMass;
+@protocol ICoefficientOfRestitution;
+@protocol ICoefficientOfFriction;
 
 @protocol IParticleCollider;
 @protocol IHalfPlaneCollider, IAAHalfPlaneCollider;
 @protocol IRectangleCollider, IAARectangleCollider;
+@protocol IConvexCollider;
 @protocol ICustomCollider;
 
-@protocol IParticle;
+@protocol IParticle, IAARectangle, ICircle;
 
 @protocol ILifetime;
 @class Lifetime;

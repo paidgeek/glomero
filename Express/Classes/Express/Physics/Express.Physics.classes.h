@@ -4,5 +4,9 @@
 @class Collision;
 
 @class ParticleParticleCollision;
-@class ParticleAAHalfPlaneCollision, ParticleAARectangleCollision, ParticleConvexCollision;
+
+@class ParticleAAHalfPlaneCollision, ParticleAARectangleCollision;
 @class AARectangleAAHalfPlaneCollision, AARectangleAARectangleCollision;
+
+@class ParticleHalfPlaneCollision
+@class ParticleConvexCollision;

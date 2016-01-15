@@ -138,6 +138,10 @@
 	
 	sliderLabel.text = [NSString stringWithFormat:@"%f", slider.value];
 	
+	testValue = slider.value;
+	soundOn = soundCB.isChecked;
+	musicOn = musicCB.isChecked;
+	
 	if(slider.wasChanged) {
 		[PlayerPrefs setFloatForKey:KEY_TEST_VALUE value:testValue];
 		[PlayerPrefs save];
@@ -152,10 +156,6 @@
 		[PlayerPrefs setIntForKey:KEY_MUSIC_ON value:musicOn];
 		[PlayerPrefs save];
 	}
-	
-	testValue = slider.value;
-	soundOn = soundCB.isChecked;
-	musicOn = musicCB.isChecked;
 }
 
 @end

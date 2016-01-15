@@ -14,9 +14,14 @@
 
 + (void) simulateMovementOn:(id)item withElapsed:(float)elapsed {
 	id<IMovable> movable = [item conformsToProtocol:@protocol(IMovable)] ? item : nil;
+	id<IRotatable> rotatable = [item conformsToProtocol:@protocol(IRotatable)] ? item : nil;
 	
 	if (movable) {
 		[movable.position add:[Vector2 multiply:movable.velocity by:elapsed]];
+	}	
+	
+	if (rotatable) {
+		rotatable.rotationAngle += rotatable.angularVelocity * elapsed;
 	}
 }
 

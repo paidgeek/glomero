@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "Express.Math.classes.h"
+
 @protocol IAAHalfPlaneCollider <NSObject>
 
 @property (nonatomic, readonly) AAHalfPlane *aaHalfPlane;

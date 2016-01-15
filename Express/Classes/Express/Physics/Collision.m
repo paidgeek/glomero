@@ -14,11 +14,55 @@
 @interface Collision ()
 
 + (void) collisionBetween:(id)item1 and:(id)item2 recurseInverse:(BOOL)recurse; 
+//+ (void) applyFrictionOn:(id<IVelocity>)item frictionSpeedChange:(float)frictionSpeedChange collisionTangent:(Vector2*)collisionTangent;
 
 @end
 
 
 @implementation Collision
+
++ (BOOL) detectCollisionBetween:(id)item1 and:(id)item2 {
+	id<IParticleCollider> item1Particle = [item1 conformsToProtocol:@protocol(IParticleCollider)] ? item1 : nil;
+	id<IAARectangleCollider> item1AARectangle = [item1 conformsToProtocol:@protocol(IAARectangleCollider)] ? item1 : nil;
+	
+	id<IParticleCollider> item2Particle = [item2 conformsToProtocol:@protocol(IParticleCollider)] ? item2 : nil;
+	id<IAAHalfPlaneCollider> item2AAHalfPlane = [item2 conformsToProtocol:@protocol(IAAHalfPlaneCollider)] ? item2 : nil;
+	id<IAARectangleCollider> item2AARectangle = [item2 conformsToProtocol:@protocol(IAARectangleCollider)] ? item2 : nil;
+	
+	id<IHalfPlaneCollider> item2HalfPlane = [item2 conformsToProtocol:@protocol(IHalfPlaneCollider)] ? item2 : nil;
+	id<IConvexCollider> item2Convex = [item2 conformsToProtocol:@protocol(IConvexCollider)] ? item2 : nil;
+	
+	if (item1Particle && item2Particle) {
+		return [ParticleParticleCollision detectCollisionBetween:item1Particle and:item2Particle];
+	} else if (item1Particle && item2AAHalfPlane) {
+		return [ParticleAAHalfPlaneCollision detectCollisionBetween:item1Particle and:item2AAHalfPlane];
+	} else if (item1Particle && item2AARectangle) {
+		return [ParticleAARectangleCollision detectCollisionBetween:item1Particle and:item2AARectangle];
+	} else if (item1AARectangle && item2AAHalfPlane) {
+		return [AARectangleAAHalfPlaneCollision detectCollisionBetween:item1AARectangle and:item2AAHalfPlane];
+	} else if (item1AARectangle && item2AARectangle) {
+		return [AARectangleAARectangleCollision detectCollisionBetween:item1AARectangle and:item2AARectangle];
+	} else if (item1Particle && item2HalfPlane) {
+		return [ParticleHalfPlaneCollision detectCollisionBetween:item1Particle and:item2HalfPlane];
+	} else if (item1Particle && item2Convex) {
+		return [ParticleConvexCollision detectCollisionBetween:item1Particle and:item2Convex];
+	}
+	
+	return NO;
+}
+
++ (void) reportCollisionBetween:(id)item1 and:(id)item2 {
+	id<ICustomCollider> customCollider1 = [item1 conformsToProtocol:@protocol(ICustomCollider)] ? item1 : nil;
+	id<ICustomCollider> customCollider2 = [item2 conformsToProtocol:@protocol(ICustomCollider)] ? item2 : nil;
+	
+	if (customCollider1 && [customCollider1 respondsToSelector:@selector(collidedWithItem:)]) {
+		[customCollider1 collidedWithItem:item2];
+	}
+	
+	if (customCollider2 && [customCollider2 respondsToSelector:@selector(collidedWithItem:)]) {
+		[customCollider2 collidedWithItem:item1];
+	}
+}
 
 + (void) collisionBetween:(id)item1 and:(id)item2 {
 	[Collision collisionBetween:item1 and:item2 recurseInverse:YES];
@@ -31,6 +75,9 @@
 	id<IParticleCollider> item2Particle = [item2 conformsToProtocol:@protocol(IParticleCollider)] ? item2 : nil;
 	id<IAAHalfPlaneCollider> item2AAHalfPlane = [item2 conformsToProtocol:@protocol(IAAHalfPlaneCollider)] ? item2 : nil;
 	id<IAARectangleCollider> item2AARectangle = [item2 conformsToProtocol:@protocol(IAARectangleCollider)] ? item2 : nil;
+	
+	id<IHalfPlaneCollider> item2HalfPlane = [item2 conformsToProtocol:@protocol(IHalfPlaneCollider)] ? item2 : nil;
+	id<IConvexCollider> item2Convex = [item2 conformsToProtocol:@protocol(IConvexCollider)] ? item2 : nil;
 	
 	if (item1Particle && item2Particle) {
 		[ParticleParticleCollision collisionBetween:item1Particle and:item2Particle];
@@ -47,34 +94,17 @@
 	} else if (item1AARectangle && item2AARectangle) {
 		[AARectangleAARectangleCollision collisionBetween:item1AARectangle and:item2AARectangle];
 		return;
+	} else if (item1Particle && item2HalfPlane) {
+		[ParticleHalfPlaneCollision collisionBetween:item1Particle and:item2HalfPlane];
+		return;
+	} else if (item1Particle && item2Convex) {
+		[ParticleConvexCollision collisionBetween:item1Particle and:item2Convex];
+		return;
 	}
 	
 	if (recurse) {
 		[Collision collisionBetween:item2 and:item1 recurseInverse:NO];
 	}
-}
-
-+ (BOOL) detectCollisionBetween:(id)item1 and:(id)item2 {
-	id<IParticleCollider> item1Particle = [item1 conformsToProtocol:@protocol(IParticleCollider)] ? item1 : nil;
-	id<IAARectangleCollider> item1AARectangle = [item1 conformsToProtocol:@protocol(IAARectangleCollider)] ? item1 : nil;
-	
-	id<IParticleCollider> item2Particle = [item2 conformsToProtocol:@protocol(IParticleCollider)] ? item2 : nil;
-	id<IAAHalfPlaneCollider> item2AAHalfPlane = [item2 conformsToProtocol:@protocol(IAAHalfPlaneCollider)] ? item2 : nil;
-	id<IAARectangleCollider> item2AARectangle = [item2 conformsToProtocol:@protocol(IAARectangleCollider)] ? item2 : nil;
-	
-	if (item1Particle && item2Particle) {
-		return [ParticleParticleCollision detectCollisionBetween:item1Particle and:item2Particle];
-	} else if (item1Particle && item2AAHalfPlane) {
-		return [ParticleAAHalfPlaneCollision detectCollisionBetween:item1Particle and:item2AAHalfPlane];
-	} else if (item1Particle && item2AARectangle) {
-		return [ParticleAARectangleCollision detectCollisionBetween:item1Particle and:item2AARectangle];
-	} else if (item1AARectangle && item2AAHalfPlane) {
-		return [AARectangleAAHalfPlaneCollision detectCollisionBetween:item1AARectangle and:item2AAHalfPlane];
-	} else if (item1AARectangle && item2AARectangle) {
-		return [AARectangleAARectangleCollision detectCollisionBetween:item1AARectangle and:item2AARectangle];
-	}
-	
-	return NO;
 }
 
 + (void) collisionBetween:(id)item1 and:(id)item2 usingAlgorithm:(Class)collisionAlgorithm {
@@ -103,20 +133,6 @@
 	
 	return result;
 }
-
-+ (void) reportCollisionBetween:(id)item1 and:(id)item2 {
-	id<ICustomCollider> customCollider1 = [item1 conformsToProtocol:@protocol(ICustomCollider)] ? item1 : nil;
-	id<ICustomCollider> customCollider2 = [item2 conformsToProtocol:@protocol(ICustomCollider)] ? item2 : nil;
-	
-	if (customCollider1 && [customCollider1 respondsToSelector:@selector(collidedWithItem:)]) {
-		[customCollider1 collidedWithItem:item2];
-	}
-	
-	if (customCollider2 && [customCollider2 respondsToSelector:@selector(collidedWithItem:)]) {
-		[customCollider2 collidedWithItem:item1];
-	}
-}
-
 
 + (void) relaxCollisionBetween:(id)item1 and:(id)item2 by:(Vector2*)relaxDistance {
 	// We have to ask, how far we move each item. The default is each half way, but we try to take
@@ -164,15 +180,45 @@
 	}
 }
 
-+ (void) exchangeEnergyBetween:(id<NSObject>)item1 and:(id<NSObject>)item2 along:(Vector2*)collisionNormal {
++ (void) exchangeEnergyBetween:(id)item1 and:(id)item2 along:(Vector2*)collisionNormal pointOfImpact:(Vector2*)pointOfImpact{
 	// We calculate exchange of energy in a collision with respect to items' momentum. Momentum is mass times
 	// velocity so the items need to conform both to IMass and IVelocity. If one of the items does not, it's
 	// considered as though there is a collision with a static object.
-	id <IVelocity> itemWithVelocity1 = [item1 conformsToProtocol:@protocol(IVelocity)] ? (id<IVelocity>)item1 : nil;
-	id <IVelocity> itemWithVelocity2 = [item2 conformsToProtocol:@protocol(IVelocity)] ? (id<IVelocity>)item2 : nil;
+	id <IPosition> item1WithPosition = [item1 conformsToProtocol:@protocol(IPosition)] ? item1 : nil;
+	id <IMovable> movableItem1 = [item1 conformsToProtocol:@protocol(IMovable)] ? item1 : nil;
+	id <IRotatable> rotatableItem1 = [item1 conformsToProtocol:@protocol(IRotatable)] ? item1 : nil;
+
+	id <IPosition> item2WithPosition = [item2 conformsToProtocol:@protocol(IPosition)] ? item2 : nil;
+	id <IMovable> movableItem2 = [item2 conformsToProtocol:@protocol(IMovable)] ? item2 : nil;
+	id <IRotatable> rotatableItem2 = [item2 conformsToProtocol:@protocol(IRotatable)] ? item2 : nil;
 	
-	Vector2 *velocity1 = itemWithVelocity1 ? itemWithVelocity1.velocity : nil;
-	Vector2 *velocity2 = itemWithVelocity2 ? itemWithVelocity2.velocity : nil;
+	// Velocity due to translation.
+	Vector2 *velocity1 = movableItem1 ? [Vector2 vectorWithVector:movableItem1.velocity] : [Vector2 zero];
+	Vector2 *velocity2 = movableItem2 ? [Vector2 vectorWithVector:movableItem2.velocity] : [Vector2 zero];
+	
+	//Velocity due to rotation.
+	Vector2 *lever1 = nil;
+	Vector2 *lever2 = nil;
+	Vector2 *tangentialDirection1 = nil;
+	Vector2 *tangentialDirection2 = nil;
+	
+	if (pointOfImpact) {
+		if (item1WithPosition && rotatableItem1) {
+			lever1 = [Vector2 subtract:pointOfImpact by:item1WithPosition.position];
+			tangentialDirection1 = [[Vector2 vectorWithX:-lever1.y y:lever1.x] normalize];
+			Vector2 *rotationalVelocity = [Vector2 multiply:tangentialDirection1 by:[lever1 length] * rotatableItem1.angularVelocity];
+			[velocity1 add:rotationalVelocity];
+		}
+		if (item2WithPosition && rotatableItem2) {
+			lever2 = [Vector2 subtract:pointOfImpact by:item2WithPosition.position];
+			tangentialDirection2 = [[Vector2 vectorWithX:-lever2.y y:lever2.x] normalize];
+			Vector2 *rotationalVelocity = [Vector2 multiply:tangentialDirection2 by:[lever2 length] * rotatableItem2.angularVelocity];
+			[velocity2 add:rotationalVelocity];
+		}
+	}
+	
+	
+	// ENERGY EXCHANGE
 	
 	// In a collision, energy is exchanged only along the collision normal, so we take into account only
 	// the speed in the direction of the normal.
@@ -197,18 +243,44 @@
 	float mass1inverse = [item1 conformsToProtocol:@protocol(IMass)] ? 1.0f / ((id<IMass>)item1).mass : 0;
 	float mass2inverse = [item2 conformsToProtocol:@protocol(IMass)] ? 1.0f / ((id<IMass>)item2).mass : 0;	
 	
+	id<IAngularMass> item1WithAngularMass = [item1 conformsToProtocol:@protocol(IAngularMass)] ? item1 : nil;
+	id<IAngularMass> item2WithAngularMass = [item2 conformsToProtocol:@protocol(IAngularMass)] ? item2 : nil;
+
+	float angularMass1Inverse = item1WithAngularMass && tangentialDirection1 ? 
+	powf([Vector2 dotProductOf:tangentialDirection1 with:collisionNormal] * [lever1 length], 2) / item1WithAngularMass.angularMass : 0;
+	float angularMass2Inverse = item2WithAngularMass && tangentialDirection2 ? 
+	powf([Vector2 dotProductOf:tangentialDirection2 with:collisionNormal] * [lever2 length], 2) / item2WithAngularMass.angularMass : 0;	
+	
 	// We derive the formula for the impact as the change of momentum.
-	float impact = -(cor + 1) * speedDifference / (mass1inverse + mass2inverse);
+	float impact = -(cor + 1) * speedDifference / (mass1inverse + mass2inverse + angularMass1Inverse + angularMass2Inverse);
+	
+	
+	// TRANSLATION CHANGE
 	
 	// If we divide the impact with item's mass we get the change in speed. We apply it
 	// along the collisions normal. We only do this for non-static items.
-	if (mass1inverse > 0 && itemWithVelocity1) {
-		[itemWithVelocity1.velocity add:[Vector2 multiply:collisionNormal by:impact * mass1inverse]];
+	if (mass1inverse > 0 && movableItem1) {
+		[movableItem1.velocity add:[Vector2 multiply:collisionNormal by:impact * mass1inverse]];
 	}
 	
-	if (mass2inverse > 0 && itemWithVelocity2) {
-		[itemWithVelocity2.velocity subtract:[Vector2 multiply:collisionNormal by:impact * mass2inverse]];
-	}	
+	if (mass2inverse > 0 && movableItem2) {
+		[movableItem2.velocity subtract:[Vector2 multiply:collisionNormal by:impact * mass2inverse]];
+	}
+	
+	
+	// ROTATION CHANGE
+	
+	if (item1WithAngularMass && tangentialDirection1) {
+		float tangentialForce = [Vector2 dotProductOf:tangentialDirection1 with:collisionNormal] * impact;
+		float change =  tangentialForce * [lever1 length] / item1WithAngularMass.angularMass;
+		rotatableItem1.angularVelocity += change;
+	}
+	
+	if (item2WithAngularMass && tangentialDirection2) {
+		float tangentialForce = [Vector2 dotProductOf:tangentialDirection2 with:collisionNormal] * -impact;
+		float change =  tangentialForce * [lever2 length] / item2WithAngularMass.angularMass;
+		rotatableItem2.angularVelocity += change;
+	}
 }
 
 
