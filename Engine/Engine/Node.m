@@ -1,9 +1,11 @@
 #import "Node.h"
 #import "Engine.Core.h"
 
-@implementation Node
+@implementation Node {
+	Node *parent;
+}
 
-@synthesize components, parent, children, transform, willBeDestroyed, tag;
+@synthesize components, children, transform, willBeDestroyed, tag;
 
 - (id) init {
 	self = [super init];
@@ -49,6 +51,22 @@
 	}
 	
 	return nil;
+}
+
+- (void)setParent:(Node *)theParent {
+	parent = theParent;
+	
+	[transform setParent:theParent.transform];
+}
+
+- (void)setParent:(Node *)theParent worldPositionStays:(BOOL)worldPositionStays {
+	parent = theParent;
+	
+	[transform setParent:theParent.transform worldPositionStays:worldPositionStays];
+}
+
+- (Node *)parent {
+	return parent;
 }
 
 @end

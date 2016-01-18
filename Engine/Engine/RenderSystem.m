@@ -5,7 +5,8 @@
 
 @implementation RenderSystem {
 	Scene *scene;
-	SpriteBatch *spriteBatch;
+	NSMutableDictionary *renderers;
+	NSMutableDictionary *effects;
 }
 
 - (id) initWithGame:(Game *)theGame scene:(Scene *)theScene{
@@ -13,46 +14,69 @@
 	
 	if(self) {
 		scene = theScene;
+		
+		renderers = [NSMutableDictionary dictionary];
+		effects = [NSMutableDictionary dictionary];
+		[scene.sceneListeners addObject:self];
 	}
 	
 	return self;
 }
 
-- (void) initialize {
-	[super initialize];
-	
-	spriteBatch = [[SpriteBatch alloc] initWithGraphicsDevice:self.game.graphicsDevice];
-}
-
 - (void) drawWithGameTime:(GameTime *)gameTime {
-	[self.game.graphicsDevice clearWithColor:scene.mainCamera.color];
+	GraphicsDevice *graphicsDevice = self.game.graphicsDevice;
 	
-	Matrix *viewProjection = [scene.mainCamera getViewProjection];
+	[graphicsDevice clearWithColor:scene.mainCamera.clearColor];
 	
-	[spriteBatch beginWithSortMode:SpriteSortModeDeffered
-							  BlendState:nil
-							SamplerState:nil
-					 DepthStencilState:nil
-						RasterizerState:nil
-									Effect:nil
-						TransformMatrix:viewProjection];
-	
-	[self drawNode:scene.root gameTime:gameTime];
-	
-	[spriteBatch end];
-}
+	graphicsDevice.rasterizerState = [RasterizerState cullClockwise];
 
-- (void) drawNode:(Node *) node gameTime:(GameTime *) gameTime {
-	for(id<INodeComponent> component in node.components) {
-		if([component conformsToProtocol:@protocol(IDrawableComponent) ]) {
-			id<IDrawableComponent> drawableComponent = (id<IDrawableComponent>)component;
+	for(id tag in renderers) {
+		BasicEffect *effect = [effects objectForKey:tag];
+
+		effect.view = scene.mainCamera.view;
+		effect.projection = scene.mainCamera.projection;
+		
+		for(id<IRenderableComponent> renderable in [renderers objectForKey:tag]) {
+			effect.world = renderable.node.transform.localToWorld;
 			
-			[drawableComponent drawWithGameTime:gameTime spriteBatch:spriteBatch];
+			[[effect.currentTechnique.passes objectAtIndex:0] apply];
+			
+			[renderable drawWithGameTime:gameTime graphicsDevice:graphicsDevice];
 		}
 	}
-	
-	for(Node *child in node.children) {
-		[self drawNode:child gameTime:gameTime];
+}
+
+- (void)onAddComponent:(id<INodeComponent>)component to:(Node *)node {
+	if([component conformsToProtocol:@protocol(IRenderableComponent) ]) {
+		id<IRenderableComponent> renderable = (id<IRenderableComponent>) component;
+		BasicEffect *effect = renderable.effect;
+
+		NSMutableArray *renderersForEffect = [renderers objectForKey:effect.tag];
+		
+		if(renderersForEffect == nil) {
+			[effects setObject:effect forKey:effect.tag];
+			
+			renderersForEffect = [NSMutableArray array];
+			[renderers setObject:renderersForEffect forKey:effect.tag];
+		}
+		
+		[renderersForEffect addObject:renderable];
+	}
+}
+
+- (void)onRemoveComponent:(id<INodeComponent>)component from:(Node *)node {
+	if([component conformsToProtocol:@protocol(IRenderableComponent)]) {
+		id<IRenderableComponent> renderer = (id<IRenderableComponent>) component;
+		BasicEffect *effect = renderer.effect;
+		
+		NSMutableArray *renderersForEffect = [renderers objectForKey:effect.tag];
+
+		[renderersForEffect removeObject:renderer];
+		
+		if(renderersForEffect.count == 0) {
+			[effects removeObjectForKey:effect.tag];
+			[renderers removeObjectForKey:effect.tag];
+		}
 	}
 }
 

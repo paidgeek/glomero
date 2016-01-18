@@ -1,6 +1,7 @@
 #import "Engine.Core.h"
 
 #import "TextureAtlas.h"
-#import "SpriteRenderer.h"
+#import "Mesh.h"
+#import "MeshRenderer.h"
 #import "Sprite.h"
-#import "AnimatedSpriteRenderer.h"
+#import "SpriteRenderer.h"

@@ -16,8 +16,11 @@
 }
 
 - (void) drawWithGameTime:(GameTime *)gameTime spriteBatch:(SpriteBatch *)spriteBatch {
+	Vector3 *tp = node.transform.position;
+	Vector2 *pos = [Vector2 vectorWithX:tp.x y:tp.y];
+	
 	[spriteBatch draw:sprite.texture
-						to:[node.transform getWorldPosition]
+						to:pos
 		 fromRectangle:sprite.rectange
 		 tintWithColor:[Color white]
 				rotation:[QuaternionExtensions getEulerAngles:node.transform.rotation].z

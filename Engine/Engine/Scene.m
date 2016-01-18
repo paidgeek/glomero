@@ -5,7 +5,6 @@
 @implementation Scene {
 	LogicSystem *logicSystem;
 	RenderSystem *renderSystem;
-	PhysicsSystem *physicsSystem;
 	UISystem *uiSystem;
 	NSMutableArray *actions;
 }
@@ -31,8 +30,6 @@ static Scene *instance;
 																scene:self];
 		renderSystem = [[RenderSystem alloc] initWithGame:self.game
 																  scene:self];
-		physicsSystem = [[PhysicsSystem alloc] initWithGame:self.game
-																	 scene:self];
 		uiSystem = [[UISystem alloc] initWithGame:self.game
 														scene:self];
 		
@@ -40,8 +37,7 @@ static Scene *instance;
 			if([comp class] == [Scene class] ||
 				[comp class] == [LogicSystem class] ||
 				[comp class] == [RenderSystem class] ||
-				[comp class] == [UISystem class] ||
-				[comp class] == [PhysicsSystem class])
+				[comp class] == [UISystem class])
 			{
 				[comp setEnabled:NO];
 			}
@@ -57,16 +53,14 @@ static Scene *instance;
 	[self.game.components addComponent:logicSystem];
 	[self.game.components addComponent:renderSystem];
 	[self.game.components addComponent:uiSystem];
-	[self.game.components addComponent:physicsSystem];
 
 	self.updateOrder = 0;
 	logicSystem.updateOrder = 1;
-	physicsSystem.updateOrder = 2;
-	renderSystem.updateOrder = 3;
-	uiSystem.updateOrder = 4;
+	renderSystem.updateOrder = 2;
+	uiSystem.updateOrder = 3;
 	
 	Node *cameraNode = [self createNode];
-	mainCamera = [cameraNode addComponentOfClass:[Camera class]];
+	self.mainCamera = [cameraNode addComponentOfClass:[Camera class]];
 	
 	[super initialize];
 }
@@ -82,6 +76,7 @@ static Scene *instance;
 	
 	node.parent = parent;
 	node.transform = [[Transform alloc] initWithNode:node];
+	[node.transform setParent:parent.transform];
 	
 	[actions addObject:[SceneAction createNode:node parent:parent]];
 	

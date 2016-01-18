@@ -6,6 +6,4 @@
 @class SettingsMenu;
 @class CreditsMenu;
 @class MainScene;
-@class Player;
-@class Turret;
-@class Bullet;
+@class MeshFactory;

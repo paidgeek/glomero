@@ -12,8 +12,6 @@
 		97CD0E8E1C16AEE100CEFF3F /* Engine.Core.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E851C16A55800CEFF3F /* Engine.Core.h */; };
 		97CD0E8F1C16AEE100CEFF3F /* LogicSystem.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E631C16986500CEFF3F /* LogicSystem.h */; };
 		97CD0E901C16AEE100CEFF3F /* LogicSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E641C16986500CEFF3F /* LogicSystem.m */; };
-		97CD0E911C16AEE100CEFF3F /* PhysicsSystem.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E671C16986500CEFF3F /* PhysicsSystem.h */; };
-		97CD0E921C16AEE100CEFF3F /* PhysicsSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E681C16986500CEFF3F /* PhysicsSystem.m */; };
 		97CD0E931C16AEE100CEFF3F /* RenderSystem.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E6B1C16986500CEFF3F /* RenderSystem.h */; };
 		97CD0E941C16AEE100CEFF3F /* RenderSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E6C1C16986500CEFF3F /* RenderSystem.m */; };
 		97CD0E951C16AEE100CEFF3F /* SceneAction.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E711C16986500CEFF3F /* SceneAction.h */; };
@@ -40,12 +38,6 @@
 		97CD0EAB1C16AEE100CEFF3F /* Engine.Graphics.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E831C16A4C600CEFF3F /* Engine.Graphics.h */; };
 		97CD0EAC1C16AEE100CEFF3F /* TextureAtlas.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E771C16986500CEFF3F /* TextureAtlas.h */; };
 		97CD0EAD1C16AEE100CEFF3F /* TextureAtlas.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E781C16986500CEFF3F /* TextureAtlas.m */; };
-		97CD0EAE1C16AEE100CEFF3F /* SpriteRenderer.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E751C16986500CEFF3F /* SpriteRenderer.h */; };
-		97CD0EAF1C16AEE100CEFF3F /* SpriteRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E761C16986500CEFF3F /* SpriteRenderer.m */; };
-		97CD0EB01C16AEE100CEFF3F /* Sprite.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E731C16986500CEFF3F /* Sprite.h */; };
-		97CD0EB11C16AEE100CEFF3F /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E741C16986500CEFF3F /* Sprite.m */; };
-		97CD0EB21C16AEE100CEFF3F /* AnimatedSpriteRenderer.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E4A1C16986500CEFF3F /* AnimatedSpriteRenderer.h */; };
-		97CD0EB31C16AEE100CEFF3F /* AnimatedSpriteRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD0E4B1C16986500CEFF3F /* AnimatedSpriteRenderer.m */; };
 		97CD390D1C1CD6F0008870FB /* Camera.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD390C1C1CD6F0008870FB /* Camera.m */; };
 		97CD39191C1D0697008870FB /* StringLineReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD39181C1D0697008870FB /* StringLineReader.m */; };
 		97CD4F521C244F6000EF196B /* UISystem.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CD4F511C244F6000EF196B /* UISystem.m */; };
@@ -72,6 +64,10 @@
 		97DB5CC81C26B38F008E678F /* GUICheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CC71C26B38F008E678F /* GUICheckBox.m */; };
 		97DCC59B1C31CDFA005B2599 /* PlayerPrefs.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DCC59A1C31CDFA005B2599 /* PlayerPrefs.m */; };
 		97DE51741C307B0A00356EC2 /* GUISlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DE51731C307B0A00356EC2 /* GUISlider.m */; };
+		97E0C9B11C49355700893528 /* Mesh.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0C9B01C49355700893528 /* Mesh.m */; };
+		97E0C9B51C49356700893528 /* MeshRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0C9B41C49356700893528 /* MeshRenderer.m */; };
+		97E0C9BC1C495BDD00893528 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0C9B91C495BDD00893528 /* Sprite.m */; };
+		97E0C9BD1C495BDD00893528 /* SpriteRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97E0C9BB1C495BDD00893528 /* SpriteRenderer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,8 +109,6 @@
 /* Begin PBXFileReference section */
 		97CD0E481C16986500CEFF3F /* AddComponentAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddComponentAction.h; sourceTree = "<group>"; };
 		97CD0E491C16986500CEFF3F /* AddComponentAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddComponentAction.m; sourceTree = "<group>"; };
-		97CD0E4A1C16986500CEFF3F /* AnimatedSpriteRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AnimatedSpriteRenderer.h; sourceTree = "<group>"; };
-		97CD0E4B1C16986500CEFF3F /* AnimatedSpriteRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AnimatedSpriteRenderer.m; sourceTree = "<group>"; };
 		97CD0E561C16986500CEFF3F /* CreateNodeAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateNodeAction.h; sourceTree = "<group>"; };
 		97CD0E571C16986500CEFF3F /* CreateNodeAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateNodeAction.m; sourceTree = "<group>"; };
 		97CD0E581C16986500CEFF3F /* DestroyNodeAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DestroyNodeAction.h; sourceTree = "<group>"; };
@@ -127,8 +121,6 @@
 		97CD0E641C16986500CEFF3F /* LogicSystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LogicSystem.m; sourceTree = "<group>"; };
 		97CD0E651C16986500CEFF3F /* Node.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Node.h; sourceTree = "<group>"; };
 		97CD0E661C16986500CEFF3F /* Node.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Node.m; sourceTree = "<group>"; };
-		97CD0E671C16986500CEFF3F /* PhysicsSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsSystem.h; sourceTree = "<group>"; };
-		97CD0E681C16986500CEFF3F /* PhysicsSystem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhysicsSystem.m; sourceTree = "<group>"; };
 		97CD0E691C16986500CEFF3F /* RemoveComponentAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RemoveComponentAction.h; sourceTree = "<group>"; };
 		97CD0E6A1C16986500CEFF3F /* RemoveComponentAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RemoveComponentAction.m; sourceTree = "<group>"; };
 		97CD0E6B1C16986500CEFF3F /* RenderSystem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RenderSystem.h; sourceTree = "<group>"; };
@@ -137,10 +129,6 @@
 		97CD0E701C16986500CEFF3F /* Scene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scene.m; sourceTree = "<group>"; };
 		97CD0E711C16986500CEFF3F /* SceneAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneAction.h; sourceTree = "<group>"; };
 		97CD0E721C16986500CEFF3F /* SceneAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneAction.m; sourceTree = "<group>"; };
-		97CD0E731C16986500CEFF3F /* Sprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
-		97CD0E741C16986500CEFF3F /* Sprite.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
-		97CD0E751C16986500CEFF3F /* SpriteRenderer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpriteRenderer.h; sourceTree = "<group>"; };
-		97CD0E761C16986500CEFF3F /* SpriteRenderer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpriteRenderer.m; sourceTree = "<group>"; };
 		97CD0E771C16986500CEFF3F /* TextureAtlas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextureAtlas.h; sourceTree = "<group>"; };
 		97CD0E781C16986500CEFF3F /* TextureAtlas.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextureAtlas.m; sourceTree = "<group>"; };
 		97CD0E791C16986500CEFF3F /* Transform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Transform.h; sourceTree = "<group>"; };
@@ -189,6 +177,16 @@
 		97DCC59A1C31CDFA005B2599 /* PlayerPrefs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPrefs.m; sourceTree = "<group>"; };
 		97DE51721C307B0A00356EC2 /* GUISlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GUISlider.h; sourceTree = "<group>"; };
 		97DE51731C307B0A00356EC2 /* GUISlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GUISlider.m; sourceTree = "<group>"; };
+		97E0C9AF1C49355700893528 /* Mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh.h; sourceTree = "<group>"; };
+		97E0C9B01C49355700893528 /* Mesh.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mesh.m; sourceTree = "<group>"; };
+		97E0C9B31C49356700893528 /* MeshRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeshRenderer.h; sourceTree = "<group>"; };
+		97E0C9B41C49356700893528 /* MeshRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MeshRenderer.m; sourceTree = "<group>"; };
+		97E0C9B61C4936DF00893528 /* IRenderableComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IRenderableComponent.h; sourceTree = "<group>"; };
+		97E0C9B71C493E4700893528 /* Space.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Space.h; sourceTree = "<group>"; };
+		97E0C9B81C495BDD00893528 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
+		97E0C9B91C495BDD00893528 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
+		97E0C9BA1C495BDD00893528 /* SpriteRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpriteRenderer.h; sourceTree = "<group>"; };
+		97E0C9BB1C495BDD00893528 /* SpriteRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpriteRenderer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,14 +220,16 @@
 			children = (
 				97CD0E821C16A4B600CEFF3F /* Engine.Graphics.classes.h */,
 				97CD0E831C16A4C600CEFF3F /* Engine.Graphics.h */,
+				97E0C9B81C495BDD00893528 /* Sprite.h */,
+				97E0C9B91C495BDD00893528 /* Sprite.m */,
+				97E0C9BA1C495BDD00893528 /* SpriteRenderer.h */,
+				97E0C9BB1C495BDD00893528 /* SpriteRenderer.m */,
 				97CD0E771C16986500CEFF3F /* TextureAtlas.h */,
 				97CD0E781C16986500CEFF3F /* TextureAtlas.m */,
-				97CD0E751C16986500CEFF3F /* SpriteRenderer.h */,
-				97CD0E761C16986500CEFF3F /* SpriteRenderer.m */,
-				97CD0E731C16986500CEFF3F /* Sprite.h */,
-				97CD0E741C16986500CEFF3F /* Sprite.m */,
-				97CD0E4A1C16986500CEFF3F /* AnimatedSpriteRenderer.h */,
-				97CD0E4B1C16986500CEFF3F /* AnimatedSpriteRenderer.m */,
+				97E0C9AF1C49355700893528 /* Mesh.h */,
+				97E0C9B01C49355700893528 /* Mesh.m */,
+				97E0C9B31C49356700893528 /* MeshRenderer.h */,
+				97E0C9B41C49356700893528 /* MeshRenderer.m */,
 			);
 			name = Graphics;
 			sourceTree = "<group>";
@@ -255,6 +255,8 @@
 				97CD390C1C1CD6F0008870FB /* Camera.m */,
 				97DCC5991C31CDFA005B2599 /* PlayerPrefs.h */,
 				97DCC59A1C31CDFA005B2599 /* PlayerPrefs.m */,
+				97E0C9B61C4936DF00893528 /* IRenderableComponent.h */,
+				97E0C9B71C493E4700893528 /* Space.h */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -282,8 +284,6 @@
 			children = (
 				97CD0E631C16986500CEFF3F /* LogicSystem.h */,
 				97CD0E641C16986500CEFF3F /* LogicSystem.m */,
-				97CD0E671C16986500CEFF3F /* PhysicsSystem.h */,
-				97CD0E681C16986500CEFF3F /* PhysicsSystem.m */,
 				97CD0E6B1C16986500CEFF3F /* RenderSystem.h */,
 				97CD0E6C1C16986500CEFF3F /* RenderSystem.m */,
 				97CD4F501C244F6000EF196B /* UISystem.h */,
@@ -476,8 +476,6 @@
 				97D073BC1C36050300AAC880 /* BoxCollider2D.m in Sources */,
 				97CD0E901C16AEE100CEFF3F /* LogicSystem.m in Sources */,
 				97CDE2171C1953700020D969 /* CollisionMatrix.m in Sources */,
-				97CD0E911C16AEE100CEFF3F /* PhysicsSystem.h in Sources */,
-				97CD0E921C16AEE100CEFF3F /* PhysicsSystem.m in Sources */,
 				97CD0E931C16AEE100CEFF3F /* RenderSystem.h in Sources */,
 				97CD0E941C16AEE100CEFF3F /* RenderSystem.m in Sources */,
 				97CD6F5A1C1D4691001C8384 /* MathUtil.m in Sources */,
@@ -501,25 +499,23 @@
 				97CD0EA01C16AEE100CEFF3F /* Transform.h in Sources */,
 				97CD0EA11C16AEE100CEFF3F /* Transform.m in Sources */,
 				97CD0EA21C16AEE100CEFF3F /* ISceneListener.h in Sources */,
+				97E0C9BC1C495BDD00893528 /* Sprite.m in Sources */,
 				97CD6F561C1D4238001C8384 /* QuaternionExtensions.m in Sources */,
 				97CD0EA31C16AEE100CEFF3F /* IDrawableComponent.h in Sources */,
+				97E0C9B11C49355700893528 /* Mesh.m in Sources */,
 				97DB5CBF1C26B287008E678F /* GUIImage.m in Sources */,
 				97DB5CC51C26B33D008E678F /* GUIButton.m in Sources */,
 				97CD0EA41C16AEE100CEFF3F /* INodeComponent.h in Sources */,
 				97CD0EA61C16AEE100CEFF3F /* Node.h in Sources */,
 				97CD0EA71C16AEE100CEFF3F /* Node.m in Sources */,
 				97CD0EA81C16AEE100CEFF3F /* Scene.h in Sources */,
+				97E0C9B51C49356700893528 /* MeshRenderer.m in Sources */,
 				97CD0EA91C16AEE100CEFF3F /* Scene.m in Sources */,
 				97CD0EAA1C16AEE100CEFF3F /* Engine.Graphics.classes.h in Sources */,
+				97E0C9BD1C495BDD00893528 /* SpriteRenderer.m in Sources */,
 				97CD0EAB1C16AEE100CEFF3F /* Engine.Graphics.h in Sources */,
 				97CD0EAC1C16AEE100CEFF3F /* TextureAtlas.h in Sources */,
 				97CD0EAD1C16AEE100CEFF3F /* TextureAtlas.m in Sources */,
-				97CD0EAE1C16AEE100CEFF3F /* SpriteRenderer.h in Sources */,
-				97CD0EAF1C16AEE100CEFF3F /* SpriteRenderer.m in Sources */,
-				97CD0EB01C16AEE100CEFF3F /* Sprite.h in Sources */,
-				97CD0EB11C16AEE100CEFF3F /* Sprite.m in Sources */,
-				97CD0EB21C16AEE100CEFF3F /* AnimatedSpriteRenderer.h in Sources */,
-				97CD0EB31C16AEE100CEFF3F /* AnimatedSpriteRenderer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

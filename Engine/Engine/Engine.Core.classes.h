@@ -1,3 +1,4 @@
+#import "Space.h"
 #import "MathUtil.h"
 #import "Retronator.Xni.Framework.h"
 #import "Express.Physics.h"
@@ -16,6 +17,7 @@
 #import "INodeComponent.h"
 #import "ISceneListener.h"
 #import "IDrawableComponent.h"
+#import "IRenderableComponent.h"
 #import "IUIComponent.h"
 #import "ICollider.h"
 #import "ICollisionListener.h"
@@ -24,7 +26,6 @@
 
 // Systems
 @class LogicSystem;
-@class PhysicsSystem;
 @class RenderSystem;
 
 // Actions
@@ -35,4 +36,3 @@
 @class DestroyNodeAction;
 
 #import "ISceneAction.h"
-

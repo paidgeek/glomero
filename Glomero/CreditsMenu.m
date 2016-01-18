@@ -10,7 +10,7 @@
 - (void) loadContent {
 	Glomero *glomero = [Glomero getInstance];
 	
-	self.mainCamera.color = [[Color alloc] initWithRed:50 green:50 blue:50];;
+	self.mainCamera.clearColor = [[Color alloc] initWithRed:50 green:50 blue:50];;
 	
 	float cx = (self.game.gameWindow.clientBounds.width / 2.0f);
 	
@@ -22,8 +22,8 @@
 		text.font = glomero.font;
 		text.text = @"Credits";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:cx y:80.0f];
-		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
+		text.node.transform.position = [Vector3 vectorWithX:cx y:80.0f z:0.0f];
+		text.scale = [Vector2 vectorWithX:2.0f y:2.0f ];
 	}
 	
 	// Credit
@@ -35,7 +35,7 @@
 		text.text = @"Graphic assets";
 		text.color = [Color gray];
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:cx y:200.0f];
+		text.node.transform.position = [Vector3 vectorWithX:cx y:200.0f z:0.0f];
 		text.scale = [Vector2 vectorWithX:1.0f y:1.0f];
 		
 		labelNode = [self createNode];
@@ -44,7 +44,7 @@
 		text.font = glomero.font;
 		text.text = @"http://kenney.nl/";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:cx y:250.0f];
+		text.node.transform.position = [Vector3 vectorWithX:cx y:250.0f z:0.0f];
 		text.scale = [Vector2 vectorWithX:1.25f y:1.25f];
 	}
 	
@@ -57,7 +57,7 @@
 		text.text = @"Font";
 		text.color = [Color gray];
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:cx y:320.0f];
+		text.node.transform.position = [Vector3 vectorWithX:cx y:320.0f z:0.0f];
 		text.scale = [Vector2 vectorWithX:1.0f y:1.0f];
 		
 		labelNode = [self createNode];
@@ -66,7 +66,7 @@
 		text.font = glomero.font;
 		text.text = @"Martin Steiner";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:cx y:370.0f];
+		text.node.transform.position = [Vector3 vectorWithX:cx y:370.0f z:0.0f];
 		text.scale = [Vector2 vectorWithX:1.25f y:1.25f];
 		
 		labelNode = [self createNodeWithParent:labelNode];
@@ -75,7 +75,7 @@
 		text.font = glomero.font;
 		text.text = @"photo.design-studio.sk";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:0.0f y:50.0f];
+		text.node.transform.localPosition = [Vector3 vectorWithX:0.0f y:50.0f z:0.0f];
 	}
 	
 	// Back button
@@ -87,8 +87,8 @@
 		backButton.pressedSprite = [glomero.uiAtlas getSpriteWithName:@"ButtonPressed"];
 		backButton.pressedSprite.pivot.y -= 1;
 		
-		backButton.node.transform.scale = [Vector2 vectorWithX:8.0f y:8.0f];
-		backButton.node.transform.position = [Vector2 vectorWithX:cx y:self.game.gameWindow.clientBounds.height - 100.0f];
+		backButton.node.transform.scale = [Vector3 vectorWithX:8.0f y:8.0f z:0.0f];
+		backButton.node.transform.position = [Vector3 vectorWithX:cx y:self.game.gameWindow.clientBounds.height - 100.0f z:0.0f];
 		
 		Node *labelNode = [self createNodeWithParent:btnNode];
 		GUIText *text = [labelNode addComponentOfClass:[GUIText class]];

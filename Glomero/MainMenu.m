@@ -11,7 +11,7 @@
 - (void) loadContent {
 	Glomero *glomero = [Glomero getInstance];
 	
-	self.mainCamera.color = [[Color alloc] initWithRed:50 green:50 blue:50];;
+	self.mainCamera.clearColor = [[Color alloc] initWithRed:50 green:50 blue:50];
 	
 	float cx = (self.game.gameWindow.clientBounds.width / 2.0f);
 	
@@ -23,11 +23,12 @@
 		text.font = glomero.font;
 		text.text = @"Glomero";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:cx y:80.0f];
+		text.node.transform.position = [Vector3 vectorWithX:cx y:80.0f z:0.0f];
 		text.scale = [Vector2 vectorWithX:3.5f y:3.5f];
 	}
 	
 	// Start button
+	
 	{
 		Node *btnNode = [self createNode];
 		startButton = [btnNode addComponentOfClass:[GUIButton class]];
@@ -36,10 +37,13 @@
 		startButton.pressedSprite = [glomero.uiAtlas getSpriteWithName:@"ButtonPressed"];
 		startButton.pressedSprite.pivot.y -= 1;
 		
-		startButton.node.transform.scale = [Vector2 vectorWithX:8.0f y:8.0f];
-		startButton.node.transform.position = [Vector2 vectorWithX:cx y:400.0f];
+		startButton.node.transform.scale = [Vector3 vectorWithX:8.0f y:8.0f z:1.0f];
+		startButton.node.transform.position = [Vector3 vectorWithX:cx y:400.0f z:0.0f];
 		
-		Node *labelNode = [self createNodeWithParent:btnNode];
+		Node *labelNode = [self createNode];
+		
+		[labelNode setParent:btnNode worldPositionStays:YES];
+		
 		GUIText *text = [labelNode addComponentOfClass:[GUIText class]];
 		[labelNode addComponentOfClass:[ButtonText class]];
 		
@@ -59,8 +63,8 @@
 		settingsButton.pressedSprite = [glomero.uiAtlas getSpriteWithName:@"ButtonPressed"];
 		settingsButton.pressedSprite.pivot.y -= 1;
 		
-		settingsButton.node.transform.scale = [Vector2 vectorWithX:8.0f y:8.0f];
-		settingsButton.node.transform.position = [Vector2 vectorWithX:cx y:550.0f];
+		settingsButton.node.transform.scale = [Vector3 vectorWithX:8.0f y:8.0f z:0.0f];
+		settingsButton.node.transform.position = [Vector3 vectorWithX:cx y:550.0f z:0.0f];
 		
 		Node *labelNode = [self createNodeWithParent:btnNode];
 		GUIText *text = [labelNode addComponentOfClass:[GUIText class]];
@@ -82,8 +86,8 @@
 		creditsButton.pressedSprite = [glomero.uiAtlas getSpriteWithName:@"ButtonPressed"];
 		creditsButton.pressedSprite.pivot.y -= 1;
 		
-		creditsButton.node.transform.scale = [Vector2 vectorWithX:8.0f y:8.0f];
-		creditsButton.node.transform.position = [Vector2 vectorWithX:cx y:700.0f];
+		creditsButton.node.transform.scale = [Vector3 vectorWithX:8.0f y:8.0f z:0.0f];
+		creditsButton.node.transform.position = [Vector3 vectorWithX:cx y:700.0f z:0.0f];
 		
 		Node *labelNode = [self createNodeWithParent:btnNode];
 		GUIText *text = [labelNode addComponentOfClass:[GUIText class]];
@@ -104,7 +108,7 @@
 		text.font = glomero.font;
 		text.text = @"Copyright 2015 GameTeam";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.node.transform.position = [Vector2 vectorWithX:cx y:self.game.gameWindow.clientBounds.height - 50.0f];
+		text.node.transform.position = [Vector3 vectorWithX:cx y:self.game.gameWindow.clientBounds.height - 50.0f z:0.0f];
 		text.scale = [Vector2 vectorWithX:0.8f y:0.8f];
 	}
 }

@@ -1,58 +1,140 @@
 #import "Transform.h"
 #import "Engine.Core.h"
 
-@implementation Transform
+@interface Transform ()
 
-@synthesize node, position, rotationAngle, rotation, scale;
+- (Matrix *) getParentMatrix;
+
+@end
+
+@implementation Transform {
+	Transform *parent;
+}
+
+@synthesize node, localPosition, localRotation, localScale;
 
 - (id) initWithNode:(Node *)theNode {
 	self = [super init];
 	
 	if(self) {
 		node = theNode;
-		position = [Vector2 vectorWithX:0.0f y:0.0f];
-		rotationAngle = 0.0f;
-		rotation = [Quaternion identity];
-		scale = [Vector2 vectorWithX:1.0f y:1.0f];
+		localPosition = [Vector3 zero];
+		localRotation = [Quaternion identity];
+		localScale = [Vector3 one];
 	}
 	
 	return self;
 }
 
-- (Vector2 *) getWorldPosition {
-	if(node.parent == nil) {
-		return position;
-	} else {
-		Vector2 *pos = [position copy];
-		
-		pos.x *= node.parent.transform.scale.x;
-		pos.y *= node.parent.transform.scale.y;
-		
-		return [Vector2 add:pos
-							  to:[node.parent.transform getWorldPosition]];
+- (void)translateX:(float)x y:(float)y z:(float)z {
+	[self translate:[Vector3 vectorWithX:x y:y z:z] relativeTo:SpaceSelf];
+}
+
+- (void)translateX:(float)x y:(float)y z:(float)z relativeTo:(Space)relativeTo {
+	[self translate:[Vector3 vectorWithX:x y:y z:z] relativeTo:relativeTo];
+}
+
+- (void)translate:(Vector3 *)translation {
+	[self translate:translation relativeTo:SpaceSelf];
+}
+
+- (void)translate:(Vector3 *)translation relativeTo:(Space)relativeTo {
+	switch (relativeTo) {
+		case SpaceWorld:
+			localPosition = [localPosition add:translation];
+			break;
+		case SpaceSelf:
+			// TODO
+			break;
 	}
 }
 
-- (void)translate:(Vector2 *)translation {
-	[position add:translation];
+- (void)rotateAround:(Vector3 *)axis by:(float)angle {
+	[self rotateWithQuaternion:[Quaternion axis:axis angle:angle] relativeTo:SpaceWorld];
 }
 
-- (void)translateX:(float)x y:(float)y {
-	position.x += x;
-	position.y += y;
+- (void)rotateAround:(Vector3 *)axis by:(float)angle relativeTo:(Space)relativeTo {
+	[self rotateWithQuaternion:[Quaternion axis:axis angle:angle] relativeTo:relativeTo];
 }
 
-- (void) rotateZ:(float)z {
-	[rotation multiplyBy:[Quaternion axis:[Vector3 backward] angle:z]];
+- (void)rotateWithQuaternion:(Quaternion *)theRotation relativeTo:(Space)relativeTo {
+	switch (relativeTo) {
+		case SpaceSelf:
+			[localRotation set:[Quaternion normalize:[Quaternion multiply:localRotation by:theRotation]]];
+			break;
+		case SpaceWorld:
+			[localRotation set:[Quaternion normalize:[Quaternion multiply:theRotation by:localRotation]]];
+			break;
+	}
 }
 
-- (Vector2 *)transformPoint:(Vector2 *)point {
-	Vector2 *tp = [Vector2 zero];
+- (void)setParent:(Transform *)theParent {
+	[self setParent:theParent worldPositionStays:NO];
+}
 
-	tp.x = position.x + point.x * scale.x;
-	tp.y = position.y + point.y * scale.y;
+- (void) setParent:(Transform *)theParent worldPositionStays:(BOOL)worldPositionStays {
+	if(worldPositionStays) {
+		[localPosition transformWith:[Matrix invert:theParent.localToWorld]];
+		localRotation = [Quaternion multiply:[Quaternion inverse:theParent.rotation] by:localRotation];
+		
+		Vector3 *ps = theParent.scale;
+		
+		localScale = [Vector3 vectorWithX:localScale.x / ps.x y:localScale.y / ps.y z:localScale.z / ps.z];
+	}
 	
-	return tp;
+	parent = theParent;
+}
+
+- (void)setPosition:(Vector3 *)thePosition {
+	localPosition = [[Vector3 vectorWithVector:thePosition] transformWith:[Matrix invert:[self getParentMatrix]]];
+}
+
+- (Vector3 *) position {
+	return [[Vector3 vectorWithVector:localPosition] transformWith:[self getParentMatrix]];
+}
+
+- (void)setRotation:(Quaternion *)theRotation {
+	localRotation = [Quaternion multiply:[Quaternion inverse:parent.rotation] by:theRotation];
+}
+
+- (Quaternion *) rotation {
+	if(parent != nil) {
+		return [parent.rotation multiplyBy:localRotation];
+	}
+	
+	return localRotation;
+}
+
+- (void)setScale:(Vector3 *)theScale {
+	Vector3 *ps = parent.scale;
+	localScale = [Vector3 vectorWithX:theScale.x / ps.x y:theScale.y / ps.y z:theScale.z / ps.z];
+}
+
+- (Vector3 *) scale {
+	if(parent != nil) {
+		Vector3 *ps = parent.scale;
+		
+		return [Vector3 vectorWithX:localScale.x*ps.x y:localScale.y*ps.y z:localScale.z*ps.z];
+	}
+	
+	return localScale;
+}
+
+- (Matrix *)getParentMatrix {
+	if(parent != nil) {
+		return parent.localToWorld;
+	}
+	
+	return [Matrix identity];
+}
+
+- (Matrix *) localToWorld {
+	Matrix *t = [Matrix createTranslation:localPosition];
+	Matrix *r = [Matrix createFromQuaternion:localRotation];
+	Matrix *s = [Matrix createScale:localScale];
+	
+	//return [[self getParentMatrix] multiplyBy:[t multiplyBy:[r multiplyBy:s]]];
+	return [s multiplyBy:[r multiplyBy:[t multiplyBy:[self getParentMatrix]]]];
 }
 
 @end

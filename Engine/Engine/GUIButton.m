@@ -65,13 +65,19 @@
 }
 
 - (void)drawWithGameTime:(GameTime *)gameTime spriteBatch:(SpriteBatch *)spriteBatch {
+	Vector3 *tp = node.transform.position;
+	Vector3 *ts = node.transform.scale;
+	
+	Vector2 *pos = [Vector2 vectorWithX:tp.x y:tp.y];
+	Vector2 *scale = [Vector2 vectorWithX:ts.x y:ts.y];
+	
 	[spriteBatch draw:sprite.texture
-						to:[node.transform getWorldPosition]
+						to:pos
 		 fromRectangle:sprite.rectange
 		 tintWithColor:[Color white]
 				rotation:[QuaternionExtensions getEulerAngles:node.transform.rotation].z
 				  origin:sprite.pivot
-					scale:node.transform.scale
+					scale:scale
 				 effects:SpriteEffectsNone
 			 layerDepth:0];
 }

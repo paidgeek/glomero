@@ -17,8 +17,10 @@
 }
 
 - (void)drawWithGameTime:(GameTime *)gameTime spriteBatch:(SpriteBatch *)spriteBatch {
+	Vector3 *tp = node.transform.position;
+	
 	[spriteBatch draw:sprite.texture
-						to:node.transform.position
+						to:[Vector2 vectorWithX:tp.x y:tp.y]
 		 fromRectangle:sprite.rectange
 		 tintWithColor:color];
 }

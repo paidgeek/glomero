@@ -23,9 +23,9 @@
 
 - (void)updateWithGameTime:(GameTime *)gameTime inverseView:(Matrix *)inverseView touches:(TouchCollection *)touches {
 	if(button.isDown) {
-		node.transform.position = [Vector2 vectorWithX:0.0f y:-1.5];
+		node.transform.localPosition = [Vector3 vectorWithX:0.0f y:-1.5 z:0.0f];
 	} else {
-		node.transform.position = [Vector2 vectorWithX:0.0f y:-3];
+		node.transform.localPosition = [Vector3 vectorWithX:0.0f y:-3 z:0.0f];
 	}
 	
 	if(button.wasReleased) {

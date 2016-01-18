@@ -2,6 +2,7 @@
 #import "Engine.Core.classes.h"
 
 @class TextureAtlas;
-@class SpriteRenderer;
+@class Mesh;
+@class MeshRenderer;
 @class Sprite;
-@class AnimatedSpriteRenderer;
+@class SpriteRenderer;

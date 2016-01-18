@@ -2,117 +2,54 @@
 #import "TINR.Glomero.h"
 
 #import "Random.h"
-#import "Turret.h"
+#import "Rotate.h"
 
-@implementation MainScene
+@implementation MainScene {
+	
+}
 
 - (void) loadContent {
+	self.mainCamera.projection = [Matrix createPerspectiveFieldOfView:M_PI_2
+																			aspectRatio:self.graphicsDevice.viewport.aspectRatio
+																	nearPlaneDistance:0.01f
+																	 farPlaneDistance:100.0f];
+	
 	Glomero *glomero = [Glomero getInstance];
-	
-	const int w = 10;
-	const int h = 20;
-	BOOL map[w][h];
-	
-	for(int y = 0; y < h; y++) {
-		for (int x = 0; x < w; x++) {
-			Node *tileNode = [self createNode];
-			SpriteRenderer *tileSr = [tileNode addComponentOfClass:[SpriteRenderer class]];
-			tileNode.transform.position = [Vector2 vectorWithX:x*128.0f-64.0f*w	y:-y*128.0f+5*128.0f];
-			
-			if((x % 4 == 0 && [Random float] < 0.4f) || (y % 3 == 0 && [Random float] < 0.3f) || x == 0 || x == w - 1) {
-				tileNode.layer = OBSTACLE_LAYER;
-				tileSr.sprite = [glomero.worldAtlas getSpriteWithName:@"stone"];
 
-				RigidBody2D *body = [tileNode addComponentOfClass:[RigidBody2D class]];
-				body.collider = [[BoxCollider2D alloc] initWithRigidBody:body];
-				body.collider.isTrigger = YES;
-				BoxCollider2D *box = (BoxCollider2D *)body.collider;
-				
-				box.width = 128.0f;
-				box.height = 128.0f;
-				map[x][y] = YES;
-			} else {
-				map[x][y] = NO;
-				tileSr.sprite = [glomero.worldAtlas getSpriteWithName:@"grass"];
-			}
-		}
-	}
+	// Effect
+	BasicEffect *effect = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
+	effect.tag = @"Dirt";
+	effect.view = self.mainCamera.view;
+	effect.projection = self.mainCamera.projection;
+	effect.textureEnabled = YES;
+	effect.vertexColorEnabled = NO;
+	effect.lightingEnabled = YES;
 	
-	for(int i = 0; i < 30; i++) {
-		int x, y;
-		do {
-			x = [Random intLessThan:w];
-			y = [Random intLessThan:h];
-		} while(map[x][y]);
-		map[x][y] = YES;
-		
-		Node *coinNode = [self createNode];
-		coinNode.layer = COIN_LAYER;
-		AnimatedSpriteRenderer *sr = [coinNode addComponentOfClass:[AnimatedSpriteRenderer class]];
-		RigidBody2D *body = [coinNode addComponentOfClass:[RigidBody2D class]];
-		body.collider = [[CircleCollider2D alloc] initWithRigidBody:body];
-		body.collider.isTrigger = YES;
-		CircleCollider2D *cc = (CircleCollider2D *) body.collider;
-		
-		cc.radius = 32.0f;
-		
-		coinNode.transform.position = [Vector2 vectorWithX:x*128-64.0f*w y:-y*128+5*128.0f];
-		
-		float duration = 0.25f;
-		[sr addFrame:[glomero.worldAtlas getSpriteWithName:@"gold1"] duration:duration];
-		[sr addFrame:[glomero.worldAtlas getSpriteWithName:@"gold2"] duration:duration];
-		[sr addFrame:[glomero.worldAtlas getSpriteWithName:@"gold3"] duration:duration];
-		[sr addFrame:[glomero.worldAtlas getSpriteWithName:@"gold4"] duration:duration];
-		
-		Sprite *g2 =[glomero.worldAtlas getSpriteWithName:@"gold2"];
-		Sprite *g3 = [glomero.worldAtlas getSpriteWithName:@"gold3"];
-		
-		g2.effects = SpriteEffectsFlipHorizontally;
-		g3.effects = SpriteEffectsFlipHorizontally;
-		
-		[sr addFrame:g3 duration:duration];
-		[sr addFrame:g2 duration:duration];
-	}
+	// Material
+	effect.texture = [self.game.content load:@"Dirt"];
+	effect.diffuseColor.x = 1;
+	effect.diffuseColor.y = 1;
+	effect.diffuseColor.z = 1;
 	
-	{
-		Node *playerNode = [self createNode];
-		playerNode.layer = PLAYER_LAYER;
-		SpriteRenderer *sr = [playerNode addComponentOfClass:[SpriteRenderer class]];
-		Player *player = [playerNode addComponentOfClass:[Player class]];
-		player.rigidBody = [playerNode addComponentOfClass:[RigidBody2D class]];
-		CircleCollider2D *cc = player.rigidBody.collider = [[CircleCollider2D alloc] initWithRigidBody:player.rigidBody];
-		
-		cc.radius = 32.0f;
-		[player.rigidBody addCollisionListener:player];
-		
-		player.node.transform.position = [Vector2 vectorWithX:0 y:0];
-		sr.sprite = [glomero.entitiesAtlas getSpriteWithName:@"PinkAlien"];
-	}
+	// Lighting
+	effect.ambientLightColor.x = 0.7;
+	effect.ambientLightColor.y = 0.6;
+	effect.ambientLightColor.z = 0.8;
+	effect.directionalLight0.enabled = YES;
+	effect.directionalLight0.direction = [Vector3 down];
+	effect.directionalLight0.diffuseColor.x = 1;
+	effect.directionalLight0.diffuseColor.y = 1;
+	effect.directionalLight0.diffuseColor.z = 1;
 	
-	for(int i = 0; i < 4; i++){
-		int x, y;
-		do {
-			x = [Random intLessThan:w];
-			y = [Random intGreaterThanOrEqual:10 lessThan:h];
-		} while(map[x][y]);
+	for (int i = 0; i < 4; i++) {
+		Node *cube = [self createNode];
+		cube.transform.position = [Vector3 vectorWithX:[Random float]*6.0f-3.0f y:[Random float]*6.0f-3.0f  z:-[Random float]*10.0f];
+		MeshRenderer *mr = [cube addComponentOfClass:[MeshRenderer class]];
+		[cube addComponentOfClass:[Rotate class]];
 		
-		Node *turretNode = [self createNode];
-		Node *barrel = [self createNodeWithParent:turretNode];
-		SpriteRenderer *sr = [turretNode addComponentOfClass:[SpriteRenderer class]];
-		SpriteRenderer *sr2 = [barrel addComponentOfClass:[SpriteRenderer class]];
-		
-		sr.sprite = [glomero.entitiesAtlas getSpriteWithName:@"Turret"];
-		
-		sr2.sprite = [glomero.entitiesAtlas getSpriteWithName:@"Barrel"];
-		sr2.sprite.pivot = [Vector2 vectorWithX:8.0f y:0.0f];
-		
-		[turretNode addComponentOfClass:[Turret class]];
-		turretNode.transform.position = [Vector2 vectorWithX:x*128-64.0f*w y:-y*128+5*128.0f];
+		mr.effect = effect;
+		mr.mesh = [MeshFactory createCubeWithGraphicsDevice:self.game.graphicsDevice width:1 height:1 depth:1];
 	}
-	
-	[self.collisionMatrix enableBetweenA:COIN_LAYER b:PLAYER_LAYER];
-	[self.collisionMatrix enableBetweenA:PLAYER_LAYER b:OBSTACLE_LAYER];
-	[self.collisionMatrix enableBetweenA:BULLET_LAYER b:OBSTACLE_LAYER];
 }
 
 @end

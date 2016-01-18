@@ -55,7 +55,12 @@
 }
 
 - (void)drawWithGameTime:(GameTime *)gameTime spriteBatch:(SpriteBatch *)spriteBatch {
-	Vector2 *pos = [node.transform getWorldPosition];
+	Vector3 *tp = node.transform.position;
+	Vector3 *ts = node.transform.scale;
+	
+	Vector2 *pos = [Vector2 vectorWithX:tp.x y:tp.y];
+	Vector2 *scale = [Vector2 vectorWithX:ts.x y:ts.y];
+	
 	Vector2 *thumbPos = [pos copy];
 	
 	float dx = (value - 0.5f) * background.rectange.width;
@@ -67,7 +72,7 @@
 		 tintWithColor:[Color white]
 				rotation:[QuaternionExtensions getEulerAngles:node.transform.rotation].z
 				  origin:background.pivot
-					scale:node.transform.scale
+					scale:scale
 				 effects:SpriteEffectsNone
 			 layerDepth:0];
 	[spriteBatch draw:thumb.texture
@@ -76,7 +81,7 @@
 		 tintWithColor:[Color white]
 				rotation:[QuaternionExtensions getEulerAngles:node.transform.rotation].z
 				  origin:thumb.pivot
-					scale:node.transform.scale
+					scale:scale
 				 effects:SpriteEffectsNone
 			 layerDepth:1];
 }

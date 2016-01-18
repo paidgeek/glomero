@@ -48,7 +48,9 @@
 }
 
 - (void)drawWithGameTime:(GameTime *)gameTime spriteBatch:(SpriteBatch *)spriteBatch {
-	Vector2 *pos = [node.transform getWorldPosition];
+	Vector3 *tp = node.transform.position;
+	
+	Vector2 *pos = [Vector2 vectorWithX:tp.x y:tp.y];
 	
 	pos.x = (int) roundf(pos.x);
 	pos.y = (int) roundf(pos.y);
