@@ -1,3 +1,0 @@
-@class FpsComponent
-
-@class Random

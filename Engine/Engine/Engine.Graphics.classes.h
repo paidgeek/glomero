@@ -6,3 +6,4 @@
 @class MeshRenderer;
 @class Sprite;
 @class SpriteRenderer;
+@class ModelRenderer;

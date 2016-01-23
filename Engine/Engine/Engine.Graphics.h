@@ -5,3 +5,4 @@
 #import "MeshRenderer.h"
 #import "Sprite.h"
 #import "SpriteRenderer.h"
+#import "ModelRenderer.h"

@@ -1,6 +1,5 @@
 #import "TINR.Glomero.h"
 #import "Rotate.h"
-#import "Random.h"
 
 @implementation Rotate {
 	Vector3 *axis;

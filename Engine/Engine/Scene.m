@@ -10,7 +10,7 @@
 }
 
 static Scene *instance;
-@synthesize root, sceneListeners, collisionMatrix, mainCamera;
+@synthesize root, sceneListeners, mainCamera;
 
 - (id) initWithGame:(Game *)theGame {
 	self = [super initWithGame:theGame];
@@ -23,8 +23,6 @@ static Scene *instance;
 		
 		root = [[Node alloc] init];
 		root.transform = [[Transform alloc] initWithNode:root];
-		
-		collisionMatrix = [[CollisionMatrix alloc] init];
 		
 		logicSystem = [[LogicSystem alloc] initWithGame:self.game
 																scene:self];

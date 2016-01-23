@@ -11,7 +11,6 @@
 
 @property (nonatomic, strong) Node *root;
 @property (nonatomic, strong) NSMutableArray *sceneListeners;
-@property (nonatomic, strong) CollisionMatrix *collisionMatrix;
 @property (nonatomic, strong) Camera *mainCamera;
 
 + (Scene *) getInstance;

@@ -21,6 +21,7 @@
 		97CD61101C1AA177006D301C /* MainScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D85CD61C093C2A001EFE5F /* MainScene.m */; };
 		97CD61131C1AA177006D301C /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2181C1957140020D969 /* Constants.h */; };
 		97CD61141C1AA183006D301C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BBD1BD590710083EE47 /* main.m */; };
+		97CDD8B11C501A8E0067AB10 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D0584A1BF533E7001D6E87 /* libEngine.a */; };
 		97CFB2DF1BF29ABD004C8E6F /* libXNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE11BD590D80083EE47 /* libXNI.a */; };
 		97CFB2E01BF29AD0004C8E6F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE31BD591030083EE47 /* AudioToolbox.framework */; };
 		97CFB2E11BF29AD7004C8E6F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE51BD591080083EE47 /* AVFoundation.framework */; };
@@ -28,7 +29,6 @@
 		97CFB2E31BF29AE5004C8E6F /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE91BD591140083EE47 /* OpenAL.framework */; };
 		97CFB2E41BF29AEC004C8E6F /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BEB1BD5911A0083EE47 /* OpenGLES.framework */; };
 		97CFB2E51BF29AF0004C8E6F /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BED1BD591200083EE47 /* QuartzCore.framework */; };
-		97D0584F1BF5345F001D6E87 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D0584A1BF533E7001D6E87 /* libEngine.a */; };
 		97D06C2F1C3015AF006B72A2 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D06C2E1C3015AF006B72A2 /* MainMenu.m */; };
 		97D06C331C301973006B72A2 /* SettingsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D06C321C301973006B72A2 /* SettingsMenu.m */; };
 		97D073B31C35E69B00AAC880 /* Shoot.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073B21C35E69B00AAC880 /* Shoot.wav */; };
@@ -36,6 +36,8 @@
 		97D073B81C35E6AA00AAC880 /* Coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073B51C35E6AA00AAC880 /* Coin.wav */; };
 		97D073B91C35E6AA00AAC880 /* Explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073B61C35E6AA00AAC880 /* Explosion.wav */; };
 		97D073C21C36126200AAC880 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073C11C36126200AAC880 /* Hit.wav */; };
+		97D2F2491C53F6B200AC9F3F /* Sphere.x in Resources */ = {isa = PBXBuildFile; fileRef = 97D2F2481C53F6B200AC9F3F /* Sphere.x */; };
+		97D2F2501C53FB3800AC9F3F /* Sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D2F24F1C53FB3800AC9F3F /* Sphere.png */; };
 		97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CD21C26CE74008E678F /* ButtonText.m */; };
 		97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 97DB5CD61C26D856008E678F /* BitBold.bmp */; };
 		97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DCC5941C3190A4005B2599 /* CreditsMenu.m */; };
@@ -99,6 +101,8 @@
 		97D073B51C35E6AA00AAC880 /* Coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Coin.wav; path = Glomero/Coin.wav; sourceTree = "<group>"; };
 		97D073B61C35E6AA00AAC880 /* Explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Explosion.wav; path = Glomero/Explosion.wav; sourceTree = "<group>"; };
 		97D073C11C36126200AAC880 /* Hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Hit.wav; path = Glomero/Hit.wav; sourceTree = "<group>"; };
+		97D2F2481C53F6B200AC9F3F /* Sphere.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sphere.x; path = Glomero/Sphere.x; sourceTree = "<group>"; };
+		97D2F24F1C53FB3800AC9F3F /* Sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sphere.png; path = Glomero/Sphere.png; sourceTree = "<group>"; };
 		97D85CD51C093C2A001EFE5F /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		97D85CD61C093C2A001EFE5F /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 		97DB5CD11C26CE74008E678F /* ButtonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonText.h; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97CDD8B11C501A8E0067AB10 /* libEngine.a in Frameworks */,
 				97CFB2E51BF29AF0004C8E6F /* QuartzCore.framework in Frameworks */,
 				97CFB2E41BF29AEC004C8E6F /* OpenGLES.framework in Frameworks */,
 				97CFB2E31BF29AE5004C8E6F /* OpenAL.framework in Frameworks */,
@@ -122,7 +127,6 @@
 				97CFB2E11BF29AD7004C8E6F /* AVFoundation.framework in Frameworks */,
 				97CFB2E01BF29AD0004C8E6F /* AudioToolbox.framework in Frameworks */,
 				97CFB2DF1BF29ABD004C8E6F /* libXNI.a in Frameworks */,
-				97D0584F1BF5345F001D6E87 /* libEngine.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +212,8 @@
 		97CDFCB31BF8EA8100434CDF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				97D2F2481C53F6B200AC9F3F /* Sphere.x */,
+				97D2F24F1C53FB3800AC9F3F /* Sphere.png */,
 				97D073B41C35E6AA00AAC880 /* Blip.wav */,
 				9756490F1C4995D900463F95 /* Dirt.png */,
 				97D073B51C35E6AA00AAC880 /* Coin.wav */,
@@ -324,12 +330,14 @@
 				97D073B71C35E6AA00AAC880 /* Blip.wav in Resources */,
 				975649101C4995D900463F95 /* Dirt.png in Resources */,
 				97D073B91C35E6AA00AAC880 /* Explosion.wav in Resources */,
+				97D2F2501C53FB3800AC9F3F /* Sphere.png in Resources */,
 				97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */,
 				97CD39151C1CEDDD008870FB /* Entities.png in Resources */,
 				97CD39141C1CEDDD008870FB /* Entities.atlas in Resources */,
 				97CD391C1C1D0F49008870FB /* World.atlas in Resources */,
 				97D073B81C35E6AA00AAC880 /* Coin.wav in Resources */,
 				97D073C21C36126200AAC880 /* Hit.wav in Resources */,
+				97D2F2491C53F6B200AC9F3F /* Sphere.x in Resources */,
 				97CD391D1C1D0F49008870FB /* World.png in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
 				97DE517D1C30807B00356EC2 /* UI.png in Resources */,

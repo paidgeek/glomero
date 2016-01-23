@@ -43,7 +43,7 @@ blibSound, coinSound, explosionSound, shootSound, hitSound;
 	
 	[super loadContent];
 	
-	[self enterScene:[MainMenu class]];
+	[self enterScene:[MainScene class]];
 }
 
 - (void)enterScene:(Class)sceneClass {

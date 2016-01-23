@@ -15,8 +15,4 @@
 	return self;
 }
 
-- (void) drawWithGameTime:(GameTime *)gameTime graphicsDevice:(GraphicsDevice *)graphicsDevice {
-	[mesh drawWithGraphicsDevice:graphicsDevice];
-}
-
 @end
