@@ -22,6 +22,10 @@
 		97CD61131C1AA177006D301C /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2181C1957140020D969 /* Constants.h */; };
 		97CD61141C1AA183006D301C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BBD1BD590710083EE47 /* main.m */; };
 		97CDD8B11C501A8E0067AB10 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D0584A1BF533E7001D6E87 /* libEngine.a */; };
+		97CEA78C1C55A8CF00810EAC /* Sphere.x in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78B1C55A8CF00810EAC /* Sphere.x */; };
+		97CEA7901C55AA8100810EAC /* Sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78F1C55AA8100810EAC /* Sphere.png */; };
+		97CEA7971C55ECDE00810EAC /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA7951C55ECDE00810EAC /* UI.atlas */; };
+		97CEA7981C55ECDE00810EAC /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA7961C55ECDE00810EAC /* UI.png */; };
 		97CFB2DF1BF29ABD004C8E6F /* libXNI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE11BD590D80083EE47 /* libXNI.a */; };
 		97CFB2E01BF29AD0004C8E6F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE31BD591030083EE47 /* AudioToolbox.framework */; };
 		97CFB2E11BF29AD7004C8E6F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973E4BE51BD591080083EE47 /* AVFoundation.framework */; };
@@ -36,13 +40,9 @@
 		97D073B81C35E6AA00AAC880 /* Coin.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073B51C35E6AA00AAC880 /* Coin.wav */; };
 		97D073B91C35E6AA00AAC880 /* Explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073B61C35E6AA00AAC880 /* Explosion.wav */; };
 		97D073C21C36126200AAC880 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073C11C36126200AAC880 /* Hit.wav */; };
-		97D2F2491C53F6B200AC9F3F /* Sphere.x in Resources */ = {isa = PBXBuildFile; fileRef = 97D2F2481C53F6B200AC9F3F /* Sphere.x */; };
-		97D2F2501C53FB3800AC9F3F /* Sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D2F24F1C53FB3800AC9F3F /* Sphere.png */; };
 		97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CD21C26CE74008E678F /* ButtonText.m */; };
 		97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 97DB5CD61C26D856008E678F /* BitBold.bmp */; };
 		97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DCC5941C3190A4005B2599 /* CreditsMenu.m */; };
-		97DE517C1C30807B00356EC2 /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97DE517A1C30807B00356EC2 /* UI.atlas */; };
-		97DE517D1C30807B00356EC2 /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 97DE517B1C30807B00356EC2 /* UI.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +91,10 @@
 		97CDE2181C1957140020D969 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		97CDFCAD1BF8E85C00434CDF /* TINR.Glomero.classes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.classes.h; sourceTree = "<group>"; };
 		97CDFCAE1BF8E87700434CDF /* TINR.Glomero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.h; sourceTree = "<group>"; };
+		97CEA78B1C55A8CF00810EAC /* Sphere.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sphere.x; path = Glomero/Sphere.x; sourceTree = "<group>"; };
+		97CEA78F1C55AA8100810EAC /* Sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sphere.png; path = Glomero/Sphere.png; sourceTree = "<group>"; };
+		97CEA7951C55ECDE00810EAC /* UI.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UI.atlas; path = Glomero/UI.atlas; sourceTree = "<group>"; };
+		97CEA7961C55ECDE00810EAC /* UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UI.png; path = Glomero/UI.png; sourceTree = "<group>"; };
 		97D058441BF533E6001D6E87 /* Engine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Engine.xcodeproj; path = Engine/Engine.xcodeproj; sourceTree = "<group>"; };
 		97D06C2D1C3015AF006B72A2 /* MainMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
 		97D06C2E1C3015AF006B72A2 /* MainMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
@@ -101,8 +105,6 @@
 		97D073B51C35E6AA00AAC880 /* Coin.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Coin.wav; path = Glomero/Coin.wav; sourceTree = "<group>"; };
 		97D073B61C35E6AA00AAC880 /* Explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Explosion.wav; path = Glomero/Explosion.wav; sourceTree = "<group>"; };
 		97D073C11C36126200AAC880 /* Hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Hit.wav; path = Glomero/Hit.wav; sourceTree = "<group>"; };
-		97D2F2481C53F6B200AC9F3F /* Sphere.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sphere.x; path = Glomero/Sphere.x; sourceTree = "<group>"; };
-		97D2F24F1C53FB3800AC9F3F /* Sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sphere.png; path = Glomero/Sphere.png; sourceTree = "<group>"; };
 		97D85CD51C093C2A001EFE5F /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		97D85CD61C093C2A001EFE5F /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 		97DB5CD11C26CE74008E678F /* ButtonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonText.h; sourceTree = "<group>"; };
@@ -110,8 +112,6 @@
 		97DB5CD61C26D856008E678F /* BitBold.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = BitBold.bmp; path = Glomero/BitBold.bmp; sourceTree = "<group>"; };
 		97DCC5931C3190A4005B2599 /* CreditsMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreditsMenu.h; sourceTree = "<group>"; };
 		97DCC5941C3190A4005B2599 /* CreditsMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditsMenu.m; sourceTree = "<group>"; };
-		97DE517A1C30807B00356EC2 /* UI.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UI.atlas; path = Glomero/UI.atlas; sourceTree = "<group>"; };
-		97DE517B1C30807B00356EC2 /* UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UI.png; path = Glomero/UI.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,14 +212,14 @@
 		97CDFCB31BF8EA8100434CDF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				97D2F2481C53F6B200AC9F3F /* Sphere.x */,
-				97D2F24F1C53FB3800AC9F3F /* Sphere.png */,
 				97D073B41C35E6AA00AAC880 /* Blip.wav */,
+				97CEA78B1C55A8CF00810EAC /* Sphere.x */,
+				97CEA78F1C55AA8100810EAC /* Sphere.png */,
 				9756490F1C4995D900463F95 /* Dirt.png */,
 				97D073B51C35E6AA00AAC880 /* Coin.wav */,
+				97CEA7951C55ECDE00810EAC /* UI.atlas */,
+				97CEA7961C55ECDE00810EAC /* UI.png */,
 				97D073B61C35E6AA00AAC880 /* Explosion.wav */,
-				97DE517A1C30807B00356EC2 /* UI.atlas */,
-				97DE517B1C30807B00356EC2 /* UI.png */,
 				97D073C11C36126200AAC880 /* Hit.wav */,
 				97D073B21C35E69B00AAC880 /* Shoot.wav */,
 				97CD391A1C1D0F49008870FB /* World.atlas */,
@@ -326,21 +326,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97DE517C1C30807B00356EC2 /* UI.atlas in Resources */,
 				97D073B71C35E6AA00AAC880 /* Blip.wav in Resources */,
 				975649101C4995D900463F95 /* Dirt.png in Resources */,
 				97D073B91C35E6AA00AAC880 /* Explosion.wav in Resources */,
-				97D2F2501C53FB3800AC9F3F /* Sphere.png in Resources */,
+				97CEA7901C55AA8100810EAC /* Sphere.png in Resources */,
 				97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */,
 				97CD39151C1CEDDD008870FB /* Entities.png in Resources */,
 				97CD39141C1CEDDD008870FB /* Entities.atlas in Resources */,
+				97CEA7981C55ECDE00810EAC /* UI.png in Resources */,
+				97CEA7971C55ECDE00810EAC /* UI.atlas in Resources */,
 				97CD391C1C1D0F49008870FB /* World.atlas in Resources */,
 				97D073B81C35E6AA00AAC880 /* Coin.wav in Resources */,
 				97D073C21C36126200AAC880 /* Hit.wav in Resources */,
-				97D2F2491C53F6B200AC9F3F /* Sphere.x in Resources */,
+				97CEA78C1C55A8CF00810EAC /* Sphere.x in Resources */,
 				97CD391D1C1D0F49008870FB /* World.png in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
-				97DE517D1C30807B00356EC2 /* UI.png in Resources */,
 				97D073B31C35E69B00AAC880 /* Shoot.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

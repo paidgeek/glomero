@@ -25,7 +25,7 @@
 	
 	Glomero *glomero = [Glomero getInstance];
 	
-	self.mainCamera.clearColor = [[Color alloc] initWithRed:50 green:50 blue:50];
+	self.mainCamera.clearColor = [[Color alloc] initWithRed:20 green:20 blue:20];
 	
 	float cx = (self.game.gameWindow.clientBounds.width / 2.0f);
 	

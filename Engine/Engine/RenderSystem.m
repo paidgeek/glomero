@@ -31,13 +31,17 @@
 	
 	[graphicsDevice clearWithColor:scene.mainCamera.clearColor];
 	
-	graphicsDevice.rasterizerState = [RasterizerState cullClockwise];
+	graphicsDevice.rasterizerState = [RasterizerState cullNone];
+	graphicsDevice.depthStencilState = [DepthStencilState defaultDepth];
 
+	id view = scene.mainCamera.view;
+	id projection = scene.mainCamera.projection;
+	
 	for(id tag in meshRenderers) {
 		BasicEffect *effect = [effects objectForKey:tag];
 
-		effect.view = scene.mainCamera.view;
-		effect.projection = scene.mainCamera.projection;
+		effect.view = view;
+		effect.projection = projection;
 		
 		for(MeshRenderer *meshRenderer in [meshRenderers objectForKey:tag]) {
 			effect.world = meshRenderer.node.transform.localToWorld;

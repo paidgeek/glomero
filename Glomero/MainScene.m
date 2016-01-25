@@ -1,30 +1,34 @@
 #import "MainScene.h"
 #import "TINR.Glomero.h"
+#import "Retronator.Xni.Framework.Graphics.h"
 
 #import "Random.h"
 #import "Rotate.h"
 
 @implementation MainScene {
-	
+	BasicEffect *effect;
 }
 
 - (void) loadContent {
-	self.mainCamera.projection = [Matrix createPerspectiveFieldOfView:M_PI_2
+	self.mainCamera.projection = [Matrix createPerspectiveFieldOfView:TO_RAD(60.0f)
 																			aspectRatio:self.graphicsDevice.viewport.aspectRatio
 																	nearPlaneDistance:0.01f
 																	 farPlaneDistance:100.0f];
-	
+	self.mainCamera.node.transform.position = [Vector3 vectorWithX:0.0f y:2.0f z:0.0f];
+	self.mainCamera.node.transform.rotation = [Quaternion axis:[Vector3 left] angle:TO_RAD(-30.0f)];
+
 	Glomero *glomero = [Glomero getInstance];
 
 	// Effect
-	BasicEffect *effect = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
+	effect = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
 	effect.tag = @"Dirt";
 	effect.view = self.mainCamera.view;
 	effect.projection = self.mainCamera.projection;
-	effect.textureEnabled = YES;
-	effect.vertexColorEnabled = NO;
-	effect.lightingEnabled = YES;
-	
+	effect.textureEnabled = NO;
+	effect.vertexColorEnabled = YES;
+	effect.lightingEnabled = NO;
+
+	/*
 	// Material
 	effect.texture = [self.game.content load:@"Dirt"];
 	effect.diffuseColor.x = 1;
@@ -40,19 +44,9 @@
 	effect.directionalLight0.diffuseColor.x = 1;
 	effect.directionalLight0.diffuseColor.y = 1;
 	effect.directionalLight0.diffuseColor.z = 1;
+	*/
 	
-	for (int i = 0; i < 4; i++) {
-		Node *cube = [self createNode];
-		cube.transform.position = [Vector3 vectorWithX:[Random float]*6.0f-3.0f
-																	y:[Random float]*6.0f-3.0f
-																	z:-[Random float]*10.0f - 5];
-		MeshRenderer *mr = [cube addComponentOfClass:[MeshRenderer class]];
-		[cube addComponentOfClass:[Rotate class]];
-		
-		mr.effect = effect;
-		mr.mesh = [MeshFactory createCubeWithGraphicsDevice:self.game.graphicsDevice width:1 height:1 depth:1];
-	}
-	
+	/*
 	{
 		Node *node = [self createNode];
 		ModelRenderer *mr = [node addComponentOfClass:[ModelRenderer class]];
@@ -61,6 +55,35 @@
 		
 		node.transform.position = [Vector3 vectorWithX:0 y:0 z:-5.0f];
 	}
+	*/
+}
+
+static int x = 0;
+static int z = 0;
+
+- (void)updateWithGameTime:(GameTime *)gameTime {
+	if(z < 30) {
+		Node *cube = [self createNode];
+		cube.transform.position = [Vector3 vectorWithX:x-2 y:0 z:-z];
+		
+		MeshRenderer *mr = [cube addComponentOfClass:[MeshRenderer class]];
+		
+		mr.effect = effect;
+		mr.mesh = [MeshFactory createColoredCubeWithGraphicsDevice:self.game.graphicsDevice
+																			  width:1
+																			 height:[Random intGreaterThanOrEqual:1 lessThan:3]
+																			  depth:1
+																			  color:[Color colorWithPercentageRed:[Random float]
+																													  green:[Random float]
+																														blue:[Random float]]];
+		
+		x = (x + 1) % 5;
+		if(x == 4) {
+			z++;
+		}
+	}
+	
+	[super updateWithGameTime:gameTime];
 }
 
 @end

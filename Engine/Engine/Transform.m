@@ -102,7 +102,7 @@
 		return [parent.rotation multiplyBy:localRotation];
 	}
 	
-	return localRotation;
+	return [localRotation copy];
 }
 
 - (void)setScale:(Vector3 *)theScale {

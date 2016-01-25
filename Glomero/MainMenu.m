@@ -11,7 +11,7 @@
 - (void) loadContent {
 	Glomero *glomero = [Glomero getInstance];
 	
-	self.mainCamera.clearColor = [[Color alloc] initWithRed:50 green:50 blue:50];
+	self.mainCamera.clearColor = [[Color alloc] initWithRed:20 green:20 blue:20];
 	
 	float cx = (self.game.gameWindow.clientBounds.width / 2.0f);
 	
@@ -50,7 +50,7 @@
 		text.font = glomero.font;
 		text.text = @"Start";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.color = [Color gray];
+		text.color = [Color white];
 		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
 	}
 	
@@ -73,7 +73,7 @@
 		text.font = glomero.font;
 		text.text = @"Settings";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.color = [Color gray];
+		text.color = [Color white];
 		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
 	}
 	
@@ -96,7 +96,7 @@
 		text.font = glomero.font;
 		text.text = @"Credits";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.color = [Color gray];
+		text.color = [Color white];
 		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
 	}
 	
