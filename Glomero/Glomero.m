@@ -9,7 +9,7 @@
 
 static Glomero *instance;
 @synthesize currentScene, worldAtlas, entitiesAtlas, uiAtlas, font,
-blibSound, coinSound, explosionSound, shootSound, hitSound;
+blibSound, coinSound, explosionSound, shootSound, hitSound, platformTexture;
 
 - (id) init {
 	self = [super init];
@@ -40,6 +40,8 @@ blibSound, coinSound, explosionSound, shootSound, hitSound;
 	explosionSound = [self.content load:@"Explosion"];
 	shootSound = [self.content load:@"Shoot"];
 	hitSound = [self.content load:@"Hit"];
+	
+	platformTexture = [self.content load:@"Platform2"];
 	
 	[super loadContent];
 	

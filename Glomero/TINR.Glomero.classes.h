@@ -7,3 +7,5 @@
 @class CreditsMenu;
 @class MainScene;
 @class MeshFactory;
+
+@class PlayerPhysics;

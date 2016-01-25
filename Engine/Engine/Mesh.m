@@ -35,11 +35,11 @@
 	graphicsDevice.indices = indexBuffer;
 	
 	[graphicsDevice drawIndexedPrimitivesOfType:PrimitiveTypeTriangleList
-													  baseVertex:0
-												 minVertexIndex:0
-													 numVertices:numVertices
-													  startIndex:0
-												 primitiveCount:primitiveCount];
+												baseVertex:0
+										  minVertexIndex:0
+											  numVertices:numVertices
+												startIndex:0
+										  primitiveCount:primitiveCount];
 }
 
 @end

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) SoundEffect *explosionSound;
 @property (nonatomic, strong) SoundEffect *shootSound;
 @property (nonatomic, strong) SoundEffect *hitSound;
+@property (nonatomic, strong) Texture2D *platformTexture;
 
 + (Glomero *) getInstance;
 

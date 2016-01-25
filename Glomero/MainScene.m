@@ -15,36 +15,49 @@
 																	nearPlaneDistance:0.01f
 																	 farPlaneDistance:100.0f];
 	self.mainCamera.node.transform.position = [Vector3 vectorWithX:0.0f y:2.0f z:0.0f];
-	self.mainCamera.node.transform.rotation = [Quaternion axis:[Vector3 left] angle:TO_RAD(-30.0f)];
+	self.mainCamera.node.transform.rotation = [Quaternion axis:[Vector3 left] angle:TO_RAD(-25.0f)];
 
 	Glomero *glomero = [Glomero getInstance];
 
 	// Effect
 	effect = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
-	effect.tag = @"Dirt";
-	effect.view = self.mainCamera.view;
-	effect.projection = self.mainCamera.projection;
-	effect.textureEnabled = NO;
-	effect.vertexColorEnabled = YES;
-	effect.lightingEnabled = NO;
+	effect.tag = @"Platform";
 
-	/*
 	// Material
-	effect.texture = [self.game.content load:@"Dirt"];
-	effect.diffuseColor.x = 1;
-	effect.diffuseColor.y = 1;
-	effect.diffuseColor.z = 1;
+	effect.textureEnabled = YES;
+	effect.vertexColorEnabled = NO;
+	effect.texture = glomero.platformTexture;
+	effect.diffuseColor = [Vector3 vectorWithX:1 y:1 z:1];
+	
+	effect.emissiveColor = [Vector3 vectorWithX:1 y:0 z:0];
 	
 	// Lighting
-	effect.ambientColor = [Vector3 vectorWithX:0.2 y:0.5 z:0.2];
+	effect.lightingEnabled = YES;
+	effect.ambientColor = [Vector3 vectorWithX:0.2 y:0.2 z:0.2];
 	effect.ambientLightColor = [Vector3 vectorWithX:1 y:1 z:1];
 	
 	effect.directionalLight0.enabled = YES;
-	effect.directionalLight0.direction = [Vector3 down];
-	effect.directionalLight0.diffuseColor.x = 1;
-	effect.directionalLight0.diffuseColor.y = 1;
-	effect.directionalLight0.diffuseColor.z = 1;
-	*/
+	effect.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
+	effect.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
+	
+	effect.fogEnabled = YES;
+	effect.fogColor = [Vector3 vectorWithX:self.mainCamera.clearColor.r y:self.mainCamera.clearColor.g z:self.mainCamera.clearColor.b];
+	effect.fogStart = 13.0f;
+	effect.fogEnd = 15.0f;
+	
+	{
+		Node *cube = [self createNode];
+		cube.transform.position = [Vector3 vectorWithX:0 y:0 z:-5];
+		
+		MeshRenderer *mr = [cube addComponentOfClass:[MeshRenderer class]];
+		
+		mr.effect = effect;
+		mr.mesh = [MeshFactory createCubeWithGraphicsDevice:self.game.graphicsDevice
+																	 width:4
+																	height:1
+																	 depth:20];
+		
+	}
 	
 	/*
 	{
@@ -53,37 +66,12 @@
 		
 		mr.model = [self.game.content load:@"Sphere" fromFile:@"Sphere.x"];
 		
-		node.transform.position = [Vector3 vectorWithX:0 y:0 z:-5.0f];
+		node.transform.position = [Vector3 vectorWithX:0 y:1 z:-3.0f];
+		node.transform.scale = [Vector3 vectorWithX:0.5f y:0.5f z:0.5f];
+		
+		[node addComponentOfClass:[PlayerPhysics class]];
 	}
-	*/
-}
-
-static int x = 0;
-static int z = 0;
-
-- (void)updateWithGameTime:(GameTime *)gameTime {
-	if(z < 30) {
-		Node *cube = [self createNode];
-		cube.transform.position = [Vector3 vectorWithX:x-2 y:0 z:-z];
-		
-		MeshRenderer *mr = [cube addComponentOfClass:[MeshRenderer class]];
-		
-		mr.effect = effect;
-		mr.mesh = [MeshFactory createColoredCubeWithGraphicsDevice:self.game.graphicsDevice
-																			  width:1
-																			 height:[Random intGreaterThanOrEqual:1 lessThan:3]
-																			  depth:1
-																			  color:[Color colorWithPercentageRed:[Random float]
-																													  green:[Random float]
-																														blue:[Random float]]];
-		
-		x = (x + 1) % 5;
-		if(x == 4) {
-			z++;
-		}
-	}
-	
-	[super updateWithGameTime:gameTime];
+	 */
 }
 
 @end
