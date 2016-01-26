@@ -74,10 +74,10 @@
 - (void)rotateWithQuaternion:(Quaternion *)theRotation relativeTo:(Space)relativeTo {
 	switch (relativeTo) {
 		case SpaceSelf:
-			[localRotation set:[Quaternion normalize:[Quaternion multiply:localRotation by:theRotation]]];
+			localRotation = [Quaternion normalize:[Quaternion multiply:localRotation by:theRotation]];
 			break;
 		case SpaceWorld:
-			[localRotation set:[Quaternion normalize:[Quaternion multiply:theRotation by:localRotation]]];
+			localRotation = [Quaternion normalize:[Quaternion multiply:theRotation by:localRotation]];
 			break;
 	}
 }
@@ -140,7 +140,7 @@
 
 - (Quaternion *) rotation {
 	if(parent != nil) {
-		return [parent.rotation multiplyBy:localRotation];
+		return [Quaternion multiply:parent.rotation by:localRotation];
 	}
 	
 	return [localRotation copy];
@@ -174,7 +174,6 @@
 	Matrix *r = [Matrix createFromQuaternion:localRotation];
 	Matrix *s = [Matrix createScale:localScale];
 	
-	//return [[self getParentMatrix] multiplyBy:[t multiplyBy:[r multiplyBy:s]]];
 	return [s multiplyBy:[r multiplyBy:[t multiplyBy:[self getParentMatrix]]]];
 }
 

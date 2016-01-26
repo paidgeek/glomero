@@ -13,3 +13,4 @@
 @class CameraFollow;
 @class SectionFactory;
 @class PlayerScore;
+@class PlayerInput;

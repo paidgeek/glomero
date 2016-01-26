@@ -29,13 +29,14 @@
 	{
 		Node *node = [self createNode];
 		
-		//ModelRenderer *mr = [node addComponentOfClass:[ModelRenderer class]];
-		//mr.model = [self.game.content load:@"Sphere" fromFile:@"Sphere.x"];
+		ModelRenderer *mr = [node addComponentOfClass:[ModelRenderer class]];
+		mr.model = [self.game.content load:@"Sphere" fromFile:@"Sphere.x"];
 		
 		node.transform.position = [Vector3 vectorWithX:0 y:1 z:-3.0f];
 		node.transform.scale = [Vector3 vectorWithX:0.5f y:0.5f z:0.5f];
 		
 		[node addComponentOfClass:[PlayerPhysics class]];
+		[node addComponentOfClass:[PlayerInput class]];
 		
 		CameraFollow *cf = [self.mainCamera.node addComponentOfClass:[CameraFollow class]];
 		cf.target = node.transform;

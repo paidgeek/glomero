@@ -25,6 +25,7 @@
 		97CE062F1C571317005C81C4 /* CameraFollow.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE062E1C571317005C81C4 /* CameraFollow.m */; };
 		97CE06321C5715D0005C81C4 /* SectionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06311C5715D0005C81C4 /* SectionFactory.m */; };
 		97CE06351C571CD9005C81C4 /* PlayerScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06341C571CD9005C81C4 /* PlayerScore.m */; };
+		97CE06451C576B56005C81C4 /* PlayerInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06441C576B56005C81C4 /* PlayerInput.m */; };
 		97CEA78C1C55A8CF00810EAC /* Sphere.x in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78B1C55A8CF00810EAC /* Sphere.x */; };
 		97CEA7901C55AA8100810EAC /* Sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78F1C55AA8100810EAC /* Sphere.png */; };
 		97CEA7971C55ECDE00810EAC /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA7951C55ECDE00810EAC /* UI.atlas */; };
@@ -104,6 +105,8 @@
 		97CE06311C5715D0005C81C4 /* SectionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFactory.m; sourceTree = "<group>"; };
 		97CE06331C571CD9005C81C4 /* PlayerScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScore.h; sourceTree = "<group>"; };
 		97CE06341C571CD9005C81C4 /* PlayerScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScore.m; sourceTree = "<group>"; };
+		97CE06431C576B56005C81C4 /* PlayerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInput.h; sourceTree = "<group>"; };
+		97CE06441C576B56005C81C4 /* PlayerInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInput.m; sourceTree = "<group>"; };
 		97CEA78B1C55A8CF00810EAC /* Sphere.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sphere.x; path = Glomero/Sphere.x; sourceTree = "<group>"; };
 		97CEA78F1C55AA8100810EAC /* Sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sphere.png; path = Glomero/Sphere.png; sourceTree = "<group>"; };
 		97CEA7951C55ECDE00810EAC /* UI.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UI.atlas; path = Glomero/UI.atlas; sourceTree = "<group>"; };
@@ -284,6 +287,8 @@
 				97CE062E1C571317005C81C4 /* CameraFollow.m */,
 				97CE06331C571CD9005C81C4 /* PlayerScore.h */,
 				97CE06341C571CD9005C81C4 /* PlayerScore.m */,
+				97CE06431C576B56005C81C4 /* PlayerInput.h */,
+				97CE06441C576B56005C81C4 /* PlayerInput.m */,
 			);
 			name = Player;
 			sourceTree = "<group>";
@@ -416,6 +421,7 @@
 				97D4962C1C569FAC003FFA3B /* PlayerPhysics.m in Sources */,
 				97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */,
 				97D496331C56EAC6003FFA3B /* LevelGenerator.m in Sources */,
+				97CE06451C576B56005C81C4 /* PlayerInput.m in Sources */,
 				97CE06351C571CD9005C81C4 /* PlayerScore.m in Sources */,
 				97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */,
 			);

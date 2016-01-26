@@ -28,6 +28,6 @@
 
 #import "ISceneAction.h"
 
-@class Frustrum;
 @class Plane;
 @class BoundingSphere;
+@class BoundingBox;

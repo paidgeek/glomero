@@ -29,6 +29,7 @@
 																height:1
 																 depth:SECTION_LENGTH];
 	
+	/*
 	for(int i = 0; i < 5; i++) {
 		float x = [Random intGreaterThanOrEqual:-2 lessThan:2] + 0.5f;
 		float z = [Random intLessThan:SECTION_LENGTH] + 0.5f;
@@ -40,6 +41,7 @@
 		mr.effect = glomero.platformEffect1;
 		mr.mesh = [MeshFactory createCubeWithGraphicsDevice:scene.game.graphicsDevice width:1 height:1 depth:1];
 	}
+	*/
 	
 	z -= SECTION_LENGTH;
 	
