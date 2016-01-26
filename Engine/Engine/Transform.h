@@ -10,6 +10,8 @@
 - (void) rotateAround:(Vector3 *) axis by:(float) angle;
 - (void) rotateAround:(Vector3 *) axis by:(float) angle relativeTo:(Space) relativeTo;
 - (void) rotateWithQuaternion:(Quaternion *) rotation relativeTo:(Space) relativeTo;
+- (void) lookAt:(Vector3 *) point;
+- (void) lookAt:(Vector3 *) point up:(Vector3 *) up;
 
 - (void) setParent:(Transform *) parent worldPositionStays:(BOOL) worldPositionStays;
 

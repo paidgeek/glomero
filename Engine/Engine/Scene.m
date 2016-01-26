@@ -100,6 +100,10 @@ static Scene *instance;
 	[actions removeAllObjects];
 }
 
+- (int)drawCount {
+	return renderSystem.drawCount;
+}
+
 + (Scene *) getInstance {
 	return instance;
 }

@@ -54,6 +54,9 @@
 		97CDD8A91C5019EF0067AB10 /* Rectangle+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDD8A81C5019EF0067AB10 /* Rectangle+Extensions.m */; };
 		97CDD8AC1C5019F70067AB10 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDD8AB1C5019F70067AB10 /* Random.m */; };
 		97CDD8AF1C501A090067AB10 /* FpsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDD8AE1C501A090067AB10 /* FpsComponent.m */; };
+		97CE06381C57221E005C81C4 /* Frustrum.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06371C57221E005C81C4 /* Frustrum.m */; };
+		97CE063B1C572355005C81C4 /* Plane.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE063A1C572355005C81C4 /* Plane.m */; };
+		97CE063E1C5723F0005C81C4 /* BoundingSphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE063D1C5723F0005C81C4 /* BoundingSphere.m */; };
 		97D2F2471C53F2AA00AC9F3F /* ModelRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D2F2461C53F2AA00AC9F3F /* ModelRenderer.m */; };
 		97DB5CBC1C26B260008E678F /* GUIText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CBB1C26B260008E678F /* GUIText.m */; };
 		97DB5CBF1C26B287008E678F /* GUIImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CBE1C26B287008E678F /* GUIImage.m */; };
@@ -135,6 +138,12 @@
 		97CDD8AB1C5019F70067AB10 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		97CDD8AD1C501A090067AB10 /* FpsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FpsComponent.h; sourceTree = "<group>"; };
 		97CDD8AE1C501A090067AB10 /* FpsComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FpsComponent.m; sourceTree = "<group>"; };
+		97CE06361C57221E005C81C4 /* Frustrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Frustrum.h; sourceTree = "<group>"; };
+		97CE06371C57221E005C81C4 /* Frustrum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Frustrum.m; sourceTree = "<group>"; };
+		97CE06391C572355005C81C4 /* Plane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plane.h; sourceTree = "<group>"; };
+		97CE063A1C572355005C81C4 /* Plane.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Plane.m; sourceTree = "<group>"; };
+		97CE063C1C5723F0005C81C4 /* BoundingSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundingSphere.h; sourceTree = "<group>"; };
+		97CE063D1C5723F0005C81C4 /* BoundingSphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoundingSphere.m; sourceTree = "<group>"; };
 		97D0582A1BF533E6001D6E87 /* libEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D058561BF53579001D6E87 /* libXNI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXNI.a; path = ../XNI/libXNI.a; sourceTree = "<group>"; };
 		97D2F2451C53F2AA00AC9F3F /* ModelRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelRenderer.h; sourceTree = "<group>"; };
@@ -284,6 +293,12 @@
 				97CD6F551C1D4238001C8384 /* QuaternionExtensions.m */,
 				97CD6F581C1D4691001C8384 /* MathUtil.h */,
 				97CD6F591C1D4691001C8384 /* MathUtil.m */,
+				97CE06361C57221E005C81C4 /* Frustrum.h */,
+				97CE06371C57221E005C81C4 /* Frustrum.m */,
+				97CE06391C572355005C81C4 /* Plane.h */,
+				97CE063A1C572355005C81C4 /* Plane.m */,
+				97CE063C1C5723F0005C81C4 /* BoundingSphere.h */,
+				97CE063D1C5723F0005C81C4 /* BoundingSphere.m */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -395,6 +410,7 @@
 				97CDD8AF1C501A090067AB10 /* FpsComponent.m in Sources */,
 				97CD6F5E1C1D4A14001C8384 /* Camera.h in Sources */,
 				97DB5CC81C26B38F008E678F /* GUICheckBox.m in Sources */,
+				97CE063B1C572355005C81C4 /* Plane.m in Sources */,
 				97CD0E8C1C16AEE100CEFF3F /* Engine.h in Sources */,
 				97DE51741C307B0A00356EC2 /* GUISlider.m in Sources */,
 				97CD0E8D1C16AEE100CEFF3F /* Engine.Core.classes.h in Sources */,
@@ -421,6 +437,7 @@
 				97DB5CBC1C26B260008E678F /* GUIText.m in Sources */,
 				97CD0E9E1C16AEE100CEFF3F /* AddComponentAction.h in Sources */,
 				97DCC59B1C31CDFA005B2599 /* PlayerPrefs.m in Sources */,
+				97CE06381C57221E005C81C4 /* Frustrum.m in Sources */,
 				97CD0E9F1C16AEE100CEFF3F /* AddComponentAction.m in Sources */,
 				97CD390D1C1CD6F0008870FB /* Camera.m in Sources */,
 				97CD0EA01C16AEE100CEFF3F /* Transform.h in Sources */,
@@ -439,6 +456,7 @@
 				97CD0EA81C16AEE100CEFF3F /* Scene.h in Sources */,
 				97E0C9B51C49356700893528 /* MeshRenderer.m in Sources */,
 				97CD0EA91C16AEE100CEFF3F /* Scene.m in Sources */,
+				97CE063E1C5723F0005C81C4 /* BoundingSphere.m in Sources */,
 				97CD0EAA1C16AEE100CEFF3F /* Engine.Graphics.classes.h in Sources */,
 				97E0C9BD1C495BDD00893528 /* SpriteRenderer.m in Sources */,
 				97CD0EAB1C16AEE100CEFF3F /* Engine.Graphics.h in Sources */,

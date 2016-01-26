@@ -9,7 +9,7 @@
 
 static Glomero *instance;
 @synthesize currentScene, worldAtlas, entitiesAtlas, uiAtlas, font,
-blibSound, coinSound, explosionSound, shootSound, hitSound, platformTexture;
+blibSound, coinSound, explosionSound, shootSound, hitSound, platformTexture, platformEffect0, platformEffect1;
 
 - (id) init {
 	self = [super init];
@@ -42,6 +42,45 @@ blibSound, coinSound, explosionSound, shootSound, hitSound, platformTexture;
 	hitSound = [self.content load:@"Hit"];
 	
 	platformTexture = [self.content load:@"Platform2"];
+	
+	{
+		// 0
+		platformEffect0 = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
+		platformEffect0.tag = @"Platform0";
+		
+		platformEffect0.textureEnabled = YES;
+		platformEffect0.vertexColorEnabled = NO;
+		platformEffect0.texture = platformTexture;
+		platformEffect0.diffuseColor = [Vector3 vectorWithX:1 y:1 z:1];
+		platformEffect0.emissiveColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		platformEffect0.lightingEnabled = YES;
+		platformEffect0.ambientColor = [Vector3 vectorWithX:0.2 y:0.2 z:0.2];
+		platformEffect0.ambientLightColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		platformEffect0.directionalLight0.enabled = YES;
+		platformEffect0.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
+		platformEffect0.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
+	
+		// 1
+		platformEffect1 = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
+		platformEffect1.tag = @"Platform1";
+		
+		platformEffect1.textureEnabled = YES;
+		platformEffect1.vertexColorEnabled = NO;
+		platformEffect1.texture = platformTexture;
+		platformEffect1.diffuseColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		platformEffect1.emissiveColor = [Vector3 vectorWithX:1 y:0 z:0];
+		
+		platformEffect1.lightingEnabled = YES;
+		platformEffect1.ambientColor = [Vector3 vectorWithX:0.2 y:0.2 z:0.2];
+		platformEffect1.ambientLightColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		platformEffect1.directionalLight0.enabled = YES;
+		platformEffect1.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
+		platformEffect1.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
+	}
 	
 	[super loadContent];
 	

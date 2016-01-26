@@ -9,3 +9,7 @@
 @class MeshFactory;
 
 @class PlayerPhysics;
+@class LevelGenerator;
+@class CameraFollow;
+@class SectionFactory;
+@class PlayerScore;

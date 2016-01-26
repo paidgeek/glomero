@@ -39,13 +39,27 @@
 }
 
 - (void)translate:(Vector3 *)translation relativeTo:(Space)relativeTo {
-	switch (relativeTo) {
-		case SpaceWorld:
-			localPosition = [localPosition add:translation];
-			break;
-		case SpaceSelf:
-			// TODO
-			break;
+	if(relativeTo == SpaceWorld) {
+		[localPosition add:translation];
+	} else {
+		float x = localRotation.x;
+		float y = localRotation.y;
+		float z = localRotation.z;
+		float w = localRotation.w;
+		float vx = translation.x;
+		float vy = translation.y;
+		float vz = translation.z;
+		
+		float nw = -x * vx - y * vy - z * vz;
+		float nx = w * vx + y * vz - z * vy;
+		float ny = w * vy + z * vx - x * vz;
+		float nz = w * vz + x * vy - y * vx;
+		
+		Quaternion *q = [Quaternion multiply:[Quaternion quaternionWithX:nx y:ny z:nz w:nw] by:[Quaternion inverse:localRotation]];
+		
+		localPosition.x += q.x;
+		localPosition.y += q.y;
+		localPosition.z += q.z;
 	}
 }
 
@@ -68,6 +82,14 @@
 	}
 }
 
+- (void)lookAt:(Vector3 *)point {
+	[self lookAt:point up:[Vector3 unitY]];
+}
+
+- (void)lookAt:(Vector3 *)point up:(Vector3 *)up {
+	self.localRotation = [Quaternion rotationMatrix:[Matrix createLookAtFrom:self.position to:point up:up]];
+}
+
 - (void)setParent:(Transform *)theParent {
 	[self setParent:theParent worldPositionStays:NO];
 }
@@ -86,7 +108,26 @@
 }
 
 - (void)setPosition:(Vector3 *)thePosition {
-	localPosition = [[Vector3 vectorWithVector:thePosition] transformWith:[Matrix invert:[self getParentMatrix]]];
+	//localPosition = [[Vector3 vectorWithVector:thePosition] transformWith:[Matrix invert:[self getParentMatrix]]];
+
+	float x = localRotation.x;
+	float y = localRotation.y;
+	float z = localRotation.z;
+	float w = localRotation.w;
+	float vx = thePosition.x;
+	float vy = thePosition.y;
+	float vz = thePosition.z;
+	
+	float nw = -x * vx - y * vy - z * vz;
+	float nx = w * vx + y * vz - z * vy;
+	float ny = w * vy + z * vx - x * vz;
+	float nz = w * vz + x * vy - y * vx;
+	
+	Quaternion *q = [Quaternion multiply:[Quaternion quaternionWithX:nx y:ny z:nz w:nw] by:[Quaternion inverse:localRotation]];
+	
+	localPosition.x = q.x;
+	localPosition.y = q.y;
+	localPosition.z = q.z;
 }
 
 - (Vector3 *) position {

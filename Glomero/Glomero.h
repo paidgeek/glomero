@@ -18,6 +18,9 @@
 @property (nonatomic, strong) SoundEffect *hitSound;
 @property (nonatomic, strong) Texture2D *platformTexture;
 
+@property (nonatomic, strong) BasicEffect *platformEffect0;
+@property (nonatomic, strong) BasicEffect *platformEffect1;
+
 + (Glomero *) getInstance;
 
 @end

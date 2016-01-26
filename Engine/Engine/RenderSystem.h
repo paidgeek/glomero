@@ -5,4 +5,6 @@
 - (id) initWithGame:(Game *) theGame scene:(Scene *) theScene;
 - (void) drawNode:(Node *) node gameTime:(GameTime *) gameTime;
 
+@property (nonatomic) int drawCount;
+
 @end

@@ -23,3 +23,7 @@
 
 #import "GUIText.h"
 #import "Random.h"
+
+#import "Frustrum.h"
+#import "Plane.h"
+#import "BoundingSphere.h"

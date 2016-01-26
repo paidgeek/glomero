@@ -18,14 +18,14 @@
 }
 
 - (Matrix *) view {
-	Matrix *r = [Matrix createFromQuaternion:[node.transform.rotation inverse]];
+	Matrix *r = [Matrix createFromQuaternion:[Quaternion inverse:node.transform.rotation]];
 	Matrix *t = [Matrix createTranslation:[Vector3 negate:node.transform.position]];
 	
 	return [r multiplyBy:t];
 }
 
 - (Matrix *) viewProjection {
-	return [projection multiplyBy:self.view];
+	return [Matrix multiply:projection by:self.view];
 }
 
 - (Vector3 *)viewportPointFromWorld:(Vector3 *)worldPosition {

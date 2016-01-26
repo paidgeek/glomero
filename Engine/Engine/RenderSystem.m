@@ -11,6 +11,8 @@
 	NSMutableDictionary *effects;
 }
 
+@synthesize drawCount;
+
 - (id) initWithGame:(Game *)theGame scene:(Scene *)theScene{
 	self = [super initWithGame:theGame];
 	
@@ -28,14 +30,17 @@
 
 - (void) drawWithGameTime:(GameTime *)gameTime {
 	GraphicsDevice *graphicsDevice = self.game.graphicsDevice;
+	Camera *camera = scene.mainCamera;
 	
 	[graphicsDevice clearWithColor:scene.mainCamera.clearColor];
 	
-	graphicsDevice.rasterizerState = [RasterizerState cullNone];
+	graphicsDevice.rasterizerState = [RasterizerState cullClockwise];
 	graphicsDevice.depthStencilState = [DepthStencilState defaultDepth];
 
-	id view = scene.mainCamera.view;
-	id projection = scene.mainCamera.projection;
+	id view = camera.view;
+	id projection = camera.projection;
+	
+	drawCount = 0;
 	
 	for(id tag in meshRenderers) {
 		BasicEffect *effect = [effects objectForKey:tag];
@@ -44,8 +49,12 @@
 		effect.projection = projection;
 		
 		for(MeshRenderer *meshRenderer in [meshRenderers objectForKey:tag]) {
-			effect.world = meshRenderer.node.transform.localToWorld;
+			meshRenderer.mesh.boundingSphere.center = meshRenderer.node.transform.position;
 			
+			drawCount++;
+				
+			effect.world = meshRenderer.node.transform.localToWorld;
+				
 			for(EffectPass *pass in effect.currentTechnique.passes) {
 				[pass apply];
 				

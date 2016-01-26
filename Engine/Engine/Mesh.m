@@ -7,6 +7,8 @@
 	int numVertices, primitiveCount;
 }
 
+@synthesize boundingSphere;
+
 - (id) initWithGraphicsDevice:(GraphicsDevice *) graphicsDevice vertexArray:(VertexArray *) vertexArray indexArray:(IndexArray *) indexArray {
 	self = [super init];
 	
@@ -25,6 +27,10 @@
 																	  indexCount:primitiveCount * 3
 																			 usage:BufferUsageWriteOnly];
 		[indexBuffer setData:indexArray];
+		
+		float radius = 1.8f;
+		
+		boundingSphere = [BoundingSphere sphereWithRadius:radius];
 	}
 	
 	return self;

@@ -12,6 +12,7 @@
 @property (nonatomic, strong) Node *root;
 @property (nonatomic, strong) NSMutableArray *sceneListeners;
 @property (nonatomic, strong) Camera *mainCamera;
+@property (nonatomic, readonly) int drawCount;
 
 + (Scene *) getInstance;
 

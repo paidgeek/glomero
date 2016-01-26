@@ -6,3 +6,7 @@
 #import "MeshFactory.h"
 
 #import "PlayerPhysics.h"
+#import "LevelGenerator.h"
+#import "CameraFollow.h"
+#import "SectionFactory.h"
+#import "PlayerScore.h"

@@ -22,6 +22,9 @@
 		97CD61131C1AA177006D301C /* Constants.h in Sources */ = {isa = PBXBuildFile; fileRef = 97CDE2181C1957140020D969 /* Constants.h */; };
 		97CD61141C1AA183006D301C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 973E4BBD1BD590710083EE47 /* main.m */; };
 		97CDD8B11C501A8E0067AB10 /* libEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97D0584A1BF533E7001D6E87 /* libEngine.a */; };
+		97CE062F1C571317005C81C4 /* CameraFollow.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE062E1C571317005C81C4 /* CameraFollow.m */; };
+		97CE06321C5715D0005C81C4 /* SectionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06311C5715D0005C81C4 /* SectionFactory.m */; };
+		97CE06351C571CD9005C81C4 /* PlayerScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06341C571CD9005C81C4 /* PlayerScore.m */; };
 		97CEA78C1C55A8CF00810EAC /* Sphere.x in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78B1C55A8CF00810EAC /* Sphere.x */; };
 		97CEA7901C55AA8100810EAC /* Sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78F1C55AA8100810EAC /* Sphere.png */; };
 		97CEA7971C55ECDE00810EAC /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA7951C55ECDE00810EAC /* UI.atlas */; };
@@ -43,6 +46,7 @@
 		97D496271C569395003FFA3B /* Platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D496251C569395003FFA3B /* Platform.png */; };
 		97D496281C569395003FFA3B /* Platform2.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D496261C569395003FFA3B /* Platform2.png */; };
 		97D4962C1C569FAC003FFA3B /* PlayerPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D4962B1C569FAC003FFA3B /* PlayerPhysics.m */; };
+		97D496331C56EAC6003FFA3B /* LevelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D496321C56EAC6003FFA3B /* LevelGenerator.m */; };
 		97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CD21C26CE74008E678F /* ButtonText.m */; };
 		97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 97DB5CD61C26D856008E678F /* BitBold.bmp */; };
 		97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DCC5941C3190A4005B2599 /* CreditsMenu.m */; };
@@ -94,6 +98,12 @@
 		97CDE2181C1957140020D969 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		97CDFCAD1BF8E85C00434CDF /* TINR.Glomero.classes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.classes.h; sourceTree = "<group>"; };
 		97CDFCAE1BF8E87700434CDF /* TINR.Glomero.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TINR.Glomero.h; sourceTree = "<group>"; };
+		97CE062D1C571317005C81C4 /* CameraFollow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraFollow.h; sourceTree = "<group>"; };
+		97CE062E1C571317005C81C4 /* CameraFollow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraFollow.m; sourceTree = "<group>"; };
+		97CE06301C5715D0005C81C4 /* SectionFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionFactory.h; sourceTree = "<group>"; };
+		97CE06311C5715D0005C81C4 /* SectionFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionFactory.m; sourceTree = "<group>"; };
+		97CE06331C571CD9005C81C4 /* PlayerScore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerScore.h; sourceTree = "<group>"; };
+		97CE06341C571CD9005C81C4 /* PlayerScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScore.m; sourceTree = "<group>"; };
 		97CEA78B1C55A8CF00810EAC /* Sphere.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sphere.x; path = Glomero/Sphere.x; sourceTree = "<group>"; };
 		97CEA78F1C55AA8100810EAC /* Sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sphere.png; path = Glomero/Sphere.png; sourceTree = "<group>"; };
 		97CEA7951C55ECDE00810EAC /* UI.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UI.atlas; path = Glomero/UI.atlas; sourceTree = "<group>"; };
@@ -112,6 +122,8 @@
 		97D496261C569395003FFA3B /* Platform2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Platform2.png; path = Glomero/Platform2.png; sourceTree = "<group>"; };
 		97D4962A1C569FAC003FFA3B /* PlayerPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPhysics.h; sourceTree = "<group>"; };
 		97D4962B1C569FAC003FFA3B /* PlayerPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPhysics.m; sourceTree = "<group>"; };
+		97D496311C56EAC6003FFA3B /* LevelGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGenerator.h; sourceTree = "<group>"; };
+		97D496321C56EAC6003FFA3B /* LevelGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelGenerator.m; sourceTree = "<group>"; };
 		97D85CD51C093C2A001EFE5F /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		97D85CD61C093C2A001EFE5F /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
 		97DB5CD11C26CE74008E678F /* ButtonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonText.h; sourceTree = "<group>"; };
@@ -200,6 +212,7 @@
 		973E4BF31BD591970083EE47 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				97D496301C56EAB1003FFA3B /* Level */,
 				97D496291C569F9C003FFA3B /* Player */,
 				97D06C301C30192F006B72A2 /* Menu */,
 				973E4BF01BD5918F0083EE47 /* Glomero.h */,
@@ -267,8 +280,23 @@
 			children = (
 				97D4962A1C569FAC003FFA3B /* PlayerPhysics.h */,
 				97D4962B1C569FAC003FFA3B /* PlayerPhysics.m */,
+				97CE062D1C571317005C81C4 /* CameraFollow.h */,
+				97CE062E1C571317005C81C4 /* CameraFollow.m */,
+				97CE06331C571CD9005C81C4 /* PlayerScore.h */,
+				97CE06341C571CD9005C81C4 /* PlayerScore.m */,
 			);
 			name = Player;
+			sourceTree = "<group>";
+		};
+		97D496301C56EAB1003FFA3B /* Level */ = {
+			isa = PBXGroup;
+			children = (
+				97D496311C56EAC6003FFA3B /* LevelGenerator.h */,
+				97D496321C56EAC6003FFA3B /* LevelGenerator.m */,
+				97CE06301C5715D0005C81C4 /* SectionFactory.h */,
+				97CE06311C5715D0005C81C4 /* SectionFactory.m */,
+			);
+			name = Level;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,15 +404,19 @@
 				97CD61141C1AA183006D301C /* main.m in Sources */,
 				975649161C49AD9B00463F95 /* MeshFactory.m in Sources */,
 				975649131C49A8AC00463F95 /* Rotate.m in Sources */,
+				97CE062F1C571317005C81C4 /* CameraFollow.m in Sources */,
 				97CD610D1C1AA177006D301C /* Glomero.h in Sources */,
 				97CD610E1C1AA177006D301C /* Glomero.m in Sources */,
 				97CD610F1C1AA177006D301C /* MainScene.h in Sources */,
 				97D06C331C301973006B72A2 /* SettingsMenu.m in Sources */,
+				97CE06321C5715D0005C81C4 /* SectionFactory.m in Sources */,
 				97CD61101C1AA177006D301C /* MainScene.m in Sources */,
 				97D06C2F1C3015AF006B72A2 /* MainMenu.m in Sources */,
 				97CD61131C1AA177006D301C /* Constants.h in Sources */,
 				97D4962C1C569FAC003FFA3B /* PlayerPhysics.m in Sources */,
 				97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */,
+				97D496331C56EAC6003FFA3B /* LevelGenerator.m in Sources */,
+				97CE06351C571CD9005C81C4 /* PlayerScore.m in Sources */,
 				97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

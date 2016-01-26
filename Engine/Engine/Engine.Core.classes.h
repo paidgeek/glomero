@@ -27,3 +27,7 @@
 @class DestroyNodeAction;
 
 #import "ISceneAction.h"
+
+@class Frustrum;
+@class Plane;
+@class BoundingSphere;

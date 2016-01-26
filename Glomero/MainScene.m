@@ -5,73 +5,54 @@
 #import "Random.h"
 #import "Rotate.h"
 
-@implementation MainScene {
-	BasicEffect *effect;
-}
+@implementation MainScene
 
 - (void) loadContent {
 	self.mainCamera.projection = [Matrix createPerspectiveFieldOfView:TO_RAD(60.0f)
 																			aspectRatio:self.graphicsDevice.viewport.aspectRatio
 																	nearPlaneDistance:0.01f
 																	 farPlaneDistance:100.0f];
-	self.mainCamera.node.transform.position = [Vector3 vectorWithX:0.0f y:2.0f z:0.0f];
-	self.mainCamera.node.transform.rotation = [Quaternion axis:[Vector3 left] angle:TO_RAD(-25.0f)];
-
 	Glomero *glomero = [Glomero getInstance];
+	
+	LevelGenerator *levelGenerator = [[self createNode] addComponentOfClass:[LevelGenerator class]];
+	levelGenerator.far = 16.0f;
 
-	// Effect
-	effect = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
-	effect.tag = @"Platform";
+	glomero.platformEffect0.fogEnabled = YES;
+	glomero.platformEffect0.fogColor = [Vector3 vectorWithX:self.mainCamera.clearColor.r y:self.mainCamera.clearColor.g z:self.mainCamera.clearColor.b];
+	glomero.platformEffect0.fogEnd = levelGenerator.far;
+	glomero.platformEffect0.fogStart = levelGenerator.far - 4.0f;
+	glomero.platformEffect1.fogEnabled = YES;
+	glomero.platformEffect1.fogColor = [Vector3 vectorWithX:self.mainCamera.clearColor.r y:self.mainCamera.clearColor.g z:self.mainCamera.clearColor.b];
+	glomero.platformEffect1.fogEnd = levelGenerator.far;
+	glomero.platformEffect1.fogStart = levelGenerator.far - 4.0f;
 
-	// Material
-	effect.textureEnabled = YES;
-	effect.vertexColorEnabled = NO;
-	effect.texture = glomero.platformTexture;
-	effect.diffuseColor = [Vector3 vectorWithX:1 y:1 z:1];
-	
-	effect.emissiveColor = [Vector3 vectorWithX:1 y:0 z:0];
-	
-	// Lighting
-	effect.lightingEnabled = YES;
-	effect.ambientColor = [Vector3 vectorWithX:0.2 y:0.2 z:0.2];
-	effect.ambientLightColor = [Vector3 vectorWithX:1 y:1 z:1];
-	
-	effect.directionalLight0.enabled = YES;
-	effect.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
-	effect.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
-	
-	effect.fogEnabled = YES;
-	effect.fogColor = [Vector3 vectorWithX:self.mainCamera.clearColor.r y:self.mainCamera.clearColor.g z:self.mainCamera.clearColor.b];
-	effect.fogStart = 13.0f;
-	effect.fogEnd = 15.0f;
-	
-	{
-		Node *cube = [self createNode];
-		cube.transform.position = [Vector3 vectorWithX:0 y:0 z:-5];
-		
-		MeshRenderer *mr = [cube addComponentOfClass:[MeshRenderer class]];
-		
-		mr.effect = effect;
-		mr.mesh = [MeshFactory createCubeWithGraphicsDevice:self.game.graphicsDevice
-																	 width:4
-																	height:1
-																	 depth:20];
-		
-	}
-	
-	/*
 	{
 		Node *node = [self createNode];
-		ModelRenderer *mr = [node addComponentOfClass:[ModelRenderer class]];
 		
-		mr.model = [self.game.content load:@"Sphere" fromFile:@"Sphere.x"];
+		//ModelRenderer *mr = [node addComponentOfClass:[ModelRenderer class]];
+		//mr.model = [self.game.content load:@"Sphere" fromFile:@"Sphere.x"];
 		
 		node.transform.position = [Vector3 vectorWithX:0 y:1 z:-3.0f];
 		node.transform.scale = [Vector3 vectorWithX:0.5f y:0.5f z:0.5f];
 		
 		[node addComponentOfClass:[PlayerPhysics class]];
+		
+		CameraFollow *cf = [self.mainCamera.node addComponentOfClass:[CameraFollow class]];
+		cf.target = node.transform;
 	}
-	 */
+	
+	{
+		Node *node = [self createNode];
+		GUIText *text = [node addComponentOfClass:[GUIText class]];
+		PlayerScore *score = [node addComponentOfClass:[PlayerScore class]];
+	
+		text.font = glomero.font;
+		text.text = @"0";
+		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
+		text.node.transform.position = [Vector3 vectorWithX:10.0f y:10.0f z:0.0f];
+		
+		score.scoreLabel = text;
+	}
 }
 
 @end
