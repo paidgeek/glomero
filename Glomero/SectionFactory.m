@@ -28,7 +28,9 @@
 																 width:4
 																height:1
 																 depth:SECTION_LENGTH];
-	
+	AABoxCollider *collider = [node addComponentOfClass:[AABoxCollider class]];
+	collider.min = [Vector3 vectorWithX:-2.0f y:-0.5f z:-SECTION_LENGTH / 2.0f];
+	collider.max = [Vector3 vectorWithX:2.0f y:0.5f z:SECTION_LENGTH / 2.0f];
 	/*
 	for(int i = 0; i < 5; i++) {
 		float x = [Random intGreaterThanOrEqual:-2 lessThan:2] + 0.5f;

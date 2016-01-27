@@ -1,28 +1,36 @@
 #import "PlayerPhysics.h"
 #import "TINR.Glomero.h"
 
-@implementation PlayerPhysics
+@implementation PlayerPhysics {
+	SphereCollider *collider;
+}
 
-@synthesize node, velocity, sphere;
+@synthesize node;
 
 - (id) initWithNode:(Node *)theNode {
 	self = [super init];
 	
 	if(self) {
 		node = theNode;
-		velocity = [Vector3 vectorWithX:0 y:0 z:-6.0f];
-		sphere = [BoundingSphere sphereWithRadius:0.5f];
 	}
 	
 	return self;
 }
 
+- (void)onAdd {
+	collider = [node getComponentOfClass:[SphereCollider class]];
+	collider.radius = 0.5f;
+}
+
 - (void)updateWithGameTime:(GameTime *)gameTime {
-	[node.transform translate:[Vector3 multiply:velocity
+	collider.velocity.z = -5.0f;
+	collider.velocity.y -= gameTime.elapsedGameTime * 9.81f;
+	
+	[node.transform translate:[Vector3 multiply:collider.velocity
 														  by:gameTime.elapsedGameTime]
 						relativeTo:SpaceWorld];
-	[node.transform rotateAround:[Vector3 vectorWithX:-velocity.z y:0 z:velocity.x]
-									  by:2.0f * M_PI * sphere.radius * gameTime.elapsedGameTime
+	[node.transform rotateAround:[Vector3 vectorWithX:-collider.velocity.z y:0 z:collider.velocity.x]
+									  by:2.0f * M_PI * collider.radius * gameTime.elapsedGameTime
 							relativeTo:SpaceSelf];
 }
 

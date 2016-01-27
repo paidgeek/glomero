@@ -11,6 +11,7 @@
 #import "INodeComponent.h"
 #import "ISceneListener.h"
 #import "IDrawableComponent.h"
+#import "IColliderComponent.h"
 #import "IUIComponent.h"
 
 #import "Engine.UI.classes.h"
@@ -28,6 +29,6 @@
 
 #import "ISceneAction.h"
 
-@class Plane;
-@class BoundingSphere;
-@class BoundingBox;
+@class SphereCollider;
+@class AABoxCollider;
+@class Collision;

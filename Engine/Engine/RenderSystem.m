@@ -49,8 +49,6 @@
 		effect.projection = projection;
 		
 		for(MeshRenderer *meshRenderer in [meshRenderers objectForKey:tag]) {
-			meshRenderer.mesh.boundingSphere.center = meshRenderer.node.transform.position;
-			
 			drawCount++;
 				
 			effect.world = meshRenderer.node.transform.localToWorld;

@@ -9,6 +9,7 @@
 #import "LogicSystem.h"
 #import "RenderSystem.h"
 #import "UISystem.h"
+#import "PhysicsSystem.h"
 
 #import "Engine.UI.h"
 
@@ -24,6 +25,6 @@
 #import "GUIText.h"
 #import "Random.h"
 
-#import "Plane.h"
-#import "BoundingSphere.h"
-#import "BoundingBox.h"
+#import "SphereCollider.h"
+#import "AABoxCollider.h"
+#import "Collision.h"

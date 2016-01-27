@@ -6,6 +6,7 @@
 	LogicSystem *logicSystem;
 	RenderSystem *renderSystem;
 	UISystem *uiSystem;
+	PhysicsSystem *physicsSystem;
 	NSMutableArray *actions;
 }
 
@@ -30,12 +31,15 @@ static Scene *instance;
 																  scene:self];
 		uiSystem = [[UISystem alloc] initWithGame:self.game
 														scene:self];
+		physicsSystem = [[PhysicsSystem alloc] initWithGame:self.game
+																	 scene:self];
 		
 		for (id comp in self.game.components) {
 			if([comp class] == [Scene class] ||
 				[comp class] == [LogicSystem class] ||
 				[comp class] == [RenderSystem class] ||
-				[comp class] == [UISystem class])
+				[comp class] == [UISystem class] ||
+				[comp class] == [PhysicsSystem class])
 			{
 				[comp setEnabled:NO];
 			}
@@ -49,13 +53,15 @@ static Scene *instance;
 
 - (void) initialize {
 	[self.game.components addComponent:logicSystem];
+	[self.game.components addComponent:physicsSystem];
 	[self.game.components addComponent:renderSystem];
 	[self.game.components addComponent:uiSystem];
 
 	self.updateOrder = 0;
 	logicSystem.updateOrder = 1;
-	renderSystem.updateOrder = 2;
-	uiSystem.updateOrder = 3;
+	physicsSystem.updateOrder = 2;
+	renderSystem.updateOrder = 3;
+	uiSystem.updateOrder = 4;
 	
 	Node *cameraNode = [self createNode];
 	self.mainCamera = [cameraNode addComponentOfClass:[Camera class]];

@@ -2,7 +2,7 @@
 #import "TINR.Glomero.h"
 
 @implementation PlayerInput {
-	PlayerPhysics *physics;
+	SphereCollider *collider;
 	float vx;
 }
 
@@ -19,7 +19,7 @@
 }
 
 - (void)onAdd {
-	physics = [node getComponentOfClass:[PlayerPhysics class]];
+	collider = [node getComponentOfClass:[SphereCollider class]];
 }
 
 - (void)updateWithGameTime:(GameTime *)gameTime {
@@ -37,7 +37,7 @@
 		}
 	}
 	
-	physics.velocity.x = vx;
+	collider.velocity.x = vx;
 	vx = lerpf(vx, 0.0f, gameTime.elapsedGameTime * 5.0f);
 }
 
