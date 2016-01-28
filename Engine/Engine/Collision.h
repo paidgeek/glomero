@@ -2,7 +2,7 @@
 
 @interface Collision : NSObject
 
-+ (BOOL) detectCollisionBetween:(id) a and:(id) b;
-+ (void) resolveCollisionBetween:(id) a and:(id) b;
++ (BOOL) detectCollisionBetween:(id<IColliderComponent>) a and:(id<IColliderComponent>) b;
++ (void) resolveCollisionBetween:(id<IColliderComponent>) a and:(id<IColliderComponent>) b;
 
 @end

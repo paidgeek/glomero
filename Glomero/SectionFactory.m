@@ -20,17 +20,17 @@
 	Glomero *glomero = [Glomero getInstance];
 	
 	Node *node = [scene createNode];
-	node.transform.position = [Vector3 vectorWithX:0.0f y:-0.5f z:z - SECTION_LENGTH / 2.0f];
+	node.transform.position = [Vector3 vectorWithX:0.0f y:-0.5f + [Random intLessThan:2] z:z - SECTION_LENGTH / 2.0f];
 	
 	MeshRenderer *mr = [node addComponentOfClass:[MeshRenderer class]];
 	mr.effect = glomero.platformEffect0;
 	mr.mesh = [MeshFactory createCubeWithGraphicsDevice:scene.game.graphicsDevice
-																 width:4
+																 width:3
 																height:1
 																 depth:SECTION_LENGTH];
 	AABoxCollider *collider = [node addComponentOfClass:[AABoxCollider class]];
-	collider.min = [Vector3 vectorWithX:-2.0f y:-0.5f z:-SECTION_LENGTH / 2.0f];
-	collider.max = [Vector3 vectorWithX:2.0f y:0.5f z:SECTION_LENGTH / 2.0f];
+	collider.min = [Vector3 vectorWithX:-1.5f y:-0.5f z:-SECTION_LENGTH / 2.0f];
+	collider.max = [Vector3 vectorWithX:1.5f y:0.5f z:SECTION_LENGTH / 2.0f];
 	/*
 	for(int i = 0; i < 5; i++) {
 		float x = [Random intGreaterThanOrEqual:-2 lessThan:2] + 0.5f;

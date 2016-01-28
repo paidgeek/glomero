@@ -34,7 +34,7 @@
 	
 	[graphicsDevice clearWithColor:scene.mainCamera.clearColor];
 	
-	graphicsDevice.rasterizerState = [RasterizerState cullClockwise];
+	graphicsDevice.rasterizerState = [RasterizerState cullNone];
 	graphicsDevice.depthStencilState = [DepthStencilState defaultDepth];
 
 	id view = camera.view;

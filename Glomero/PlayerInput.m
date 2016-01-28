@@ -1,9 +1,13 @@
 #import "PlayerInput.h"
 #import "TINR.Glomero.h"
 
+#define JUMP_FORCE 5.0f
+
 @implementation PlayerInput {
 	SphereCollider *collider;
-	float vx;
+	
+	float startY;
+	float flickTime;
 }
 
 @synthesize node;
@@ -25,20 +29,26 @@
 - (void)updateWithGameTime:(GameTime *)gameTime {
 	TouchCollection *touches = [TouchPanel getState];
 	
+	float third = [Scene getInstance].game.gameWindow.clientBounds.width / 3.0f;
+	
 	if(touches.count == 1) {
 		TouchLocation *touch = [touches objectAtIndex:0];
 		
-		float dx = [Scene getInstance].game.gameWindow.clientBounds.width / 2.0f - touch.position.x;
+		if(touch.state == TouchLocationStatePressed) {
+			startY = touch.position.y;
+			flickTime = gameTime.totalGameTime;
+		} else if(touch.state == TouchLocationStateReleased) {
+			if(gameTime.totalGameTime - flickTime < 0.5f && startY - touch.position.y > 50.0f) {
+				collider.velocity.y = JUMP_FORCE;
+			}
+		}
 		
-		if(dx < 0.0f) {
-			vx = 2;
-		} else {
-			vx = -2;
+		if(touch.position.x < third) {
+			collider.velocity.x -= gameTime.elapsedGameTime * 10.0f;
+		} else if(touch.position.x > third * 2.0f) {
+			collider.velocity.x += gameTime.elapsedGameTime * 10.0f;
 		}
 	}
-	
-	collider.velocity.x = vx;
-	vx = lerpf(vx, 0.0f, gameTime.elapsedGameTime * 5.0f);
 }
 
 @end

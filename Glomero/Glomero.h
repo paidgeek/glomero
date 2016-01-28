@@ -17,7 +17,8 @@
 @property (nonatomic, strong) SoundEffect *shootSound;
 @property (nonatomic, strong) SoundEffect *hitSound;
 @property (nonatomic, strong) Texture2D *platformTexture;
-
+@property (nonatomic, strong) Texture2D *playerTexture;
+@property (nonatomic, strong) BasicEffect *playerEffect;
 @property (nonatomic, strong) BasicEffect *platformEffect0;
 @property (nonatomic, strong) BasicEffect *platformEffect1;
 

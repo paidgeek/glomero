@@ -29,11 +29,11 @@
 	{
 		Node *node = [self createNode];
 		
-		ModelRenderer *mr = [node addComponentOfClass:[ModelRenderer class]];
-		mr.model = [self.game.content load:@"Sphere" fromFile:@"Sphere.x"];
+		MeshRenderer *mr = [node addComponentOfClass:[MeshRenderer class]];
+		mr.mesh = [Mesh loadFromFile:@"Sphere" graphicsDevice:self.graphicsDevice];
+		mr.effect = glomero.playerEffect;
 		
-		node.transform.position = [Vector3 vectorWithX:0 y:1 z:-3.0f];
-		node.transform.scale = [Vector3 vectorWithX:0.5f y:0.5f z:0.5f];
+		node.transform.position = [Vector3 vectorWithX:0 y:3 z:-3.0f];
 		
 		[node addComponentOfClass:[SphereCollider class]];
 		[node addComponentOfClass:[PlayerPhysics class]];

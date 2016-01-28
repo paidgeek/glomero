@@ -9,7 +9,9 @@
 
 static Glomero *instance;
 @synthesize currentScene, worldAtlas, entitiesAtlas, uiAtlas, font,
-blibSound, coinSound, explosionSound, shootSound, hitSound, platformTexture, platformEffect0, platformEffect1;
+blibSound, coinSound, explosionSound, shootSound, hitSound,
+platformTexture, platformEffect0, platformEffect1,
+playerTexture, playerEffect;
 
 - (id) init {
 	self = [super init];
@@ -41,7 +43,27 @@ blibSound, coinSound, explosionSound, shootSound, hitSound, platformTexture, pla
 	shootSound = [self.content load:@"Shoot"];
 	hitSound = [self.content load:@"Hit"];
 	
-	platformTexture = [self.content load:@"Platform2"];
+	platformTexture = [self.content load:@"Platform"];
+	playerTexture = [self.content load:@"Sphere" fromFile:@"Sphere.png"];
+	
+	{
+		playerEffect = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
+		playerEffect.tag = @"Player";
+		
+		playerEffect.textureEnabled = YES;
+		playerEffect.vertexColorEnabled = NO;
+		playerEffect.texture = playerTexture;
+		playerEffect.diffuseColor = [Vector3 vectorWithX:1 y:1 z:1];
+		//playerEffect.emissiveColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		playerEffect.lightingEnabled = YES;
+		playerEffect.ambientColor = [Vector3 vectorWithX:0.4 y:0.4 z:0.4];
+		playerEffect.ambientLightColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		//playerEffect.directionalLight0.enabled = YES;
+		//playerEffect.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
+		//playerEffect.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
+	}
 	
 	{
 		// 0

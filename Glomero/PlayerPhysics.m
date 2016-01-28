@@ -23,15 +23,15 @@
 }
 
 - (void)updateWithGameTime:(GameTime *)gameTime {
-	collider.velocity.z = -5.0f;
-	collider.velocity.y -= gameTime.elapsedGameTime * 9.81f;
-	
 	[node.transform translate:[Vector3 multiply:collider.velocity
 														  by:gameTime.elapsedGameTime]
 						relativeTo:SpaceWorld];
 	[node.transform rotateAround:[Vector3 vectorWithX:-collider.velocity.z y:0 z:collider.velocity.x]
 									  by:2.0f * M_PI * collider.radius * gameTime.elapsedGameTime
 							relativeTo:SpaceSelf];
+	
+	collider.velocity.z = -4.0f;
+	collider.velocity.y -= gameTime.elapsedGameTime * 9.81f;
 }
 
 @end

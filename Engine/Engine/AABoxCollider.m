@@ -37,10 +37,10 @@
 		closest.y = maxp.y;
 	}
 	
-	if(closest.y < minp.y) {
-		closest.y = minp.y;
-	} else if(closest.y > maxp.y) {
-		closest.y = maxp.y;
+	if(closest.z < minp.z) {
+		closest.z = minp.z;
+	} else if(closest.z > maxp.z) {
+		closest.z = maxp.z;
 	}
 	
 	return closest;

@@ -26,7 +26,6 @@
 		97CE06321C5715D0005C81C4 /* SectionFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06311C5715D0005C81C4 /* SectionFactory.m */; };
 		97CE06351C571CD9005C81C4 /* PlayerScore.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06341C571CD9005C81C4 /* PlayerScore.m */; };
 		97CE06451C576B56005C81C4 /* PlayerInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CE06441C576B56005C81C4 /* PlayerInput.m */; };
-		97CEA78C1C55A8CF00810EAC /* Sphere.x in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78B1C55A8CF00810EAC /* Sphere.x */; };
 		97CEA7901C55AA8100810EAC /* Sphere.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA78F1C55AA8100810EAC /* Sphere.png */; };
 		97CEA7971C55ECDE00810EAC /* UI.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA7951C55ECDE00810EAC /* UI.atlas */; };
 		97CEA7981C55ECDE00810EAC /* UI.png in Resources */ = {isa = PBXBuildFile; fileRef = 97CEA7961C55ECDE00810EAC /* UI.png */; };
@@ -45,9 +44,9 @@
 		97D073B91C35E6AA00AAC880 /* Explosion.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073B61C35E6AA00AAC880 /* Explosion.wav */; };
 		97D073C21C36126200AAC880 /* Hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = 97D073C11C36126200AAC880 /* Hit.wav */; };
 		97D496271C569395003FFA3B /* Platform.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D496251C569395003FFA3B /* Platform.png */; };
-		97D496281C569395003FFA3B /* Platform2.png in Resources */ = {isa = PBXBuildFile; fileRef = 97D496261C569395003FFA3B /* Platform2.png */; };
 		97D4962C1C569FAC003FFA3B /* PlayerPhysics.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D4962B1C569FAC003FFA3B /* PlayerPhysics.m */; };
 		97D496331C56EAC6003FFA3B /* LevelGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D496321C56EAC6003FFA3B /* LevelGenerator.m */; };
+		97DA25501C59CD7800EF039E /* Sphere.obj in Resources */ = {isa = PBXBuildFile; fileRef = 97DA254F1C59CD7800EF039E /* Sphere.obj */; };
 		97DB5CD31C26CE74008E678F /* ButtonText.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DB5CD21C26CE74008E678F /* ButtonText.m */; };
 		97DB5CD71C26D856008E678F /* BitBold.bmp in Resources */ = {isa = PBXBuildFile; fileRef = 97DB5CD61C26D856008E678F /* BitBold.bmp */; };
 		97DCC5951C3190A4005B2599 /* CreditsMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 97DCC5941C3190A4005B2599 /* CreditsMenu.m */; };
@@ -107,7 +106,6 @@
 		97CE06341C571CD9005C81C4 /* PlayerScore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerScore.m; sourceTree = "<group>"; };
 		97CE06431C576B56005C81C4 /* PlayerInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerInput.h; sourceTree = "<group>"; };
 		97CE06441C576B56005C81C4 /* PlayerInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerInput.m; sourceTree = "<group>"; };
-		97CEA78B1C55A8CF00810EAC /* Sphere.x */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sphere.x; path = Glomero/Sphere.x; sourceTree = "<group>"; };
 		97CEA78F1C55AA8100810EAC /* Sphere.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sphere.png; path = Glomero/Sphere.png; sourceTree = "<group>"; };
 		97CEA7951C55ECDE00810EAC /* UI.atlas */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = UI.atlas; path = Glomero/UI.atlas; sourceTree = "<group>"; };
 		97CEA7961C55ECDE00810EAC /* UI.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UI.png; path = Glomero/UI.png; sourceTree = "<group>"; };
@@ -122,13 +120,13 @@
 		97D073B61C35E6AA00AAC880 /* Explosion.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Explosion.wav; path = Glomero/Explosion.wav; sourceTree = "<group>"; };
 		97D073C11C36126200AAC880 /* Hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = Hit.wav; path = Glomero/Hit.wav; sourceTree = "<group>"; };
 		97D496251C569395003FFA3B /* Platform.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Platform.png; path = Glomero/Platform.png; sourceTree = "<group>"; };
-		97D496261C569395003FFA3B /* Platform2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Platform2.png; path = Glomero/Platform2.png; sourceTree = "<group>"; };
 		97D4962A1C569FAC003FFA3B /* PlayerPhysics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerPhysics.h; sourceTree = "<group>"; };
 		97D4962B1C569FAC003FFA3B /* PlayerPhysics.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerPhysics.m; sourceTree = "<group>"; };
 		97D496311C56EAC6003FFA3B /* LevelGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LevelGenerator.h; sourceTree = "<group>"; };
 		97D496321C56EAC6003FFA3B /* LevelGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LevelGenerator.m; sourceTree = "<group>"; };
 		97D85CD51C093C2A001EFE5F /* MainScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainScene.h; sourceTree = "<group>"; };
 		97D85CD61C093C2A001EFE5F /* MainScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainScene.m; sourceTree = "<group>"; };
+		97DA254F1C59CD7800EF039E /* Sphere.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Sphere.obj; path = Glomero/Sphere.obj; sourceTree = "<group>"; };
 		97DB5CD11C26CE74008E678F /* ButtonText.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonText.h; sourceTree = "<group>"; };
 		97DB5CD21C26CE74008E678F /* ButtonText.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonText.m; sourceTree = "<group>"; };
 		97DB5CD61C26D856008E678F /* BitBold.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; name = BitBold.bmp; path = Glomero/BitBold.bmp; sourceTree = "<group>"; };
@@ -237,9 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				97D073B41C35E6AA00AAC880 /* Blip.wav */,
-				97CEA78B1C55A8CF00810EAC /* Sphere.x */,
 				97D496251C569395003FFA3B /* Platform.png */,
-				97D496261C569395003FFA3B /* Platform2.png */,
 				97CEA78F1C55AA8100810EAC /* Sphere.png */,
 				9756490F1C4995D900463F95 /* Dirt.png */,
 				97D073B51C35E6AA00AAC880 /* Coin.wav */,
@@ -251,6 +247,7 @@
 				97CD391A1C1D0F49008870FB /* World.atlas */,
 				97DB5CD61C26D856008E678F /* BitBold.bmp */,
 				97CD391B1C1D0F49008870FB /* World.png */,
+				97DA254F1C59CD7800EF039E /* Sphere.obj */,
 				97CD39121C1CEDDD008870FB /* Entities.atlas */,
 				97CD39131C1CEDDD008870FB /* Entities.png */,
 			);
@@ -380,6 +377,7 @@
 			files = (
 				97D073B71C35E6AA00AAC880 /* Blip.wav in Resources */,
 				975649101C4995D900463F95 /* Dirt.png in Resources */,
+				97DA25501C59CD7800EF039E /* Sphere.obj in Resources */,
 				97D073B91C35E6AA00AAC880 /* Explosion.wav in Resources */,
 				97D496271C569395003FFA3B /* Platform.png in Resources */,
 				97CEA7901C55AA8100810EAC /* Sphere.png in Resources */,
@@ -391,11 +389,9 @@
 				97CD391C1C1D0F49008870FB /* World.atlas in Resources */,
 				97D073B81C35E6AA00AAC880 /* Coin.wav in Resources */,
 				97D073C21C36126200AAC880 /* Hit.wav in Resources */,
-				97CEA78C1C55A8CF00810EAC /* Sphere.x in Resources */,
 				97CD391D1C1D0F49008870FB /* World.png in Resources */,
 				973E4BC91BD590710083EE47 /* Images.xcassets in Resources */,
 				97D073B31C35E69B00AAC880 /* Shoot.wav in Resources */,
-				97D496281C569395003FFA3B /* Platform2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,7 +12,7 @@
 	
 	if(self) {
 		node = theNode;
-		offset = [Vector3 vectorWithX:0 y:2 z:5];
+		offset = [Vector3 vectorWithX:0 y:1 z:2.5];
 		
 		node.transform.position = offset;
 		[node.transform rotateAround:[Vector3 left] by:-0.3f];
