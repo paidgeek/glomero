@@ -13,6 +13,8 @@
 		scene = theScene;
 		colliders = [NSMutableArray array];
 		[scene.sceneListeners addObject:self];
+		
+		[CollisionDetection init];
 	}
 	
 	return self;
@@ -22,7 +24,7 @@
 	for(id a in colliders) {
 		for(id b in colliders) {
 			if (a != b) {
-				[Collision resolveCollisionBetween:a and:b];
+				[CollisionDetection resolveCollisionBetween:a and:b];
 			}
 		}
 	}

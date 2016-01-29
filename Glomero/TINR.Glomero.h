@@ -9,5 +9,6 @@
 #import "LevelGenerator.h"
 #import "CameraFollow.h"
 #import "SectionFactory.h"
-#import "PlayerScore.h"
 #import "PlayerInput.h"
+#import "GameOver.h"
+#import "GamePlay.h"

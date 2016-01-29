@@ -2,6 +2,7 @@
 #import "Constants.h"
 
 @class Glomero;
+@class GameOver;
 @class MainMenu;
 @class SettingsMenu;
 @class CreditsMenu;
@@ -12,5 +13,5 @@
 @class LevelGenerator;
 @class CameraFollow;
 @class SectionFactory;
-@class PlayerScore;
 @class PlayerInput;
+@class GamePlay;

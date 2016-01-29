@@ -1,9 +1,10 @@
 #import "PlayerInput.h"
 #import "TINR.Glomero.h"
 
-#define JUMP_FORCE 5.0f
+#define JUMP_FORCE 4.0f
 
 @implementation PlayerInput {
+	PlayerPhysics *physics;
 	SphereCollider *collider;
 	
 	float startY;
@@ -23,6 +24,7 @@
 }
 
 - (void)onAdd {
+	physics = [node getComponentOfClass:[PlayerPhysics class]];
 	collider = [node getComponentOfClass:[SphereCollider class]];
 }
 
@@ -34,12 +36,14 @@
 	if(touches.count == 1) {
 		TouchLocation *touch = [touches objectAtIndex:0];
 		
-		if(touch.state == TouchLocationStatePressed) {
-			startY = touch.position.y;
-			flickTime = gameTime.totalGameTime;
-		} else if(touch.state == TouchLocationStateReleased) {
-			if(gameTime.totalGameTime - flickTime < 0.5f && startY - touch.position.y > 50.0f) {
-				collider.velocity.y = JUMP_FORCE;
+		if(physics.onGround) {
+			if(touch.state == TouchLocationStatePressed) {
+				startY = touch.position.y;
+				flickTime = gameTime.totalGameTime;
+			} else if(touch.state == TouchLocationStateReleased) {
+				if(gameTime.totalGameTime - flickTime < 0.5f && startY - touch.position.y > 50.0f) {
+					collider.velocity.y = JUMP_FORCE;
+				}
 			}
 		}
 		

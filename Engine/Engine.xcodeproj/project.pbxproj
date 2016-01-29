@@ -54,7 +54,8 @@
 		97CDD8A91C5019EF0067AB10 /* Rectangle+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDD8A81C5019EF0067AB10 /* Rectangle+Extensions.m */; };
 		97CDD8AC1C5019F70067AB10 /* Random.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDD8AB1C5019F70067AB10 /* Random.m */; };
 		97CDD8AF1C501A090067AB10 /* FpsComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CDD8AE1C501A090067AB10 /* FpsComponent.m */; };
-		97D07FC11C582B0E00E81E96 /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D07FC01C582B0E00E81E96 /* Collision.m */; };
+		97CF5F201C5B630700E3C1EE /* Collision.m in Sources */ = {isa = PBXBuildFile; fileRef = 97CF5F1F1C5B630700E3C1EE /* Collision.m */; };
+		97D07FC11C582B0E00E81E96 /* CollisionDetection.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D07FC01C582B0E00E81E96 /* CollisionDetection.m */; };
 		97D07FC41C582C2800E81E96 /* Manifold.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D07FC31C582C2800E81E96 /* Manifold.m */; };
 		97D07FC71C582FCA00E81E96 /* SphereCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D07FC61C582FCA00E81E96 /* SphereCollider.m */; };
 		97D07FCA1C58301800E81E96 /* AABoxCollider.m in Sources */ = {isa = PBXBuildFile; fileRef = 97D07FC91C58301800E81E96 /* AABoxCollider.m */; };
@@ -140,10 +141,13 @@
 		97CDD8AB1C5019F70067AB10 /* Random.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Random.m; sourceTree = "<group>"; };
 		97CDD8AD1C501A090067AB10 /* FpsComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FpsComponent.h; sourceTree = "<group>"; };
 		97CDD8AE1C501A090067AB10 /* FpsComponent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FpsComponent.m; sourceTree = "<group>"; };
+		97CF5F1D1C5B4BDA00E3C1EE /* ICollisionListener.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ICollisionListener.h; sourceTree = "<group>"; };
+		97CF5F1E1C5B630700E3C1EE /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
+		97CF5F1F1C5B630700E3C1EE /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collision.m; sourceTree = "<group>"; };
 		97D0582A1BF533E6001D6E87 /* libEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		97D058561BF53579001D6E87 /* libXNI.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libXNI.a; path = ../XNI/libXNI.a; sourceTree = "<group>"; };
-		97D07FBF1C582B0E00E81E96 /* Collision.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Collision.h; sourceTree = "<group>"; };
-		97D07FC01C582B0E00E81E96 /* Collision.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Collision.m; sourceTree = "<group>"; };
+		97D07FBF1C582B0E00E81E96 /* CollisionDetection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollisionDetection.h; sourceTree = "<group>"; };
+		97D07FC01C582B0E00E81E96 /* CollisionDetection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollisionDetection.m; sourceTree = "<group>"; };
 		97D07FC21C582C2800E81E96 /* Manifold.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Manifold.h; sourceTree = "<group>"; };
 		97D07FC31C582C2800E81E96 /* Manifold.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Manifold.m; sourceTree = "<group>"; };
 		97D07FC51C582FCA00E81E96 /* SphereCollider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SphereCollider.h; sourceTree = "<group>"; };
@@ -355,8 +359,8 @@
 		97D07FBC1C5829EC00E81E96 /* Physics */ = {
 			isa = PBXGroup;
 			children = (
-				97D07FBF1C582B0E00E81E96 /* Collision.h */,
-				97D07FC01C582B0E00E81E96 /* Collision.m */,
+				97D07FBF1C582B0E00E81E96 /* CollisionDetection.h */,
+				97D07FC01C582B0E00E81E96 /* CollisionDetection.m */,
 				97D07FC21C582C2800E81E96 /* Manifold.h */,
 				97D07FC31C582C2800E81E96 /* Manifold.m */,
 				97D07FC51C582FCA00E81E96 /* SphereCollider.h */,
@@ -364,6 +368,9 @@
 				97D07FC81C58301800E81E96 /* AABoxCollider.h */,
 				97D07FC91C58301800E81E96 /* AABoxCollider.m */,
 				97D07FCE1C58340A00E81E96 /* IColliderComponent.h */,
+				97CF5F1D1C5B4BDA00E3C1EE /* ICollisionListener.h */,
+				97CF5F1E1C5B630700E3C1EE /* Collision.h */,
+				97CF5F1F1C5B630700E3C1EE /* Collision.m */,
 			);
 			name = Physics;
 			sourceTree = "<group>";
@@ -438,7 +445,7 @@
 				97CD0E8E1C16AEE100CEFF3F /* Engine.Core.h in Sources */,
 				97D07FCA1C58301800E81E96 /* AABoxCollider.m in Sources */,
 				97D2F2471C53F2AA00AC9F3F /* ModelRenderer.m in Sources */,
-				97D07FC11C582B0E00E81E96 /* Collision.m in Sources */,
+				97D07FC11C582B0E00E81E96 /* CollisionDetection.m in Sources */,
 				97CD0E8F1C16AEE100CEFF3F /* LogicSystem.h in Sources */,
 				97CD0E901C16AEE100CEFF3F /* LogicSystem.m in Sources */,
 				97CD0E931C16AEE100CEFF3F /* RenderSystem.h in Sources */,
@@ -452,6 +459,7 @@
 				97CD4F521C244F6000EF196B /* UISystem.m in Sources */,
 				97CD0E981C16AEE100CEFF3F /* RemoveComponentAction.h in Sources */,
 				97CD39191C1D0697008870FB /* StringLineReader.m in Sources */,
+				97CF5F201C5B630700E3C1EE /* Collision.m in Sources */,
 				97CDD8A91C5019EF0067AB10 /* Rectangle+Extensions.m in Sources */,
 				97CD0E991C16AEE100CEFF3F /* RemoveComponentAction.m in Sources */,
 				97CD0E9A1C16AEE100CEFF3F /* CreateNodeAction.h in Sources */,

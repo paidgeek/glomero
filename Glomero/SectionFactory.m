@@ -20,10 +20,10 @@
 	Glomero *glomero = [Glomero getInstance];
 	
 	Node *node = [scene createNode];
-	node.transform.position = [Vector3 vectorWithX:0.0f y:-0.5f + [Random intLessThan:2] z:z - SECTION_LENGTH / 2.0f];
+	node.transform.position = [Vector3 vectorWithX:0.0f y:-0.5f z:z - SECTION_LENGTH / 2.0f];
 	
 	MeshRenderer *mr = [node addComponentOfClass:[MeshRenderer class]];
-	mr.effect = glomero.platformEffect0;
+	mr.effect = [Random intLessThan:2] == 0 ? glomero.platformEffect0 : glomero.platformEffect1;
 	mr.mesh = [MeshFactory createCubeWithGraphicsDevice:scene.game.graphicsDevice
 																 width:3
 																height:1

@@ -3,6 +3,6 @@
 
 @implementation Manifold
 
-@synthesize penetration, normal;
+@synthesize penetration, normal, colliderA, colliderB;
 
 @end

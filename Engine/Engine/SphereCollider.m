@@ -3,7 +3,7 @@
 
 @implementation SphereCollider
 
-@synthesize node, radius, velocity;
+@synthesize node, radius, velocity, collisionListener;
 
 - (id)initWithNode:(Node *)theNode {
 	self = [super init];

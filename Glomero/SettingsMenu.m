@@ -124,7 +124,6 @@
 		text.font = glomero.font;
 		text.text = @"Back";
 		text.horizontalAlign = HorizontalAlignCenter;
-		text.color = [Color gray];
 		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
 	}
 }

@@ -3,15 +3,17 @@
 
 @implementation PlayerPhysics {
 	SphereCollider *collider;
+	GamePlay *gamePlay;
 }
 
-@synthesize node;
+@synthesize node, onGround;
 
 - (id) initWithNode:(Node *)theNode {
 	self = [super init];
 	
 	if(self) {
 		node = theNode;
+		gamePlay = [GamePlay getInstance];
 	}
 	
 	return self;
@@ -20,6 +22,7 @@
 - (void)onAdd {
 	collider = [node getComponentOfClass:[SphereCollider class]];
 	collider.radius = 0.5f;
+	collider.collisionListener = self;
 }
 
 - (void)updateWithGameTime:(GameTime *)gameTime {
@@ -30,8 +33,29 @@
 									  by:2.0f * M_PI * collider.radius * gameTime.elapsedGameTime
 							relativeTo:SpaceSelf];
 	
-	collider.velocity.z = -4.0f;
-	collider.velocity.y -= gameTime.elapsedGameTime * 9.81f;
+	if(node.transform.position.y < -1.0f) {
+		[[GamePlay getInstance] endGame];
+		
+		return;
+	}
+	
+	collider.velocity.z = -gamePlay.speed;
+	
+	if(!onGround) {
+		collider.velocity.y -= gameTime.elapsedGameTime * 7.0f;
+	}
+}
+
+- (void)onCollisionStay {
+	onGround = YES;
+}
+
+- (void)onCollisionEnter:(Collision *)collision {
+	onGround = YES;
+}
+
+- (void)onCollisionExit:(Collision *)collision {
+	onGround = NO;
 }
 
 @end

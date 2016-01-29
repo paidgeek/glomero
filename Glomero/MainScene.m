@@ -5,7 +5,10 @@
 #import "Random.h"
 #import "Rotate.h"
 
-@implementation MainScene
+@implementation MainScene {
+	GUIText *scoreLabel;
+	GamePlay *gamePlay;
+}
 
 - (void) loadContent {
 	self.mainCamera.projection = [Matrix createPerspectiveFieldOfView:TO_RAD(60.0f)
@@ -26,6 +29,20 @@
 	glomero.platformEffect1.fogEnd = levelGenerator.far;
 	glomero.platformEffect1.fogStart = levelGenerator.far - 4.0f;
 
+	// Create gameplay
+	{
+		Node *node = [self createNode];
+		scoreLabel = [node addComponentOfClass:[GUIText class]];
+		
+		scoreLabel.font = glomero.font;
+		scoreLabel.text = @"0";
+		scoreLabel.scale = [Vector2 vectorWithX:2.0f y:2.0f];
+		scoreLabel.node.transform.position = [Vector3 vectorWithX:10.0f y:10.0f z:0.0f];
+		
+		gamePlay = [node addComponentOfClass:[GamePlay class]];
+	}
+	
+	// Create player
 	{
 		Node *node = [self createNode];
 		
@@ -42,19 +59,12 @@
 		CameraFollow *cf = [self.mainCamera.node addComponentOfClass:[CameraFollow class]];
 		cf.target = node.transform;
 	}
+}
+
+- (void)updateWithGameTime:(GameTime *)gameTime {
+	[super updateWithGameTime:gameTime];
 	
-	{
-		Node *node = [self createNode];
-		GUIText *text = [node addComponentOfClass:[GUIText class]];
-		PlayerScore *score = [node addComponentOfClass:[PlayerScore class]];
-	
-		text.font = glomero.font;
-		text.text = @"0";
-		text.scale = [Vector2 vectorWithX:2.0f y:2.0f];
-		text.node.transform.position = [Vector3 vectorWithX:10.0f y:10.0f z:0.0f];
-		
-		score.scoreLabel = text;
-	}
+	scoreLabel.text = [NSString stringWithFormat:@"%d", gamePlay.score];
 }
 
 @end

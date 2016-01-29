@@ -3,7 +3,7 @@
 
 @implementation AABoxCollider
 
-@synthesize node, min, max, velocity;
+@synthesize node, min, max, velocity, collisionListener;
 
 - (id)initWithNode:(Node *)theNode {
 	self = [super init];

@@ -8,14 +8,6 @@
 @class Scene;
 @class Camera;
 
-#import "INodeComponent.h"
-#import "ISceneListener.h"
-#import "IDrawableComponent.h"
-#import "IColliderComponent.h"
-#import "IUIComponent.h"
-
-#import "Engine.UI.classes.h"
-
 // Systems
 @class LogicSystem;
 @class RenderSystem;
@@ -31,4 +23,14 @@
 
 @class SphereCollider;
 @class AABoxCollider;
+@class CollisionDetection;
 @class Collision;
+
+#import "INodeComponent.h"
+#import "ISceneListener.h"
+#import "IDrawableComponent.h"
+#import "ICollisionListener.h"
+#import "IColliderComponent.h"
+#import "IUIComponent.h"
+
+#import "Engine.UI.classes.h"
