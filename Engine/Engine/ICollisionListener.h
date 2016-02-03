@@ -4,7 +4,7 @@
 
 @optional
 - (void) onCollisionEnter:(Collision *) collision;
-- (void) onCollisionStay;
+- (void) onCollisionStay:(Collision *) collision;
 - (void) onCollisionExit:(Collision *) collision;
 
 @end

@@ -33,6 +33,7 @@ static GamePlay *instance;
 }
 
 - (void)endGame {
+	[MediaPlayer stop];
 	[[Glomero getInstance] enterScene:[GameOver class]];
 }
 

@@ -5,6 +5,8 @@
 @interface CollisionDetection ()
 
 + (Manifold *) collisionBetweenSphere:(SphereCollider *) sphere andAAB:(AABoxCollider *) aab;
++ (Manifold *) collisionBetweenSphere:(SphereCollider *) sphereA andSphere:(SphereCollider *)sphereB;
+
 + (Collision *) findCollisionFor:(id<IColliderComponent>) colliderA and:(id<IColliderComponent>) colliderB;
 
 @end
@@ -31,36 +33,56 @@ static NSMutableArray *collisions;
 
 + (void)resolveCollisionBetween:(id<IColliderComponent>)a and:(id<IColliderComponent>)b {
 	Manifold *manifold = nil;
-	SphereCollider *sphere;
 	
 	if([a isKindOfClass:[SphereCollider class]] && [b isKindOfClass:[AABoxCollider class]]) {
-		sphere = (SphereCollider *) a;
-		manifold = [CollisionDetection collisionBetweenSphere:sphere andAAB:(AABoxCollider *) b];
+		manifold = [CollisionDetection collisionBetweenSphere:a andAAB:(AABoxCollider *) b];
 	} else if([b isKindOfClass:[SphereCollider class]] && [a isKindOfClass:[AABoxCollider class]]) {
-		sphere = (SphereCollider *) b;
-		manifold = [CollisionDetection collisionBetweenSphere:sphere andAAB:(AABoxCollider *) a];
+		manifold = [CollisionDetection collisionBetweenSphere:b andAAB:(AABoxCollider *) a];
+	} else if([a isKindOfClass:[SphereCollider class]] && [b isKindOfClass:[SphereCollider class]]) {
+		manifold = [CollisionDetection collisionBetweenSphere:a andSphere:(SphereCollider *) b];
 	}
 	
 	if(manifold != nil) {
-		if([Vector3 dotProductOf:[Vector3 subtract:b.node.transform.position by:a.node.transform.position] with:a.velocity] > 0.0f) {
+		if(a.dynamic && !b.trigger) {
+			if([Vector3 dotProductOf:[Vector3 subtract:b.node.transform.position
+																 by:a.node.transform.position]
+									  with:a.velocity] > 0.0f) {
 			// reflect velocity
 			// r = d - 2 * dot(d, n) * n
-			Vector3 *d = sphere.velocity;
+			Vector3 *d = a.velocity;
 			Vector3 *n = [Vector3 negate:manifold.normal];
 			Vector3 *r = [Vector3 subtract:d by:[Vector3 multiply:n by:2.0f * [Vector3 dotProductOf:d with:n]]];
-		
+				
 			// game specific
-			sphere.velocity = [Vector3 vectorWithX:r.x y:0.0f z:r.z];
+			a.velocity = [Vector3 vectorWithX:r.x y:0.0f z:r.z];
+			}
+			
+			[a.node.transform.localPosition subtract:[Vector3 multiply:manifold.normal
+																							 by:manifold.penetration]];
 		}
-		
-		[sphere.node.transform.localPosition subtract:[Vector3 multiply:manifold.normal
-																						 by:manifold.penetration]];
+		if(b.dynamic && !a.trigger) {
+			if([Vector3 dotProductOf:[Vector3 subtract:a.node.transform.position
+																 by:b.node.transform.position]
+									  with:b.velocity] > 0.0f) {
+			// reflect velocity
+			// r = d - 2 * dot(d, n) * n
+			Vector3 *d = b.velocity;
+			Vector3 *n = [Vector3 negate:manifold.normal];
+			Vector3 *r = [Vector3 subtract:d by:[Vector3 multiply:n by:2.0f * [Vector3 dotProductOf:d with:n]]];
+				
+			// game specific
+			b.velocity = [Vector3 vectorWithX:r.x y:0.0f z:r.z];
+			}
+			
+			[b.node.transform.localPosition subtract:[Vector3 multiply:manifold.normal
+																					  by:manifold.penetration]];
+		}
 		
 		Collision *collision = [CollisionDetection findCollisionFor:a and:b];
 		
 		if(collision == nil) {
 			// collision enter
-			Collision *collision = [[Collision alloc] initWithNormal:manifold.normal
+			Collision *collision = [[Collision alloc] initWithNormal:[Vector3 negate:manifold.normal]
 																	  thisCollider:manifold.colliderA
 																	 otherCollider:manifold.colliderB];
 			[collisions addObject:collision];
@@ -71,22 +93,48 @@ static NSMutableArray *collisions;
 				}
 			}
 			
+			id c = collision.thisCollider;
+			collision.thisCollider = collision.otherCollider;
+			collision.otherCollider = c;
+			
 			if(b.collisionListener != nil) {
-				if([b.collisionListener respondsToSelector:@selector(onCollisionEnter:)]) {
-					[b.collisionListener onCollisionEnter:collision];
+				if([b.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
+					[b.collisionListener onCollisionStay:collision];
 				}
 			}
 		} else {
 			// collision stay
-			if(a.collisionListener != nil) {
-				if([a.collisionListener respondsToSelector:@selector(onCollisionStay)]) {
-					[a.collisionListener onCollisionStay];
+			if(collision.thisCollider == a) {
+				if(a.collisionListener != nil) {
+					if([a.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
+						[a.collisionListener onCollisionStay:collision];
+					}
 				}
-			}
-			
-			if(b.collisionListener != nil) {
-				if([b.collisionListener respondsToSelector:@selector(onCollisionStay)]) {
-					[b.collisionListener onCollisionStay];
+				
+				id c = collision.thisCollider;
+				collision.thisCollider = collision.otherCollider;
+				collision.otherCollider = c;
+				
+				if(b.collisionListener != nil) {
+					if([b.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
+						[b.collisionListener onCollisionStay:collision];
+					}
+				}
+			} else {
+				if(b.collisionListener != nil) {
+					if([b.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
+						[b.collisionListener onCollisionStay:collision];
+					}
+				}
+				
+				id c = collision.thisCollider;
+				collision.thisCollider = collision.otherCollider;
+				collision.otherCollider = c;
+				
+				if(a.collisionListener != nil) {
+					if([a.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
+						[a.collisionListener onCollisionStay:collision];
+					}
 				}
 			}
 		}
@@ -95,15 +143,37 @@ static NSMutableArray *collisions;
 		
 		if(collision != nil) {
 			// collision exit
-			if(a.collisionListener != nil) {
-				if([a.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
-					[a.collisionListener onCollisionExit:collision];
+			if(collision.thisCollider == a) {
+				if(a.collisionListener != nil) {
+					if([a.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
+						[a.collisionListener onCollisionExit:collision];
+					}
 				}
-			}
-			
-			if(b.collisionListener != nil) {
-				if([b.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
-					[b.collisionListener onCollisionExit:collision];
+				
+				id c = collision.thisCollider;
+				collision.thisCollider = collision.otherCollider;
+				collision.otherCollider = c;
+				
+				if(b.collisionListener != nil) {
+					if([b.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
+						[b.collisionListener onCollisionExit:collision];
+					}
+				}
+			} else {
+				if(b.collisionListener != nil) {
+					if([b.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
+						[b.collisionListener onCollisionExit:collision];
+					}
+				}
+				
+				id c = collision.thisCollider;
+				collision.thisCollider = collision.otherCollider;
+				collision.otherCollider = c;
+				
+				if(a.collisionListener != nil) {
+					if([a.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
+						[a.collisionListener onCollisionExit:collision];
+					}
 				}
 			}
 			
@@ -139,6 +209,29 @@ static NSMutableArray *collisions;
 		
 		manifold.colliderA = sphere;
 		manifold.colliderB = aab;
+		
+		return manifold;
+	}
+	
+	return nil;
+}
+
++ (Manifold *)collisionBetweenSphere:(SphereCollider *)sphereA andSphere:(SphereCollider *)sphereB {
+	Vector3 *pa = sphereA.node.transform.position;
+	Vector3 *pb = sphereB.node.transform.position;
+	
+	Vector3 *v = [Vector3 subtract:pa by:pb];
+	float dst = [v lengthSquared];
+	float r = sphereA.radius + sphereB.radius;
+	
+	if(dst <= r * r) {
+		Manifold *manifold = [[Manifold alloc] init];
+		
+		manifold.normal = [v normalize];
+		manifold.penetration = sqrtf(dst);
+		
+		manifold.colliderA = sphereA;
+		manifold.colliderB = sphereB;
 		
 		return manifold;
 	}

@@ -28,6 +28,14 @@
 	glomero.platformEffect1.fogColor = [Vector3 vectorWithX:self.mainCamera.clearColor.r y:self.mainCamera.clearColor.g z:self.mainCamera.clearColor.b];
 	glomero.platformEffect1.fogEnd = levelGenerator.far;
 	glomero.platformEffect1.fogStart = levelGenerator.far - 4.0f;
+	glomero.platformEffect2.fogEnabled = YES;
+	glomero.platformEffect2.fogColor = [Vector3 vectorWithX:self.mainCamera.clearColor.r y:self.mainCamera.clearColor.g z:self.mainCamera.clearColor.b];
+	glomero.platformEffect2.fogEnd = levelGenerator.far;
+	glomero.platformEffect2.fogStart = levelGenerator.far - 4.0f;
+	glomero.coinEffect.fogEnabled = YES;
+	glomero.coinEffect.fogColor = [Vector3 vectorWithX:self.mainCamera.clearColor.r y:self.mainCamera.clearColor.g z:self.mainCamera.clearColor.b];
+	glomero.coinEffect.fogEnd = levelGenerator.far;
+	glomero.coinEffect.fogStart = levelGenerator.far - 4.0f;
 
 	// Create gameplay
 	{
@@ -50,7 +58,7 @@
 		mr.mesh = [Mesh loadFromFile:@"Sphere" graphicsDevice:self.graphicsDevice];
 		mr.effect = glomero.playerEffect;
 		
-		node.transform.position = [Vector3 vectorWithX:0 y:3 z:-3.0f];
+		node.transform.position = [Vector3 vectorWithX:0.0f y:3.0f z:-3.0f];
 		
 		[node addComponentOfClass:[SphereCollider class]];
 		[node addComponentOfClass:[PlayerPhysics class]];
@@ -59,6 +67,8 @@
 		CameraFollow *cf = [self.mainCamera.node addComponentOfClass:[CameraFollow class]];
 		cf.target = node.transform;
 	}
+	
+	[MediaPlayer playSong:glomero.soundtrack];
 }
 
 - (void)updateWithGameTime:(GameTime *)gameTime {

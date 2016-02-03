@@ -12,3 +12,4 @@
 #import "PlayerInput.h"
 #import "GameOver.h"
 #import "GamePlay.h"
+#import "Coin.h"

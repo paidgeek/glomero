@@ -48,7 +48,9 @@
 		effect.view = view;
 		effect.projection = projection;
 		
-		for(MeshRenderer *meshRenderer in [meshRenderers objectForKey:tag]) {
+		NSMutableArray *renderersForEffect = [meshRenderers objectForKey:tag];
+		
+		for(MeshRenderer *meshRenderer in renderersForEffect) {
 			drawCount++;
 				
 			effect.world = meshRenderer.node.transform.localToWorld;
@@ -71,7 +73,6 @@
 	if([component isKindOfClass:[MeshRenderer class]]) {
 		MeshRenderer *mr = (MeshRenderer *) component;
 		BasicEffect *effect = mr.effect;
-		
 		
 		NSMutableArray *renderersForEffect = [meshRenderers objectForKey:effect.tag];
 		

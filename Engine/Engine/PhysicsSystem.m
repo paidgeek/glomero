@@ -21,6 +21,12 @@
 }
 
 - (void)updateWithGameTime:(GameTime *)gameTime {
+	for (id<IColliderComponent> collider in colliders) {
+		[collider.node.transform translate:[Vector3 multiply:collider.velocity
+																		  by:gameTime.elapsedGameTime]
+										relativeTo:SpaceWorld];
+	}
+	
 	for(id a in colliders) {
 		for(id b in colliders) {
 			if (a != b) {

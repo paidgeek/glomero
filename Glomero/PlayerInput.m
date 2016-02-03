@@ -1,7 +1,7 @@
 #import "PlayerInput.h"
 #import "TINR.Glomero.h"
 
-#define JUMP_FORCE 4.0f
+#define JUMP_FORCE 5.0f
 
 @implementation PlayerInput {
 	PlayerPhysics *physics;
@@ -9,6 +9,8 @@
 	
 	float startY;
 	float flickTime;
+	
+	float vx;
 }
 
 @synthesize node;
@@ -36,23 +38,35 @@
 	if(touches.count == 1) {
 		TouchLocation *touch = [touches objectAtIndex:0];
 		
+		if(touch.state == TouchLocationStatePressed) {
+			startY = touch.position.y;
+			flickTime = gameTime.totalGameTime;
+		}
+		
 		if(physics.onGround) {
-			if(touch.state == TouchLocationStatePressed) {
-				startY = touch.position.y;
-				flickTime = gameTime.totalGameTime;
-			} else if(touch.state == TouchLocationStateReleased) {
-				if(gameTime.totalGameTime - flickTime < 0.5f && startY - touch.position.y > 50.0f) {
+			if(touch.state == TouchLocationStateReleased) {
+				if(gameTime.totalGameTime - flickTime < 0.7f && startY - touch.position.y > 20.0f) {
 					collider.velocity.y = JUMP_FORCE;
+					[[Glomero getInstance].jumpSound play];
+				}
+			}
+		} else {
+			if(touch.state == TouchLocationStateReleased) {
+				if(gameTime.totalGameTime - flickTime < 0.7f && startY - touch.position.y < -20.0f) {
+					collider.velocity.y = -JUMP_FORCE;
 				}
 			}
 		}
 		
 		if(touch.position.x < third) {
-			collider.velocity.x -= gameTime.elapsedGameTime * 10.0f;
+			vx -= gameTime.elapsedGameTime * 30.0f;
 		} else if(touch.position.x > third * 2.0f) {
-			collider.velocity.x += gameTime.elapsedGameTime * 10.0f;
+			vx += gameTime.elapsedGameTime * 30.0f;
 		}
 	}
+	
+	collider.velocity.x = vx;
+	vx = lerpf(vx, 0.0f, gameTime.elapsedGameTime * 10.0f);
 }
 
 @end

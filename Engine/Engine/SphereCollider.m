@@ -3,14 +3,13 @@
 
 @implementation SphereCollider
 
-@synthesize node, radius, velocity, collisionListener;
+@synthesize node, radius, velocity, collisionListener, dynamic, trigger;
 
 - (id)initWithNode:(Node *)theNode {
 	self = [super init];
 	
 	if(self) {
 		node = theNode;
-		radius = 1.0f;
 		velocity = [Vector3 zero];
 	}
 	

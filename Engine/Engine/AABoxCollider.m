@@ -3,15 +3,13 @@
 
 @implementation AABoxCollider
 
-@synthesize node, min, max, velocity, collisionListener;
+@synthesize node, min, max, velocity, collisionListener, dynamic, trigger;
 
 - (id)initWithNode:(Node *)theNode {
 	self = [super init];
 	
 	if(self) {
 		node = theNode;
-		min = [Vector3 vectorWithX:-0.5f y:-0.5f z:-0.5f];
-		max = [Vector3 vectorWithX:0.5f y:0.5f z:0.5f];
 		velocity = [Vector3 zero];
 	}
 	

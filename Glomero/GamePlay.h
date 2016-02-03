@@ -1,6 +1,6 @@
 #import "TINR.Glomero.classes.h"
 
-#define INITIAL_SPEED 5.0f
+#define INITIAL_SPEED 6.0f
 
 @interface GamePlay : NSObject<INodeComponent>
 

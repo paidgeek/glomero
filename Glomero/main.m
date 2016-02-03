@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 #import "Retronator.Xni.Framework.h"
+#import "TINR.Glomero.h"
 
 int main(int argc, char * argv[]) {
 	[GameHost load];

@@ -15,3 +15,4 @@
 @class SectionFactory;
 @class PlayerInput;
 @class GamePlay;
+@class Coin;

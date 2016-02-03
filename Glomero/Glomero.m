@@ -9,9 +9,9 @@
 
 static Glomero *instance;
 @synthesize currentScene, worldAtlas, entitiesAtlas, uiAtlas, font,
-blibSound, coinSound, explosionSound, shootSound, hitSound,
-platformTexture, platformEffect0, platformEffect1,
-playerTexture, playerEffect;
+blibSound, coinSound, jumpSound, hitSound,
+platformTexture, platformEffect0, platformEffect1, platformEffect2,
+playerTexture, playerEffect, soundtrack, coinEffect;
 
 - (id) init {
 	self = [super init];
@@ -38,10 +38,10 @@ playerTexture, playerEffect;
 	font = [self.content load:@"BitBold" processor:fontProcessor];
 	
 	blibSound = [self.content load:@"Blip"];
-	coinSound = [self.content load:@"Coin"];
-	explosionSound = [self.content load:@"Explosion"];
-	shootSound = [self.content load:@"Shoot"];
+	coinSound = [self.content load:@"Pickup"];
+	jumpSound = [self.content load:@"Jump"];
 	hitSound = [self.content load:@"Hit"];
+	soundtrack = [self.content load:@"Soundtrack" processor:[[SongProcessor alloc] init]];
 	
 	platformTexture = [self.content load:@"Platform"];
 	playerTexture = [self.content load:@"Sphere" fromFile:@"Sphere.png"];
@@ -63,6 +63,19 @@ playerTexture, playerEffect;
 		//playerEffect.directionalLight0.enabled = YES;
 		//playerEffect.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
 		//playerEffect.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
+	}
+	
+	{
+		coinEffect = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
+		coinEffect.tag = @"Coin";
+		
+		coinEffect.textureEnabled = NO;
+		coinEffect.vertexColorEnabled = NO;
+		//coinEffect.diffuseColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		coinEffect.lightingEnabled = NO;
+		//coinEffect.ambientColor = [Vector3 vectorWithX:0.4 y:0.4 z:0.4];
+		//coinEffect.ambientLightColor = [Vector3 vectorWithX:1 y:1 z:1];
 	}
 	
 	{
@@ -102,6 +115,25 @@ playerTexture, playerEffect;
 		platformEffect1.directionalLight0.enabled = YES;
 		platformEffect1.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
 		platformEffect1.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
+		
+		// 2
+		platformEffect2 = [[BasicEffect alloc] initWithGraphicsDevice:self.graphicsDevice];
+		platformEffect2.tag = @"Platform2";
+		
+		platformEffect2.textureEnabled = YES;
+		platformEffect2.vertexColorEnabled = NO;
+		platformEffect2.texture = platformTexture;
+		platformEffect2.diffuseColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		platformEffect2.emissiveColor = [Vector3 vectorWithX:0 y:1 z:0];
+		
+		platformEffect2.lightingEnabled = YES;
+		platformEffect2.ambientColor = [Vector3 vectorWithX:0.2 y:0.2 z:0.2];
+		platformEffect2.ambientLightColor = [Vector3 vectorWithX:1 y:1 z:1];
+		
+		platformEffect2.directionalLight0.enabled = YES;
+		platformEffect2.directionalLight0.direction = [[Vector3 vectorWithX:-1 y:-1 z:0] normalize];
+		platformEffect2.directionalLight0.diffuseColor = [Vector3 vectorWithX:0.3 y:0.3 z:0.3];
 	}
 	
 	[super loadContent];
