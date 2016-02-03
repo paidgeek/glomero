@@ -59,7 +59,8 @@
 	} else {
 		onGround = YES;
 		
-		if(normal.z > 0.5f) {
+		if(normal.z > 0.5f || normal.z < -0.5f) {
+			[[Glomero getInstance].explosionSound play];
 			[gamePlay endGame];
 		}
 	}

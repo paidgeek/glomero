@@ -11,7 +11,7 @@ static Glomero *instance;
 @synthesize currentScene, worldAtlas, entitiesAtlas, uiAtlas, font,
 blibSound, coinSound, jumpSound, hitSound,
 platformTexture, platformEffect0, platformEffect1, platformEffect2,
-playerTexture, playerEffect, soundtrack, coinEffect;
+playerTexture, playerEffect, soundtrack, coinEffect, explosionSound;
 
 - (id) init {
 	self = [super init];
@@ -41,6 +41,7 @@ playerTexture, playerEffect, soundtrack, coinEffect;
 	coinSound = [self.content load:@"Pickup"];
 	jumpSound = [self.content load:@"Jump"];
 	hitSound = [self.content load:@"Hit"];
+	explosionSound = [self.content load:@"Explosion"];
 	soundtrack = [self.content load:@"Soundtrack" processor:[[SongProcessor alloc] init]];
 	
 	platformTexture = [self.content load:@"Platform"];

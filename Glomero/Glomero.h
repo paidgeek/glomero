@@ -16,6 +16,7 @@
 @property (nonatomic, strong) SoundEffect *coinSound;
 @property (nonatomic, strong) SoundEffect *hitSound;
 @property (nonatomic, strong) SoundEffect *jumpSound;
+@property (nonatomic, strong) SoundEffect *explosionSound;
 @property (nonatomic, strong) Texture2D *platformTexture;
 @property (nonatomic, strong) Texture2D *playerTexture;
 @property (nonatomic, strong) BasicEffect *playerEffect;
