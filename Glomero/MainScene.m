@@ -58,7 +58,7 @@
 		mr.mesh = [Mesh loadFromFile:@"Sphere" graphicsDevice:self.graphicsDevice];
 		mr.effect = glomero.playerEffect;
 		
-		node.transform.position = [Vector3 vectorWithX:0.0f y:3.0f z:-3.0f];
+		node.transform.position = [Vector3 vectorWithX:0.0f y:3.0f z:0.0f];
 		
 		[node addComponentOfClass:[SphereCollider class]];
 		[node addComponentOfClass:[PlayerPhysics class]];

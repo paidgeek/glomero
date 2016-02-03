@@ -27,10 +27,20 @@
 										relativeTo:SpaceWorld];
 	}
 	
+	/*
 	for(id a in colliders) {
 		for(id b in colliders) {
 			if (a != b) {
 				[CollisionDetection resolveCollisionBetween:a and:b];
+			}
+		}
+	}
+	*/
+	for(int i = 0; i < colliders.count; i++) {
+		for(int j = 0; j < i; j++) {
+			if(i != j) {
+				[CollisionDetection resolveCollisionBetween:[colliders objectAtIndex:i]
+																	 and:[colliders objectAtIndex:j]];
 			}
 		}
 	}

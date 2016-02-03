@@ -22,7 +22,15 @@
 }
 
 - (void)updateWithGameTime:(GameTime *)gameTime {
-	node.transform.position = [Vector3 add:offset to:target.position];
+	Vector3 *t = [Vector3 add:offset to:target.position];
+	Vector3 *pos = node.transform.position;
+	
+	pos.z = t.z;
+	pos.y = t.y;
+	//pos.y = lerpf(pos.y, t.y, 7.0f * gameTime.elapsedGameTime);
+	pos.x = lerpf(pos.x, t.x, 7.0f * gameTime.elapsedGameTime);
+	
+	node.transform.position = pos;
 }
 
 @end

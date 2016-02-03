@@ -44,31 +44,29 @@
 	}
 }
 
-- (void)onCollisionStay:(Collision *) collision {
-	if(![collision.otherCollider.node.tag isEqualToString:@"Coin"]) {
+- (void)onCollisionStay:(id<IColliderComponent>) otherCollider {
+	if(![otherCollider.node.tag isEqualToString:@"Coin"]) {
 		onGround = YES;
 	}
 }
 
-- (void)onCollisionEnter:(Collision *)collision {
-	if([collision.otherCollider.node.tag isEqualToString:@"Coin"]) {
+- (void)onCollisionEnter:(id<IColliderComponent>) otherCollider normal:(Vector3 *)normal {
+	if([otherCollider.node.tag isEqualToString:@"Coin"]) {
 		gamePlay.score += 10;
 		
-		[[Scene getInstance] destroyNode:collision.otherCollider.node];
+		[[Scene getInstance] destroyNode:otherCollider.node];
 		[[Glomero getInstance].coinSound play];
 	} else {
 		onGround = YES;
 		
-		Vector3 *n = collision.normal;
-		
-		if(n.z > 0.5f) {
+		if(normal.z > 0.5f) {
 			[gamePlay endGame];
 		}
 	}
 }
 
-- (void)onCollisionExit:(Collision *)collision {
-	if(![collision.otherCollider.node.tag isEqualToString:@"Coin"]) {
+- (void)onCollisionExit:(id<IColliderComponent>) otherCollider {
+	if(![otherCollider.node.tag isEqualToString:@"Coin"]) {
 		onGround = NO;
 	}
 }

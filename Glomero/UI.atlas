@@ -1,41 +1,62 @@
+ArrowLeft
+  rotate: false
+  xy: 1, 19
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+ArrowRight
+  rotate: false
+  xy: 103, 19
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+ArrowUp
+  rotate: false
+  xy: 205, 19
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
 ButtonNormal
   rotate: false
-  xy: 1, 15
+  xy: 1, 1
   size: 48, 16
   orig: 48, 16
   offset: 0, 0
   index: -1
 ButtonPressed
   rotate: false
-  xy: 51, 17
+  xy: 307, 105
   size: 48, 14
   orig: 48, 14
   offset: 0, 0
   index: -1
 SliderBackground
   rotate: false
-  xy: 51, 1
+  xy: 51, 3
   size: 48, 14
   orig: 48, 14
   offset: 0, 0
   index: -1
 SliderThumb
   rotate: false
-  xy: 101, 13
+  xy: 307, 85
   size: 12, 18
   orig: 12, 18
   offset: 0, 0
   index: -1
 Box
   rotate: false
-  xy: 115, 17
+  xy: 357, 105
   size: 14, 14
   orig: 14, 14
   offset: 0, 0
   index: -1
 CheckedBox
   rotate: false
-  xy: 115, 1
+  xy: 101, 3
   size: 14, 14
   orig: 14, 14
   offset: 0, 0

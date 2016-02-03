@@ -88,53 +88,27 @@ static NSMutableArray *collisions;
 			[collisions addObject:collision];
 
 			if(a.collisionListener != nil) {
-				if([a.collisionListener respondsToSelector:@selector(onCollisionEnter:)]) {
-					[a.collisionListener onCollisionEnter:collision];
+				if([a.collisionListener respondsToSelector:@selector(onCollisionEnter:normal:)]) {
+					[a.collisionListener onCollisionEnter:b normal:[Vector3 negate:manifold.normal]];
 				}
 			}
 			
-			id c = collision.thisCollider;
-			collision.thisCollider = collision.otherCollider;
-			collision.otherCollider = c;
-			
 			if(b.collisionListener != nil) {
-				if([b.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
-					[b.collisionListener onCollisionStay:collision];
+				if([b.collisionListener respondsToSelector:@selector(onCollisionEnter:normal:)]) {
+					[b.collisionListener onCollisionEnter:a normal:manifold.normal];
 				}
 			}
 		} else {
 			// collision stay
-			if(collision.thisCollider == a) {
-				if(a.collisionListener != nil) {
-					if([a.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
-						[a.collisionListener onCollisionStay:collision];
-					}
+			if(a.collisionListener != nil) {
+				if([a.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
+					[a.collisionListener onCollisionStay:b];
 				}
-				
-				id c = collision.thisCollider;
-				collision.thisCollider = collision.otherCollider;
-				collision.otherCollider = c;
-				
-				if(b.collisionListener != nil) {
-					if([b.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
-						[b.collisionListener onCollisionStay:collision];
-					}
-				}
-			} else {
-				if(b.collisionListener != nil) {
-					if([b.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
-						[b.collisionListener onCollisionStay:collision];
-					}
-				}
-				
-				id c = collision.thisCollider;
-				collision.thisCollider = collision.otherCollider;
-				collision.otherCollider = c;
-				
-				if(a.collisionListener != nil) {
-					if([a.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
-						[a.collisionListener onCollisionStay:collision];
-					}
+			}
+			
+			if(b.collisionListener != nil) {
+				if([b.collisionListener respondsToSelector:@selector(onCollisionStay:)]) {
+					[b.collisionListener onCollisionStay:a];
 				}
 			}
 		}
@@ -143,37 +117,15 @@ static NSMutableArray *collisions;
 		
 		if(collision != nil) {
 			// collision exit
-			if(collision.thisCollider == a) {
-				if(a.collisionListener != nil) {
-					if([a.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
-						[a.collisionListener onCollisionExit:collision];
-					}
+			if(a.collisionListener != nil) {
+				if([a.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
+					[a.collisionListener onCollisionExit:b];
 				}
-				
-				id c = collision.thisCollider;
-				collision.thisCollider = collision.otherCollider;
-				collision.otherCollider = c;
-				
-				if(b.collisionListener != nil) {
-					if([b.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
-						[b.collisionListener onCollisionExit:collision];
-					}
-				}
-			} else {
-				if(b.collisionListener != nil) {
-					if([b.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
-						[b.collisionListener onCollisionExit:collision];
-					}
-				}
-				
-				id c = collision.thisCollider;
-				collision.thisCollider = collision.otherCollider;
-				collision.otherCollider = c;
-				
-				if(a.collisionListener != nil) {
-					if([a.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
-						[a.collisionListener onCollisionExit:collision];
-					}
+			}
+			
+			if(b.collisionListener != nil) {
+				if([b.collisionListener respondsToSelector:@selector(onCollisionExit:)]) {
+					[b.collisionListener onCollisionExit:a];
 				}
 			}
 			

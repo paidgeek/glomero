@@ -23,7 +23,7 @@ typedef enum {
 	
 	float z;
 	float chain[NUM_STATES][NUM_STATES];
-	State state;
+	State state, lastState;
 	int lastY;
 	
 	// coins
@@ -61,7 +61,7 @@ typedef enum {
 	
 	int y = 0;
 
-	if([Random intLessThan:4] == 0) {
+	if([Random intLessThan:4] == 0 && lastState != StateHole && lastState != StateEmpty) {
 		switch (lastY) {
 			case 0:
 				y = [Random intLessThan:2] == 0 ? -1 : 1;
@@ -96,6 +96,8 @@ typedef enum {
 	
 	float r = [Random float];
 	float sum = 0.0f;
+
+	lastState = state;
 	
 	for(int i = 0; i < NUM_STATES; i++) {
 		sum += chain[state][i];
@@ -194,7 +196,7 @@ typedef enum {
 	mr.mesh = coinMesh;
 	mr.effect = glomero.coinEffect;
 	
-	collider.radius = 0.45f;
+	collider.radius = 0.2f;
 	collider.trigger = YES;
 	
 	[node addComponentOfClass:[Coin class]];

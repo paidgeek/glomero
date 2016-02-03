@@ -29,8 +29,9 @@
 #import "INodeComponent.h"
 #import "ISceneListener.h"
 #import "IDrawableComponent.h"
-#import "ICollisionListener.h"
-#import "IColliderComponent.h"
+@protocol IColliderComponent;
+@protocol ICollisionListener;
+
 #import "IUIComponent.h"
 
 #import "Engine.UI.classes.h"

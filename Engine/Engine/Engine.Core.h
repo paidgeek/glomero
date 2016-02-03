@@ -25,6 +25,8 @@
 #import "GUIText.h"
 #import "Random.h"
 
+#import "ICollisionListener.h"
+#import "IColliderComponent.h"
 #import "SphereCollider.h"
 #import "AABoxCollider.h"
 #import "CollisionDetection.h"
